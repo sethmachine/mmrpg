@@ -178,5 +178,7 @@
 	//! i BERSERK_ID = 'AIxk'
 	//! i write_abils(BERSERK_ID, 'bsk2', BERSERK_IDS, BERSERK_BONUS, 20, 0.10)
 	
+	//[]
+	
 	
 //! endexternalblock
