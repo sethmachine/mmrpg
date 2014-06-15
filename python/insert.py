@@ -16,6 +16,8 @@ def find(name, path):
         if name in files or name in dirs:
             return os.path.join(root, name)
 
+cwd = find("mmrpg", root)
+
 def insert(insertFile, insertDirs, header, newFile):
     """
     Inserts the contents of each file in the insertDirs directories
@@ -31,8 +33,8 @@ def insert(insertFile, insertDirs, header, newFile):
     @Returns:
         nothing
     """
-    insertFile = find(insertFile, root)
-    insertDirs = [find(x, root) for x in insertDirs]
+    insertFile = find(insertFile, cwd)
+    insertDirs = [find(x, cwd) for x in insertDirs]
     insertions = ""
     for insertDir in insertDirs:
         for fileName in os.listdir(insertDir):
