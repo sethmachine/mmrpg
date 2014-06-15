@@ -2,6 +2,7 @@ library RewardStruct
 
 globals
     private constant integer MAX_ITEM_REWARD = 5 //the most item types a quest can reward
+	private constant integer MAX_QUEST_REWARD = 5 //the most new quests a reward can make available
 endglobals
 
 //a representation of a reward for a quest
@@ -11,10 +12,12 @@ struct Reward
     boolean keyReward = false
     boolean itemReward = false
     boolean expReward = false
+	boolean questReward = false
     
     integer gold = 0
     integer key = 0
     integer exp = 0
+	integer array quests[MAX_QUEST_REWARD]
     integer array items[MAX_ITEM_REWARD]
     
     static method create takes nothing returns thistype
@@ -36,7 +39,8 @@ struct Reward
         set expReward = true
         set this.exp = exp
     endmethod
-    
+
+
     method setItemReward takes integer itemId returns nothing
         local integer i = 0
         set itemReward = true
@@ -45,6 +49,19 @@ struct Reward
             if items[i] != 0 then
                 set items[i] = itemId
                 set i = MAX_ITEM_REWARD
+            endif
+            set i = i + 1
+        endloop
+    endmethod
+
+    method setQuestReward takes integer questIndex returns nothing
+        local integer i = 0
+        set questReward = true
+        loop
+            exitwhen i >= MAX_QUEST_REWARD
+            if quests[i] != 0 then
+                set quests[i] = questIndex
+                set i = MAX_QUEST_REWARD
             endif
             set i = i + 1
         endloop
@@ -82,6 +99,14 @@ struct Reward
                 set i = i + 1
             endloop
             call RemoveLocation(loc)
+        endif
+	
+        if questReward then
+            loop
+                exitwhen i >= MAX_QUEST_REWARD
+                call playerDatum[pid].quests[this.quests[i]].enable()
+				set i = i + 1
+            endloop
         endif
         
         /*if GetLocalPlayer() == p then

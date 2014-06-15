@@ -45,12 +45,12 @@ struct PlayerData
         call party.moveGroupToLoc(targetLoc)
     endmethod
         
-    method startQuest takes string questTitle returns boolean
+    method startQuest takes string questTitle, boolean fanfare returns boolean
         local integer i = 0
         loop
             exitwhen i == TOTAL_QUESTS
             if quests[i].colorlessTitle == questTitle then //found a free slot
-                call quests[i].enable()
+                call quests[i].enable(fanfare)
                 return true //found room in the quests array, added it
             endif
             set i = i + 1

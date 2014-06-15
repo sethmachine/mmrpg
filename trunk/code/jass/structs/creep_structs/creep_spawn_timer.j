@@ -40,7 +40,7 @@ private function main_$pid$ takes nothing returns nothing
                 exitwhen i == mobSize
                 if cr.creeps.size < cr.creeps.maxSize then
                     if cr.ambushFreq >= GetRandomInt(0, 100) then //ambush time
-                        set targetLoc = getRandomPointOnCircle(playerLoc, AMBUSH_DISTANCE)
+                        set targetLoc = getRandomReachableLoc(playerLoc, AMBUSH_DISTANCE, 500.00)
                         set creep = creepTables[pd.creepRegion].genCreep(targetLoc)
                         call cr.creeps.addMonster(creep)
                         call IssuePointOrderLoc(creep.u, "attack", playerLoc)
@@ -49,7 +49,7 @@ private function main_$pid$ takes nothing returns nothing
                             call StartSound(gg_snd_EnemyAppears)
                         endif
                     else
-                        set targetLoc = getRandomPointOnCircle(playerLoc, SPAWN_DISTANCE)
+                        set targetLoc = getRandomReachableLoc(playerLoc, SPAWN_DISTANCE, 500.00)
                         set creep = creepTables[pd.creepRegion].genCreep(targetLoc)
                         call cr.creeps.addMonster(creep)
                     endif

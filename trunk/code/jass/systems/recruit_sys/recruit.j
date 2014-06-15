@@ -42,8 +42,6 @@ endfunction
 
 function recruitExec takes player p, integer pid, Monster creep returns nothing
     local trigger t
-    //eventually we need to check if the unit is a monster (there are bandits too...)
-    set creep = getCreepFromCreepRegionTable(GetDyingUnit())
     if creep != 0 then
         if creep.rcLvl > 0 then
             if creep.rcLvl >= GetRandomInt(0, 100) then

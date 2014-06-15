@@ -1,8 +1,7 @@
 library RewardTable initializer init
 
 globals
-    private constant integer MAX_REWARDS = 8000
-    Reward array rewardTable[MAX_REWARDS]
+    Reward array rewardTable[JASS_MAX_ARRAY_SIZE]
     private timer t
 endglobals
 
