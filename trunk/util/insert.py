@@ -1,6 +1,20 @@
 #code for performing insertion
 
 import os #need this to traverse through directories
+import platform
+import re
+
+if platform.system() == 'Windows':
+    root = "C:\\"
+elif platform.system() == 'Darwin':
+    root = "/Users/"
+
+getInsertFileDir = re.compile(r'(?<=/|\\)[^/\\]+')
+
+def find(name, path):
+    for root, dirs, files in os.walk(path):
+        if name in files or name in dirs:
+            return os.path.join(root, name)
 
 def insert(insertFile, insertDir, header, newFile):
     """
@@ -17,9 +31,11 @@ def insert(insertFile, insertDir, header, newFile):
     @Returns:
         nothing
     """
+    insertFile = find(insertFile, root)
+    insertDir = find(insertDir, root)
     insertions = ""
     for fileName in os.listdir(insertDir):
-        w = open(insertDir + "//" + fileName, 'r')
+        w = open(os.path.join(insertDir, fileName), 'r')
         t = w.read()
         w.close()
         insertions += t
@@ -27,7 +43,8 @@ def insert(insertFile, insertDir, header, newFile):
     t = w.read()
     w.close()
     t = t.replace(header, insertions)
-    w = open(newFile, 'w')
+    insertFile = insertFile.replace(getInsertFileDir.findall(insertFile)[-1])
+    w = open(os.path.join(insertFile, newFile, 'w')
     print>>w, t
     w.close()
     
