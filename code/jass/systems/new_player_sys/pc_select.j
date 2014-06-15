@@ -93,7 +93,7 @@ private function main takes nothing returns boolean
     set m = Monster.create(creep, 0, 0)
     call m.newLevelUp(25)
     call playerDatum[0].farm.addMonster(m)
-    call playerDatum[0].startQuest(TUTORIAL_QUEST_STR)
+    call playerDatum[0].startQuest(TUTORIAL_QUEST_STR, fanfare)
     set creep = null
     endif
     return false

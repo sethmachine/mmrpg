@@ -1,14 +1,3 @@
-//! externalblock extension=lua ObjectMerger $FILENAME$
-	//*******************
-	//***** WARNING *****
-	//*******************
-	// This is not a standalone script.  
-	// It cannot function without being merged
-	// with its parent script, passive.j.
-	// Do not call this script separately.
-	// Or import it into a map!  
-	// It will not run!	
-	
 	//[[ Basic Sword
 	//! i total = 30
 	//! i igol = 100
@@ -25,4 +14,3 @@
 		//! i makechange(current, 'utub', "Increases attack damage by " .. itemBonus1 .. " when worn.")
 	//! i end
 	//]]
-//! endexternalblock

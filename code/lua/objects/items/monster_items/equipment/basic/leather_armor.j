@@ -1,14 +1,3 @@
-//! externalblock extension=lua ObjectMerger $FILENAME$
-	//*******************
-	//***** WARNING *****
-	//*******************
-	// This is not a standalone script.  
-	// It cannot function without being merged
-	// with its parent script, passive.j.
-	// Do not call this script separately.
-	// Or import it into a map!  
-	// It will not run!	
-	
 	//[[ Leather Armor
 	//! i LEATHER_ides = "Increases armor and health."
 	//! i LEATHER_unam = "Leather Armor"
@@ -29,4 +18,3 @@
 		//! i makechange(current, 'utub', "Increases armor by " .. itemBonus1 .. " and health by " .. itemBonus2 .. " when worn.")
 	//! i end
 	//]]
-//! endexternalblock

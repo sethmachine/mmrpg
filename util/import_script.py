@@ -4,6 +4,8 @@ import os
 
 import re
 
+GET_MERGE = re.compile(r'merge|header')
+
 GET_FILE_EXTENSION = re.compile(r'(?<=.)[a-z]+')
 
 IMPORT_HEADER = "//! import " #"filepath"
@@ -29,10 +31,10 @@ def compile_script_lines(name = "abilities", BIG_PATH = CODE, lines = []):
         #print fileName
         filePath = BIG_PATH + name + "\\" + fileName
         #print filePath
-        if os.path.isfile(filePath):
+        if os.path.isfile(filePath) and GET_MERGE.findall(filePath) == []:
             lines.append(IMPORT_HEADER + '"' + filePath + '"')
             
-        else:
+        elif GET_MERGE.findall(filePath) == []:
             compile_script_lines(name + "\\" + fileName, BIG_PATH, lines)
 
 def compile_script(name = "abilities", BIG_PATH = CODE):

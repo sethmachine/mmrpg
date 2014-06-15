@@ -47,21 +47,26 @@ struct Quest
         call QuestSetDescription(q, description)
     endmethod
     
-    method enable takes nothing returns nothing
-        if GetLocalPlayer() == players[pid] then
-            call StartSound(gg_snd_QuestNew)
-            call QuestSetEnabled(q, true)
-            call FlashQuestDialogButton()
-        endif
+    method enable takes boolean fanfare returns nothing
+		if fanfare then
+			call questFanfare()
+		endif
         call EnableTrigger(goals[stage].goalTrig) //enable the first goal
-        call DisplayTimedTextToPlayer(players[pid], 0, 0, QUEST_TXT_DURATION, QUEST_ENABLED + title)
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_UPDATE + stageStrings[stage])
         if goals[stage].goalType == STORY_GOAL then
             call goals[stage].enableStoryGoal()
         endif
         set isActive = true
     endmethod
-        
+    
+	method questFanfare takes nothing returns nothing
+        if GetLocalPlayer() == players[pid] then
+            call StartSound(gg_snd_QuestNew)
+            call QuestSetEnabled(q, true)
+            call FlashQuestDialogButton()
+        endif
+		call DisplayTimedTextToPlayer(players[pid], 0, 0, QUEST_TXT_DURATION, QUEST_ENABLED + title)
+        call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_UPDATE + stageStrings[stage])
+	endmethod
     
     method addGoal takes string goalName, integer goalType returns integer
         local integer i = 0
@@ -87,6 +92,7 @@ struct Quest
         call QuestItemSetCompleted(stageItems[stage], true) //complete the goal
         call goals[stage].flush() //flush the goal
         call goals[stage].destroy() //destroy the goal
+		//now call any events for this goal
         call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_GOAL_FINISH + stageStrings[stage])
         if GetLocalPlayer() == players[pid] then
             call StartSound(gg_snd_QuestLog)
