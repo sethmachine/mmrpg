@@ -44,7 +44,7 @@ def insert(insertFile, insertDir, header, newFile):
     w.close()
     t = t.replace(header, insertions)
     insertFile = insertFile.replace(getInsertFileDir.findall(insertFile)[-1])
-    w = open(os.path.join(insertFile, newFile, 'w')
+    w = open(os.path.join(insertFile, newFile), 'w')
     print>>w, t
     w.close()
     
