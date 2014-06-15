@@ -25,6 +25,7 @@ struct Quest
     questitem array stageItems[MAX_GOALS] //each subquest goal
     string array stageStrings[MAX_GOALS] //the description of each subquest goal
     Goal array goals[MAX_GOALS]
+	integer array events[MAX_GOALS]
     
     static method create takes string title, string colorCode, integer pid returns thistype
         local thistype this = thistype.allocate()
@@ -87,12 +88,28 @@ struct Quest
         endloop
         return -1
     endmethod
+	
+	method addEvent takes integer eventIndex returns integer
+		local integer i = 0
+		loop
+			exitwhen i == MAX_GOALS
+			if events[i] == -1 then //found a free slot
+				set events[i] == eventIndex
+				return i
+				//call print("added an event successfully to the quest."
+			endif
+			set i = i + 1
+		endloop
+		return -1
+	endmethod
     
     method advance takes nothing returns nothing
         call QuestItemSetCompleted(stageItems[stage], true) //complete the goal
         call goals[stage].flush() //flush the goal
         call goals[stage].destroy() //destroy the goal
-		//now call any events for this goal
+		if events[stage] != 0 then //check if any event for this goal
+			call events[stage].do(pid) //if so, run that event
+		endif
         call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_GOAL_FINISH + stageStrings[stage])
         if GetLocalPlayer() == players[pid] then
             call StartSound(gg_snd_QuestLog)
