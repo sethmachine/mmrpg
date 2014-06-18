@@ -1,0 +1,70 @@
+#utility functions for manipulating .txt and .j files
+
+import os
+import platform
+import re
+
+JASS_FILE_EXTENSION = ".j"
+
+TEXT_FILE_EXTENSION = ".txt"
+
+getFileName = re.compile(r'[a-z_]+(?=\.j)', re.IGNORECASE)
+getDirName = re.compile(r'(?<=/|\\)[a-z ]+$', re.IGNORECASE)
+
+if platform.system() == 'Windows':
+    root = "C:\\"
+elif platform.system() == 'Darwin':
+    root = "/Users/"
+
+def text_2_jass(text = "", fileName = "test", path = "C:\\Users\\Seth\\mmrpg\\lua\\"):
+    """Takes a string and a file name,
+    and creates "fileName.j" at the given path"""
+    w = open(path + fileName + JASS_FILE_EXTENSION, 'w')
+    print>>w, text
+    w.close()
+
+def directory_2_jass(path = "C:\\Users\\Seth\\mmrpg\\lua"):
+    """Takes a directory path as an argument
+    and creates a .j file for each .txt file"""
+    for fileName in os.listdir(path):
+        w = open(path + "\\" + fileName, 'r')
+        text = w.read()
+        w.close()
+        text_2_jass(text, fileName.replace(".txt", ""), path + "\\")
+
+def find(name, path):
+    if path != "/Users/" and path != "C:\\":
+        if getDirName.findall(path)[0] == name:
+            return path
+    for root, dirs, files in os.walk(path):
+        if name in files or name in dirs:
+            return os.path.join(root, name)
+
+root = find("mmrpg", root)
+
+def getLinesArr(importDir, cwd, lines = [], keywords = []):
+    keywordsStr = ""
+    for keyword in keywords:
+        keywordsStr += keyword + "|"
+    keywordsStr += " "
+    getKeywords = re.compile(keywordsStr, re.IGNORECASE)
+    for fileName in os.listdir(find(importDir, cwd)):
+        filePath = find(fileName, cwd)
+        if os.path.isfile(filePath) and getKeywords.findall(filePath) == []:
+            lines.append(filePath)
+        elif getKeywords.findall(filePath) == []:
+            getLinesArr(fileName, cwd, lines, keywords)
+
+def getFileNames(importDir, cwd, keywords = []):
+    cwd = find(cwd, root)
+    l = []
+    getLinesArr(importDir, cwd, l, keywords)
+    return l
+
+
+
+
+
+
+
+    
