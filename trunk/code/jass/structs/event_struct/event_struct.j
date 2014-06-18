@@ -7,7 +7,7 @@ endglobals
 //a representation of an event
 //an event is essentially anything that can happen
 struct Event
-	integer next = 0 //the index of the next event to be called
+	Event next //the next event to be called
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         return this
@@ -17,7 +17,7 @@ struct Event
 	//forces it to call its do() method
 	method doNext takes integer pid returns nothing
 		if next != 0 then
-			call eventTable[eventIndex].do(pid)
+			call next.do(pid)
 		endif
 	endmethod
 	
@@ -30,22 +30,38 @@ struct Event
     endmethod
 	
 	stub method do takes integer pid returns nothing
-		call DisplayTimedTextToPlayer(Player(0), 0, 0, 7, "WARNING: This stub method for Event Struct is not implemented!")
+		call print("WARNING: stub method not implemented ")
 	endmethod
 	
 	//******************************
 	// Child specific event setups *
 	//******************************
-	stub method setWaterTintEvent takes integer red, integer green, integer blue, integer alpha returns nothing
-		call DisplayTimedTextToPlayer(Player(0), 0, 0, 7, "WARNING: This stub method for Event Struct is not implemented!")
+	stub method setWaterTint takes integer red, integer green, integer blue, integer alpha returns nothing
+		call print("WARNING: stub method not implemented.")
 	endmethod
 	
-	stub method setItemCreateInRectEvent takes rect whichRect, integer itemId, integer quant returns nothing
-		call DisplayTimedTextToPlayer(Player(0), 0, 0, 7, "WARNING: This stub method for Event Struct is not implemented!")
+	stub method setItemCreateInRect takes rect whichRect, integer itemId, integer quant returns nothing
+		call print("WARNING: stub method not implemented.")
 	endmethod
 
-	stub method setCreepSpawnAtPlayerEvent takes integer monsterId, integer lvl returns nothing
-		call DisplayTimedTextToPlayer(Player(0), 0, 0, 7, "WARNING: This stub method for Event Struct is not implemented!")
+	stub method setItemCreateAtLoc takes location whichLoc, integer itemId, integer quant returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
+
+	stub method setItemCreateAtPC takes integer itemId, integer quant returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
+
+	stub method setCreepSpawnAtLoc takes location whichLoc, integer monsterId, integer lvl, integer rcLvl, integer gender, boolean hasOwner returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
+
+	stub method setCreepSpawnAtPC takes integer monsterId, integer lvl, integer rcLvl, integer gender, boolean hasOwner returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
+	
+	stub method setEnableQuest takes string whichQuest returns nothing
+		call print("WARNING: stub method not implemented.")
 	endmethod
 	
 	

@@ -1,4 +1,4 @@
-library EventWaterTint requires EventStruct
+library EventItemCreateInRect requires EventStruct
 
 globals
 endglobals
@@ -15,7 +15,6 @@ struct EventItemCreateInRect extends Event
         return this
     endmethod
 		
-	
 	method do takes integer pid returns nothing
 		local integer i = 0
 		local item itm = null
@@ -33,7 +32,7 @@ struct EventItemCreateInRect extends Event
 	//******************************
 	// Child specific event setups *
 	//******************************
-	method setItemCreateInRectEvent takes rect whichRect, integer itemId, integer quant returns nothing
+	method setItemCreateInRect takes rect whichRect, integer itemId, integer quant returns nothing
 		set this.r = whichRect
 		set this.itemId = itemId
 		set this.quant = quant

@@ -11,6 +11,7 @@ struct Monster extends AbstractMonster
     integer heroLvl = 0 //the hero level
     integer fusionLvl = 0 //the fusion level
     integer gender = 0 //the gender of the monster, i.e. 0 is male, 1 is female.  
+	integer owner = -1 //if the monster is earmarked to be recruited for a certain player
     boolean isActive = false //the status of the monster, i.e. in party or storage
     boolean isGrown = false //whether the monster has reached its maximum level
     boolean toRelease = false //whether the player contemplates releasing this monster
@@ -78,6 +79,14 @@ struct Monster extends AbstractMonster
         return this
     endmethod
     
+	method flush takes nothing returns nothing
+		call RemoveUnit(this.u)
+		set this.u = null
+		call DialogDestroy(this.info)
+		set this.info = null
+		call this.destroy()
+	endmethod
+	
     //compares two monster structs and returns true if they have the same unit handle
     //false otherwise
     method equals takes Monster comparison returns boolean

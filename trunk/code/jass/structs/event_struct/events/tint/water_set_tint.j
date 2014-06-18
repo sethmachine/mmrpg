@@ -26,7 +26,7 @@ struct EventWaterTint extends Event
 	//******************************
 	// Child specific event setups *
 	//******************************
-	method setWaterTintEvent takes integer red, integer green, integer blue, integer alpha returns nothing
+	method setWaterTint takes integer red, integer green, integer blue, integer alpha returns nothing
 		set this.red = red
 		set this.green = green
 		set this.blue = blue

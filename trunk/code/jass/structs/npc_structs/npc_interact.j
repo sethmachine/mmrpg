@@ -1,7 +1,7 @@
 scope NPCInteract initializer init
 
 globals
-    constant real INTERACT_DISTANCE = 200 //the furthest a unit can be away to interact
+    constant real INTERACT_DISTANCE = 200.0 //the furthest a unit can be away to interact
 endglobals
 
 
@@ -21,9 +21,9 @@ private function main takes nothing returns boolean
                     if GetUnitTypeId(target) == PORTAL_ID then
                         call usePortal(pid)
                     elseif upoi >= 300 and upoi < 500 then
-                        call playerDatum[pid].npcs[upoi - NPC_CONS].interact(pid)
+                        call playerDatum[pid].npcs[upoi + NPC_CONS].interact(pid)
                     elseif upoi >= 500 then
-                        call playerDatum[pid].warps[upoi - WARP_CONS].warp(pid)
+                        call playerDatum[pid].warps[upoi + WARP_CONS].warp(pid)
                     endif
                 endif
             endif
