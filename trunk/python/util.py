@@ -10,6 +10,7 @@ TEXT_FILE_EXTENSION = ".txt"
 
 getFileName = re.compile(r'[a-z_]+(?=\.j)', re.IGNORECASE)
 getDirName = re.compile(r'(?<=/|\\)[a-z ]+$', re.IGNORECASE)
+p = re.compile(r'// [a-zA-Z ]+.*?upoi \+ 1', re.DOTALL)
 
 if platform.system() == 'Windows':
     root = "C:\\"
