@@ -287,9 +287,12 @@ function itemGetByTypeMain takes nothing returns boolean
             set currQuestStage = playerDatum[pid].quests[currQuest].stage
             if currQuest >= 0 then
                 if GetItemTypeId(i) == playerDatum[pid].quests[currQuest].goals[currQuestStage].goalItemType then
-                    call playerDatum[pid].quests[currQuest].advance()
-                    call DestroyTrigger(GetTriggeringTrigger())
-                    set questRange = TOTAL_QUESTS
+					set playerDatum[pid].quests[currQuest].goals[currQuestStage].quant = playerDatum[pid].quests[currQuest].goals[currQuestStage].quant - 1
+                    if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant == 0 then
+						call playerDatum[pid].quests[currQuest].advance()
+						call DestroyTrigger(GetTriggeringTrigger())
+						set questRange = TOTAL_QUESTS
+					endif
                 else
                     set questRange = currQuest + 1 //advance the quest counter, in case another quest has item obtain goal
                 endif
@@ -336,8 +339,9 @@ struct Goal
         set goalRegion = null
     endmethod
     
-    method setGetItemByTypeGoal takes integer goalItemType returns nothing
+    method setGetItemByTypeGoal takes integer goalItemType, integer quant returns nothing
         local trigger t = CreateTrigger()
+		set this.quant = quant
         set this.goalItemType = goalItemType
         call TriggerRegisterPlayerUnitEventSimple(t, Player(pid), EVENT_PLAYER_UNIT_PICKUP_ITEM)
         call TriggerAddCondition(t, Condition(function itemGetByTypeMain))

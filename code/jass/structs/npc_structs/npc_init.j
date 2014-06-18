@@ -1,4 +1,4 @@
-library NPCInit initializer init requires BankStruct
+library NPCInit initializer init requires BankStruct, NpcsConstants
 
 globals
     private timer t
@@ -25,8 +25,15 @@ private function main takes nothing returns nothing
 endfunction
 
 private function init takes nothing returns nothing
-    set t = CreateTimer()
-    call TimerStart(t, 1.0, false, function main)
+	//set the NPC indices
+	set Priest.index = GetUnitPointValueByType(PRIEST_ID) - NPC_CONS
+	set Farmer.index = GetUnitPointValueByType(FARMER_ID) - NPC_CONS
+	set Bank.index = GetUnitPointValueByType(BANK_ID) - NPC_CONS
+	set Chaplain.index = GetUnitPointValueByType(CHAPLAIN_ID) - NPC_CONS
+	//backpack doesn't really have an index, it won't be an NPC for long
+	set Backpack.index = 9
+	set t = CreateTimer()
+	call TimerStart(t, 1.0, false, function main)
 endfunction
         
 endlibrary

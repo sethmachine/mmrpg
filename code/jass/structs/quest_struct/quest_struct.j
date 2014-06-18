@@ -3,7 +3,7 @@ library QuestStruct requires GoalStruct, RewardStruct
 globals
     constant integer QUEST_TXT_DURATION = 10
     constant integer TOTAL_QUESTS = 100 //how many unique quests there are in the entire game
-    constant integer MAX_GOALS = 20 //the most stages/goals a quest can have
+    constant integer MAX_GOALS = 15 //the most stages/goals a quest can have
     constant string QUEST_ENABLED = GOLD + "NEW QUEST ACQUIRED:|r "
     constant string QUEST_GOAL_FINISH = GOLD + "QUEST UPDATE:|r " + SILVER + "Completed:|r "
     constant string QUEST_UPDATE = GOLD + "QUEST UPDATE:|r " + SILVER + "New objective:|r "
@@ -25,10 +25,16 @@ struct Quest
     questitem array stageItems[MAX_GOALS] //each subquest goal
     string array stageStrings[MAX_GOALS] //the description of each subquest goal
     Goal array goals[MAX_GOALS]
-	integer array events[MAX_GOALS]
+	Event array events[MAX_GOALS]
     
     static method create takes string title, string colorCode, integer pid returns thistype
+		local integer i = 0
         local thistype this = thistype.allocate()
+		loop
+			exitwhen i == MAX_GOALS
+			set events[i] == 0
+			set i = i + 1
+		endloop
         set this.colorlessTitle = title
         set this.title = colorCode + title
         set this.pid = pid
@@ -89,12 +95,12 @@ struct Quest
         return -1
     endmethod
 	
-	method addEvent takes integer eventIndex returns integer
+	method addEvent takes Event whichEvent returns integer
 		local integer i = 0
 		loop
 			exitwhen i == MAX_GOALS
-			if events[i] == -1 then //found a free slot
-				set events[i] == eventIndex
+			if events[i] == 0 then //found a free slot
+				set events[i] == whichEvent
 				return i
 				//call print("added an event successfully to the quest."
 			endif

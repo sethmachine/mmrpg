@@ -1,7 +1,7 @@
 library ChaplainStruct requires PlayerDataTable
 
 globals
-    constant string CHAPLAIN_HEADER = PURPLE + "Royal Chaplain|r:" //the name of the character
+    constant string CHAPLAIN_HEADER = PURPLE + "Royal Chaplain Ricard|r:" //the name of the character
     constant string CHAPLAIN_MSG = "\nGreetings, young master."
     constant integer HEAL_BTTN = 1 //used to revive all dead party monsters + heal the team and hero
     constant string HEAL_BTTN_MSG = "Heal party."
