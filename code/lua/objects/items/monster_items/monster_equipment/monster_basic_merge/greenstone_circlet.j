@@ -14,6 +14,6 @@
 		//! i itemBonus3 = "" .. INT_BONUS[i]
 		//! i itemBonusId3 = INT_IDS[i]
 		//! i write_item(unam, ides, ifil, iico, igol, i)
-		//! i makechange(current, 'iabi', itemBonusId1 .. "," .. itemBonusId2 .. "," itemBonusId3)
+		//! i makechange(current, 'iabi', itemBonusId1 .. "," .. itemBonusId2 .. "," .. itemBonusId3)
 		//! i makechange(current, 'utub', "Increases strength, defense, and intelligence by " .. itemBonus1 .. " when worn.")
 	//! i end

@@ -198,10 +198,10 @@
 	//[[ Boots of Speed
 	//! i total = 10
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNBootsOfSpeed.blp"
+	//! i ifil = "BootsofSpeed_v2.mdx"
 	//! i ides = "Increases movement speed."
-	//! i unam = "Mana Stone"
+	//! i unam = "Boots of Speed"
 	//! i for i=1, total do
 		//make the item
 		//! i itemBonus1 = "" .. MSPEED_BONUS[i * 2]
@@ -215,8 +215,8 @@
 	//[[ Dagger
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNDaggerOfEscape.blp"
+	//! i ifil = "DaggerOfEscape_v2.mdx"
 	//! i ides = "Increases attack speed and damage."
 	//! i unam = "Dagger"
 	//! i for i=1, total do
@@ -234,10 +234,10 @@
 	//[[ Elven Boots
 	//! i total = 20
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNBoots.blp"
+	//! i ifil = "ElvenBoots_v2.mdx"
 	//! i ides = "Increases attack and movement speed."
-	//! i unam = "Mana Stone"
+	//! i unam = "Elven Boots"
 	//! i for i=1, total do
 		//make the item
 		//! i itemBonus1 = "" .. MSPEED_BONUS[i]
@@ -253,8 +253,8 @@
 	//[[ Gem of Health
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNPeriapt.blp"
+	//! i ifil = "Periapt_v2.mdx"
 	//! i ides = "Increases health."
 	//! i unam = "Gem of Health"
 	//! i for i=1, total do
@@ -282,15 +282,15 @@
 		//! i itemBonus3 = "" .. INT_BONUS[i]
 		//! i itemBonusId3 = INT_IDS[i]
 		//! i write_item(unam, ides, ifil, iico, igol, i)
-		//! i makechange(current, 'iabi', itemBonusId1 .. "," .. itemBonusId2 .. "," itemBonusId3)
+		//! i makechange(current, 'iabi', itemBonusId1 .. "," .. itemBonusId2 .. "," .. itemBonusId3)
 		//! i makechange(current, 'utub', "Increases strength, defense, and intelligence by " .. itemBonus1 .. " when worn.")
 	//! i end
 
 	//[[ Health Stone
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNHealthStone.blp"
+	//! i ifil = "HealthStone_v2.mdx"
 	//! i ides = "Increases health regeneration."
 	//! i unam = "Health Stone"
 	//! i for i=1, total do
@@ -299,7 +299,7 @@
 		//! i itemBonusId1 = HREGEN_IDS[i * 2]
 		//! i write_item(unam, ides, ifil, iico, igol, i)
 		//! i makechange(current, 'iabi', itemBonusId1)
-		//! i makechange(current, 'utub', "Increases health regeneration by " .. itemBonus1 * 100 .. "% when worn.")
+		//! i makechange(current, 'utub', "Increases health regeneration by " .. itemBonus1 .. " points per second when worn.")
 	//! i end
 	//]]
 
@@ -327,7 +327,7 @@
 	//[[ Mage Staff
 	//! i total = 30
 	//! i igol = 175
-	//! i iico = ""ReplaceableTextures\\CommandButtons\\BTNBrilliance.blp"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNBrilliance.blp"
 	//! i ifil = "Brilliance_v2.mdx"
 	//! i ides = "Increases intelligence and mana."
 	//! i unam = "Mage Staff"
@@ -345,8 +345,8 @@
 	//[[ Mana Stone
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNManaStone.blp"
+	//! i ifil = "ManaStone_v2.mdx"
 	//! i ides = "Increases mana regeneration."
 	//! i unam = "Mana Stone"
 	//! i for i=1, total do
@@ -359,13 +359,13 @@
 	//! i end
 	//]]
 
-	//[[ Pendant of Mana
+	//[[ Pendant of Energy
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNPendantOfEnergy.blp"
+	//! i ifil = "PendantOfEnergy_v2.mdx"
 	//! i ides = "Increases mana."
-	//! i unam = "Gem of Health"
+	//! i unam = "Pendant of Energy"
 	//! i for i=1, total do
 		//make the item
 		//! i itemBonus1 = "" .. MANA_BONUS[i * 2]
@@ -379,8 +379,8 @@
 	//[[ War Axe
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNOrcMeleeUpOne.blp"
+	//! i ifil = "OrcMeleeUpOne_v2.mdx"
 	//! i ides = "Increases damage and strength."
 	//! i unam = "War Axe"
 	//! i for i=1, total do

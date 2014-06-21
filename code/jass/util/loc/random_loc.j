@@ -16,9 +16,9 @@ private function enum takes nothing returns nothing
 endfunction
 
 
-private function isLocReachable takes location whichLoc, real range, returns boolean
+private function isLocReachable takes location whichLoc, real range returns boolean
 	set count = 0
-	call EnumDestructablesInCircleBJ(range, whichLoc, enum)
+	//call EnumDestructablesInCircleBJ(range, whichLoc, enum)
 	if count > 0 then
 		return false
 	endif
@@ -30,7 +30,7 @@ endfunction
 function getRandomReachableLoc takes location origin, real diameter, real range returns location
 	local location randomLoc = getRandomPointOnCircle(origin, diameter)
 	loop
-		exitwhen isLocReachable(randomLoc)
+		exitwhen isLocReachable(randomLoc, range)
 		call RemoveLocation(randomLoc)
 		set randomLoc = null
 		set randomLoc = getRandomPointOnCircle(origin, diameter)
@@ -41,7 +41,7 @@ endfunction
 function getRandomReachableLocInRect takes rect whichRect, real range returns location
 	local location randomLoc = GetRandomLocInRect(whichRect)
 	loop
-		exitwhen isLocReachable(randomLoc)
+		exitwhen isLocReachable(randomLoc, range)
 		call RemoveLocation(randomLoc)
 		set randomLoc = null
 		set randomLoc = GetRandomLocInRect(whichRect)

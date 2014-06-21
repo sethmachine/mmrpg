@@ -13,7 +13,8 @@ struct EventEnableQuest extends Event
     endmethod
 
 	method do takes integer pid returns nothing
-		call playerDatum[pid].quests[findQuestByTitle(questTitle)].fanfare()
+		local integer questIndex = playerDatum[pid].findQuestByTitle(questTitle)
+		call playerDatum[pid].quests[questIndex].questFanfare()
 	endmethod
 	
 	//******************************

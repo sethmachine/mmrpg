@@ -19,12 +19,12 @@ struct EventCreepSpawnAtPC extends Event
 	method do takes integer pid returns nothing
 		local location loc = GetUnitLoc(playerDatum[pid].pc.u)
 		local unit u = CreateUnitAtLoc(BOT_ENEMY, monsterId, loc, 0)
-		local Monster creep = Monster.create(creep, GetPlayerId(BOT_ENEMY), gender)
+		local Monster m = Monster.create(u, GetPlayerId(BOT_ENEMY), gender)
 		call SetHeroLevel(u, lvl, true)
-		call creep.newLevelUp(lvl)
-		set creep.rcLvl = this.rcLvl
+		call m.newLevelUp(lvl)
+		set m.rcLvl = this.rcLvl
 		if hasOwner then
-			set creep.owner = pid
+			set m.owner = pid
 		endif
 	endmethod
 	

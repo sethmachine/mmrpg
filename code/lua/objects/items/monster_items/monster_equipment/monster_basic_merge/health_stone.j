@@ -1,8 +1,8 @@
 	//[[ Health Stone
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNHealthStone.blp"
+	//! i ifil = "HealthStone_v2.mdx"
 	//! i ides = "Increases health regeneration."
 	//! i unam = "Health Stone"
 	//! i for i=1, total do
@@ -11,6 +11,6 @@
 		//! i itemBonusId1 = HREGEN_IDS[i * 2]
 		//! i write_item(unam, ides, ifil, iico, igol, i)
 		//! i makechange(current, 'iabi', itemBonusId1)
-		//! i makechange(current, 'utub', "Increases health regeneration by " .. itemBonus1 * 100 .. "% when worn.")
+		//! i makechange(current, 'utub', "Increases health regeneration by " .. itemBonus1 .. " points per second when worn.")
 	//! i end
 	//]]

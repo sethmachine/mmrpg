@@ -1,10 +1,10 @@
 	//[[ Elven Boots
 	//! i total = 20
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNBoots.blp"
+	//! i ifil = "ElvenBoots_v2.mdx"
 	//! i ides = "Increases attack and movement speed."
-	//! i unam = "Mana Stone"
+	//! i unam = "Elven Boots"
 	//! i for i=1, total do
 		//make the item
 		//! i itemBonus1 = "" .. MSPEED_BONUS[i]

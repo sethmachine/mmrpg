@@ -1,7 +1,7 @@
 	//[[ Mage Staff
 	//! i total = 30
 	//! i igol = 175
-	//! i iico = ""ReplaceableTextures\\CommandButtons\\BTNBrilliance.blp"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNBrilliance.blp"
 	//! i ifil = "Brilliance_v2.mdx"
 	//! i ides = "Increases intelligence and mana."
 	//! i unam = "Mage Staff"

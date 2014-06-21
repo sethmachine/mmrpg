@@ -1,8 +1,8 @@
 	//[[ Dagger
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNDaggerOfEscape.blp"
+	//! i ifil = "DaggerOfEscape_v2.mdx"
 	//! i ides = "Increases attack speed and damage."
 	//! i unam = "Dagger"
 	//! i for i=1, total do

@@ -104,7 +104,7 @@ struct Reward
         if questReward then
             loop
                 exitwhen i >= MAX_QUEST_REWARD
-                call playerDatum[pid].quests[this.quests[i]].enable()
+                call playerDatum[pid].quests[this.quests[i]].enable(true)
 				set i = i + 1
             endloop
         endif
