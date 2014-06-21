@@ -1,8 +1,8 @@
 	//[[ Gem of Health
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNPeriapt.blp"
+	//! i ifil = "Periapt_v2.mdx"
 	//! i ides = "Increases health."
 	//! i unam = "Gem of Health"
 	//! i for i=1, total do

@@ -1,7 +1,6 @@
 library EventStruct requires Util
 
 globals
-	Event array eventTable[JASS_MAX_ARRAY_SIZE]
 endglobals
 
 //a representation of an event
@@ -19,10 +18,6 @@ struct Event
 		if next != 0 then
 			call next.do(pid)
 		endif
-	endmethod
-	
-	static method join takes integer pid, integer eventIndex returns nothing
-		call eventTable[eventIndex].do(pid)
 	endmethod
 	
     //nulls and destroys all objects

@@ -21,6 +21,6 @@
         call q.goals[goalNum].setStoryGoal(Chaplain.index, CHAPLAIN_TUTORIAL_STORY_2, "I've got everything.", false)
         set goalNum = goalNum + 1
 		
-        set q.reward = rewardTable[TUTORIAL_QUEST]
+        //set q.reward = rewardTable[TUTORIAL_QUEST]
         set i = i + 1
 		set goalNum = 0

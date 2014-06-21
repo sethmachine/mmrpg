@@ -93,7 +93,7 @@ private function main takes nothing returns boolean
     set m = Monster.create(creep, 0, 0)
     call m.newLevelUp(25)
     call playerDatum[0].farm.addMonster(m)
-    call playerDatum[0].startQuest(TUTORIAL_QUEST_STR, fanfare)
+    //call playerDatum[0].startQuest(TUTORIAL_QUEST_STR, fanfare)
     set creep = null
     endif
     return false
@@ -102,13 +102,14 @@ endfunction
 private function init takes nothing returns nothing
     local trigger t
     local integer i = 0 //counter for looping through players
+	call print("hiiiiii just saying hi")
     loop
         exitwhen i == TOTAL_PLAYERS2
         set t = CreateTrigger()
         call TriggerRegisterPlayerChatEvent(t, Player(i), "-", false)
         call TriggerAddCondition(t, Condition(function main))
         set playerDatum[i].npcTrig = t
-        call DisplayTimedTextToPlayer(Player(i), 0, 0, 15, "Are you a guy or a girl?  Type '-male' or '-female' to choose your gender!")
+        call DisplayTimedTextToPlayer(Player(i), 0, 0, 15, "Are you a guy or a girl?  Type '-male222' or '-female33' to choose your gender!")
         set i = i + 1
     endloop
     set t = null    

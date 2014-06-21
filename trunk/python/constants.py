@@ -13,7 +13,7 @@ CONSTANTS_DIR = util.find("constants", util.root)
 def int2Rawcode(integer, rawId):
     if integer < 10:
         return  "'" + rawId + "00" + str(integer) + "'"
-    elif integer > 10 and integer < 100:
+    elif integer >= 10 and integer < 100:
         return  "'" + rawId + "0" + str(integer) + "'"
     else:
         return  "'" + rawId + str(integer) + "'"
@@ -27,6 +27,7 @@ def constants(constantsDir, constantsFile, cwd, keywords = [], rawCode = ""):
     path = os.path.join(CONSTANTS_DIR, constantsFile)
     w = open(path, 'w')
     header = "library " + constantsDir.title() + "Constants\n"
+    header = header.replace("_", "")
     header += "globals\n"
     i = 0
     for var in varNames:
@@ -42,8 +43,7 @@ def constants(constantsDir, constantsFile, cwd, keywords = [], rawCode = ""):
     w.close()
 
 
-
-    
+constants("npcs", "tables/npcs_constants.j", "lua", ["header", "insert"])
     
 
 

@@ -1,8 +1,8 @@
 	//[[ War Axe
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNOrcMeleeUpOne.blp"
+	//! i ifil = "OrcMeleeUpOne_v2.mdx"
 	//! i ides = "Increases damage and strength."
 	//! i unam = "War Axe"
 	//! i for i=1, total do

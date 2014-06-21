@@ -32,7 +32,7 @@ struct Quest
         local thistype this = thistype.allocate()
 		loop
 			exitwhen i == MAX_GOALS
-			set events[i] == 0
+			set events[i] = 0
 			set i = i + 1
 		endloop
         set this.colorlessTitle = title
@@ -100,7 +100,7 @@ struct Quest
 		loop
 			exitwhen i == MAX_GOALS
 			if events[i] == 0 then //found a free slot
-				set events[i] == whichEvent
+				set events[i] = whichEvent
 				return i
 				//call print("added an event successfully to the quest."
 			endif

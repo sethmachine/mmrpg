@@ -1,8 +1,8 @@
 	//[[ Mana Stone
 	//! i total = 30
 	//! i igol = 150
-	//! i iico = "ReplaceableTextures\CommandButtons\BTNOrcMeleeUpOne.blp"
-	//! i ifil = "AXE_v2.mdx"
+	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNManaStone.blp"
+	//! i ifil = "ManaStone_v2.mdx"
 	//! i ides = "Increases mana regeneration."
 	//! i unam = "Mana Stone"
 	//! i for i=1, total do
