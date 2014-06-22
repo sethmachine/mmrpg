@@ -1,0 +1,17 @@
+[FrameDef]
+BONUS_ATTACK_SPEED=- Does not increase attack speed
+BONUS_DAMAGE=- Does not increase damage
+BONUS_HPREGEN=- Each point increases hitpoint regeneration by 4%
+BONUS_HITPOINTS= - Each point allows increased use of heavier items
+BONUS_MANA=-  Each point increases mastery of skills
+BONUS_MANAREGEN= - Each point increases mana regeneration
+BONUS_DEFENSE= - Each point increases armor by 0.20
+BONUS_DEFENSE_FIXED= - Each point increases armor by 0.20
+AGILITY=|cff008000Defense|r
+COLON_AGILITY=|cff008000Defense:|r
+INTELLECT=|cff00ffffIntelligence|r
+INTELLIGENCE=|cff00ffffIntelligence|r
+COLON_INTELLECT=|cff00ffffIntelligence:|r
+STRENGTH=|cffff0000Strength|r
+COLON_STRENGTH=|cffff0000Strength:|r
+
