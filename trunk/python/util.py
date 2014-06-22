@@ -35,8 +35,9 @@ def directory_2_jass(path = "C:\\Users\\Seth\\mmrpg\\lua"):
 
 def find(name, path):
     if path != "/Users/" and path != "C:\\":
-        if getDirName.findall(path)[0] == name:
-            return path
+        if getDirName.findall(path) != []:
+            if getDirName.findall(path)[0] == name:
+                return path
     for root, dirs, files in os.walk(path):
         if name in files or name in dirs:
             return os.path.join(root, name)
