@@ -1,4 +1,4 @@
-library StoryTable initializer storyInit
+library StoryTable initializer storyInit requires QuestInit
 
 globals
     constant integer TOTAL_STORIES = 8000
@@ -12,6 +12,8 @@ endglobals
 private function fillTable takes nothing returns nothing
     local integer i = 0
     local integer j = 0
+	local Story currentStory
+	local Story previousStory
 	//insert
     call DestroyTimer(t)
     set t = null

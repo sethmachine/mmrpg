@@ -7,9 +7,8 @@ endglobals
 
 private function main takes nothing returns boolean
     local integer iter = S2I(SubString(GetEventPlayerChatString(), 2, 3))
-    //this is where it crashes, in flush()
+    //this is where it used to crash, in flush()
     call q.flush()
-    call print("passed flush")
     //call print(I2S(T))
     call q.destroy()
     //set q = Quad.create(Rect(-13440, 9184, -11744, 10688))

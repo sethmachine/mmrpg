@@ -25,6 +25,7 @@
     //! i makechange(current, "ipri", "0")
     //! i makechange(current, "istr", "1")
     //! i makechange(current, "unam", "Dummy Food Item")
+	//! i makechange(current, "ilev", "1")
    
     //****************
     // Feed

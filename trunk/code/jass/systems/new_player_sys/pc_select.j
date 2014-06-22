@@ -88,12 +88,13 @@ private function main takes nothing returns boolean
     //call SetHeroLevel(m.u, 25, true)
     //call m.levelUpN(25)
     //call playerDatum[0].farm.addMonster(m)
-    set creep = CreateUnitAtLoc(Player(10), SCARAB, GetUnitLoc(FARMER_UNIT), 0)
+    set creep = CreateUnitAtLoc(Player(10), SCARAB, GetUnitLoc(playerDatum[0].pc.u), 0)
     call SetHeroLevel(creep, 25, true)
     set m = Monster.create(creep, 0, 0)
     call m.newLevelUp(25)
     call playerDatum[0].farm.addMonster(m)
-    //call playerDatum[0].startQuest(TUTORIAL_QUEST_STR, fanfare)
+    call playerDatum[0].startQuest("New Beginnings", true)
+    call playerDatum[0].startQuest("Flowers for Al-Jernan", false)
     set creep = null
     endif
     return false
@@ -102,14 +103,13 @@ endfunction
 private function init takes nothing returns nothing
     local trigger t
     local integer i = 0 //counter for looping through players
-	call print("hiiiiii just saying hi")
     loop
         exitwhen i == TOTAL_PLAYERS2
         set t = CreateTrigger()
         call TriggerRegisterPlayerChatEvent(t, Player(i), "-", false)
         call TriggerAddCondition(t, Condition(function main))
         set playerDatum[i].npcTrig = t
-        call DisplayTimedTextToPlayer(Player(i), 0, 0, 15, "Are you a guy or a girl?  Type '-male222' or '-female33' to choose your gender!")
+        call DisplayTimedTextToPlayer(Player(i), 0, 0, 15, "Are you a guy or a girl?  Type '-male' or '-female' to choose your gender!")
         set i = i + 1
     endloop
     set t = null    

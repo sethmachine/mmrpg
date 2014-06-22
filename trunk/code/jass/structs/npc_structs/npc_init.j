@@ -1,4 +1,4 @@
-library NPCInit initializer init requires BankStruct, NpcsConstants
+library NPCInit initializer init requires BankStruct, NpcsConstants, Util
 
 globals
     private timer t
@@ -14,24 +14,17 @@ private function main takes nothing returns nothing
     set FARMER_UNIT = gg_unit_n004_0001
     loop
         exitwhen i == 1
-        set playerDatum[i].npcs[Priest.index] = Priest.create()
-        set playerDatum[i].npcs[Farmer.index] = Farmer.create()
-        set playerDatum[i].npcs[Bank.index] = Bank.create()
-        set playerDatum[i].npcs[Chaplain.index] = Chaplain.create()
-        set playerDatum[i].npcs[Backpack.index] = Backpack.create()
+        set playerDatum[i].npcs[PRIEST] = Priest.create()
+        set playerDatum[i].npcs[MONSTER_FARMER] = Farmer.create()
+        set playerDatum[i].npcs[ITEM_VAULT] = Bank.create()
+        set playerDatum[i].npcs[ROYAL_CHAPLAIN] = Chaplain.create()
+		set playerDatum[i].backpackMenu = Backpack.create()
     endloop
     call DestroyTimer(t)
     set t = null
 endfunction
 
 private function init takes nothing returns nothing
-	//set the NPC indices
-	set Priest.index = GetUnitPointValueByType(PRIEST_ID) - NPC_CONS
-	set Farmer.index = GetUnitPointValueByType(FARMER_ID) - NPC_CONS
-	set Bank.index = GetUnitPointValueByType(BANK_ID) - NPC_CONS
-	set Chaplain.index = GetUnitPointValueByType(CHAPLAIN_ID) - NPC_CONS
-	//backpack doesn't really have an index, it won't be an NPC for long
-	set Backpack.index = 9
 	set t = CreateTimer()
 	call TimerStart(t, 1.0, false, function main)
 endfunction

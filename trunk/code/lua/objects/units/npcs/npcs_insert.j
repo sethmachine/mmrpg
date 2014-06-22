@@ -132,10 +132,10 @@
     // Isaiah
     //***************
     //! i setobjecttype("units")
-	//! i heroId = add(vendorId, "")
+	//! i vendorId = add(vendorId, "")
     //! i createobject(dummyVendorId, vendorId)
-    //! i makechange(current, "uico", "ReplaceableTextures\CommandButtons\BTNFemaleElfVillager.blp")
-    //! i makechange(current, "umdl", "units\critters\ElfVillagerWoman\ElfVillagerWoman")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNFemaleElfVillager.blp")
+    //! i makechange(current, "umdl", "units\\critters\\ElfVillagerWoman\\ElfVillagerWoman")
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")
@@ -152,7 +152,7 @@
     //! i makechange(current, "uspe", "1")
     //! i makechange(current, "uabi", "Avul")
     //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNGraveyard.blp")
-    //! i makechange(current, "umdl", "Doodads\\Cityscape\\Props\\CityGrave\\CityGrave")
+    //! i makechange(current, "umdl", "Doodads\\LordaeronSummer\\Props\\Grave\\Grave")
     //! i makechange(current, "upoi", (upoi + NPC_CONS) .. "")
 	//! i makechange(current, "unsf", "(Al-Jernan)")
     //! i makechange(current, "unam", "Tombstone")
@@ -207,7 +207,7 @@
     // Royal Chaplain
     //***************
     //! i setobjecttype("units")
-	//! i heroId = add(vendorId, "")
+	//! i vendorId = add(vendorId, "")
     //! i createobject(dummyVendorId, vendorId)
     //! i makechange(current, "unam", "Royal Chaplain Ricard")
     //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNBanditMage.blp")

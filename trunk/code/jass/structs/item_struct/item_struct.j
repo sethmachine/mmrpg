@@ -1,19 +1,28 @@
-library ItemStruct requires AbstractItemTable
+library ItemStruct
 
 globals
+    constant integer MONSTER_ITEM = 0 //the item is for a monster
+    constant integer PLAYER_ITEM = 1 //the item is for a player
+	constant integer QUEST_ITEM = 2
 endglobals
 
-struct Item extends AbstractItem
-    integer pid //the id of the owner
-    integer charges //remaining uses for multiple use items
-    boolean toRemove //whether the item is going to be removed...
+struct Item
+	integer pid //the id of the owner
+	integer charges //remaining uses for multiple use items
+	integer itemId
+	integer itemType //monster, player, or quest item
+	string name
+	boolean toRemove //whether the item is going to be removed...
     
     static method create takes item itm, integer pid returns thistype
-        local AbstractItem i = AbstractItemTable[GetItemLevel(itm)]
-        local thistype this = thistype.allocate(i.itemId, i.itemClass, i.isQuestItem)
-        set this.pid = pid
+		local thistype this = thistype.allocate()
+		set this.itemType = GetItemLevel(itm)
+		set this.itemId = GetItemTypeId(itm)
         set this.charges = GetItemCharges(itm)
+		set this.name = GetItemName(itm)
+        set this.pid = pid
         call RemoveItem(itm)
+		set itm = null
         return this
     endmethod
     

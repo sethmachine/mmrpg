@@ -1,4 +1,4 @@
-library NPCStruct
+library NPCStruct requires Util
 
 globals
     constant integer DSPLY_TXT_DUR = 7 //how long a display text message from the NPC should last
@@ -9,11 +9,6 @@ globals
     constant integer HOTKEY = 0 //generic hotkey, won't be using yet
     constant integer MAX_DIALOGS = 20
     constant integer MAX_BTTNS = 10
-    //ids of units
-    constant integer PRIEST_ID = 'n003'
-    constant integer FARMER_ID = 'n004'
-    constant integer BANK_ID = 'n008'
-    constant integer CHAPLAIN_ID = 'n007'
     //constant to be subtraced from NPCs point values
     constant integer NPC_CONS = 300
     constant integer WARP_CONS = 500

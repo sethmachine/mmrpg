@@ -18,7 +18,7 @@ private function introMain takes nothing returns boolean
     local trigger t
     local PlayerData playerData = playerDatum[pid]
     local unit u = playerData.pc.u
-    local NPC npc = playerData.npcs[Chaplain.index]
+    local NPC npc = playerData.npcs[ROYAL_CHAPLAIN]
     if b == npc.twoD[INTRO * MAX_BTTNS].button[HEAL_BTTN] then
         call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR,  CHAPLAIN_HEADER + " Let light restore you and your party!")
         set party = playerData.party
@@ -46,7 +46,6 @@ private function introMain takes nothing returns boolean
 endfunction
 
 struct Chaplain extends NPC
-    static integer index = 0
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         local trigger t = CreateTrigger()

@@ -1,7 +1,7 @@
 //! externalblock extension=lua ObjectMerger $FILENAME$
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	//! i id = 'f000'
-	//! i baseId = 'shwd'
+	//! i baseId = 'kybl'
 	
 	//! i function add(value, result)
 		//! i if value == "" then

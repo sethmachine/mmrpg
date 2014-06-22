@@ -98,7 +98,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  KING_COBRA
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M070',  DRAGON,    45,       10)
+	set m = AbstractMonster.create(KING_COBRA,  DRAGON,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 2,  2,   2,   3,   3,   2,   2,   2)
 	call m.setAttrMax( 5,  5,   5,   8,   8,   7,   5,   4)

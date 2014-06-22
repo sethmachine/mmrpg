@@ -106,7 +106,7 @@
     //! i makechange(current, "aite", "0")
     //! i makechange(current, "ansf", "(Attribute)")
     //! i makechange(current, "anam", "Spell Resistance")
-    //! i for i = 0, SP_LVLS do
+    //! i for i = 1, SP_LVLS do
         //set the spell resistance increasing: .01, .02, .03, .04, .., 1.0
         //! i makechange(current, "isr2", i, "" .. (i / 100))
     //! i end

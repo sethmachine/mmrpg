@@ -13,6 +13,7 @@ endglobals
 //a representation of a quest
 struct Quest
     boolean isActive = false //whether the quest is currently enabled/active
+	boolean notHidden = true
     integer pid = 0 //the player the quest belongs to
     integer stage = 0 //how far into the quest the player is
     integer stageCount = 0 //the number of stages in the quest
@@ -67,12 +68,14 @@ struct Quest
     
 	method questFanfare takes nothing returns nothing
         if GetLocalPlayer() == players[pid] then
-            call StartSound(gg_snd_QuestNew)
+            //call StartSound(gg_snd_QuestNew)
             call QuestSetEnabled(q, true)
             call FlashQuestDialogButton()
         endif
 		call DisplayTimedTextToPlayer(players[pid], 0, 0, QUEST_TXT_DURATION, QUEST_ENABLED + title)
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_UPDATE + stageStrings[stage])
+		if stage > 0 or notHidden then
+			call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_UPDATE + stageStrings[stage])
+		endif
 	endmethod
     
     method addGoal takes string goalName, integer goalType returns integer
@@ -81,9 +84,11 @@ struct Quest
             exitwhen i == MAX_GOALS
             if goals[i] == 0 then //we found a free slot
                 set stageStrings[i] = GOLD + goalName
-                set stageItems[i] = QuestCreateItem(q)
+				if i > 0 or notHidden then
+					set stageItems[i] = QuestCreateItem(q)
+				endif
                 set stageCount = stageCount + 1
-                if i == 0 then
+                if i == 0 and notHidden then
                     call QuestItemSetDescription(stageItems[i], GOLD + goalName)
                     //call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_UPDATE + stageStrings[stage])
                 endif
@@ -110,23 +115,30 @@ struct Quest
 	endmethod
     
     method advance takes nothing returns nothing
-        call QuestItemSetCompleted(stageItems[stage], true) //complete the goal
+		if stage > 0 or notHidden then
+			call QuestItemSetCompleted(stageItems[stage], true) //complete the goal
+		endif
+		if goals[stage].goalEvent != 0 then
+			call goals[stage].goalEvent.do(pid)
+		endif
         call goals[stage].flush() //flush the goal
         call goals[stage].destroy() //destroy the goal
 		if events[stage] != 0 then //check if any event for this goal
 			call events[stage].do(pid) //if so, run that event
 		endif
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_GOAL_FINISH + stageStrings[stage])
-        if GetLocalPlayer() == players[pid] then
-            call StartSound(gg_snd_QuestLog)
-            call FlashQuestDialogButtonBJ()
-        endif
+		if stage > 0 or notHidden then
+			call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_GOAL_FINISH + stageStrings[stage])
+			if GetLocalPlayer() == players[pid] then
+            //call StartSound(gg_snd_QuestLog)
+				call FlashQuestDialogButtonBJ()
+			endif
+		endif
         set stage = stage + 1
         if stage >= stageCount then
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_COMPLETE + title)
             call QuestSetCompleted(q, true)
             if GetLocalPlayer() == players[pid] then
-                call StartSound(gg_snd_QuestCompleted)
+                //call StartSound(gg_snd_QuestCompleted)
             endif
             call reward.award(pid) //give the quest's reward(s)
         else //more goals to do

@@ -326,6 +326,7 @@ struct Goal
     string goalString
     string askBttnMsg
     integer askBttn
+	Event goalEvent
     
     static method create takes integer goalType, integer pid returns thistype
         local thistype this = thistype.allocate()
