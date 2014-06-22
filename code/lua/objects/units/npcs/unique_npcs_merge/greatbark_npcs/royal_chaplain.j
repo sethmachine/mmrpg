@@ -2,7 +2,7 @@
     // Royal Chaplain
     //***************
     //! i setobjecttype("units")
-	//! i heroId = add(vendorId, "")
+	//! i vendorId = add(vendorId, "")
     //! i createobject(dummyVendorId, vendorId)
     //! i makechange(current, "unam", "Royal Chaplain Ricard")
     //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNBanditMage.blp")

@@ -49,7 +49,7 @@ private function introMain takes nothing returns boolean
     local integer pid = GetPlayerId(GetTriggerPlayer())
     local MonsterGroup m
     local trigger t
-    local NPC npc = playerDatum[pid].npcs[Priest.index]
+    local NPC npc = playerDatum[pid].npcs[PRIEST]
     if b == npc.twoD[INTRO * MAX_BTTNS].button[REVIVE_BTTN] then
         set m = playerDatum[pid].party
         call m.displayGroup(true, MDIALOG_MSG)
@@ -65,7 +65,6 @@ private function introMain takes nothing returns boolean
 endfunction
 
 struct Priest extends NPC
-    static integer index = 0
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         local trigger t = CreateTrigger()

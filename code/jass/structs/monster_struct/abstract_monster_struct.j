@@ -1,7 +1,7 @@
 library AbstractMonsterStruct requires MonsterFamilyNameTable, Attributes, AbilityStruct
 
 globals
-  constant integer TOTAL_MONSTERS = 150
+  constant integer TOTAL_MONSTERS = 200
 endglobals
 
 struct AbstractMonster

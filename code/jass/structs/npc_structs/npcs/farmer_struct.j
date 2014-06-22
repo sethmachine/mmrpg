@@ -31,7 +31,7 @@ private function releaseMain takes nothing returns boolean
     local integer i = 0 //search the farm for the to be released monster
     local Monster target
     local MonsterGroup farm
-    local NPC npc = playerDatum[pid].npcs[Farmer.index]
+    local NPC npc = playerDatum[pid].npcs[MONSTER_FARMER]
     if b == npc.twoD[RELEASE_DIALOG * MAX_BTTNS].button[RELEASE_YES_BTTN] then
         set farm = playerDatum[pid].farm
         loop
@@ -69,7 +69,7 @@ private function releaseMon takes nothing returns boolean
     local integer i = 0 //counter
     local MonsterGroup farm
     local Monster target
-    local NPC npc = playerDatum[pid].npcs[Farmer.index]
+    local NPC npc = playerDatum[pid].npcs[MONSTER_FARMER]
     set farm = playerDatum[pid].farm
     loop
         exitwhen i == MAX_FARM_SIZE
@@ -232,7 +232,7 @@ private function introMain takes nothing returns boolean
     local MonsterGroup party = playerDatum[pid].party
     local MonsterGroup farm = playerDatum[pid].farm
     local trigger t
-    local NPC npc = playerDatum[pid].npcs[Farmer.index]
+    local NPC npc = playerDatum[pid].npcs[MONSTER_FARMER]
     if b == npc.twoD[INTRO * MAX_BTTNS].button[TAKE_BTTN] then //first check to see if the player has enough party room
         if party.size == MAX_PARTY_SIZE then //party is full, end the dialog
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, DSPLY_TXT_DUR, FARMER_HEADER + " Your party is already full with " + I2S(party.size) + " monsters in it.  Drop off a monster first.")
@@ -277,9 +277,7 @@ private function introMain takes nothing returns boolean
     return false
 endfunction
 
-struct Farmer extends NPC
-    static integer index = 0
-    
+struct Farmer extends NPC    
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         local trigger t = CreateTrigger()

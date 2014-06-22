@@ -8,7 +8,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  ARMY_ANT
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M031',  BUG,    45,       10)
+	set m = AbstractMonster.create(ARMY_ANT,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -17,7 +17,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  DUNE_FLYER
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M032',  BUG,    45,       10)
+	set m = AbstractMonster.create(DUNE_FLYER,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 2,  6,   1,   2,   3,   4,   4,   0)
 	call m.setAttrMax( 5,  11,   3,   6,   8,   9,   7,   3)
@@ -26,7 +26,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  DUNE_WORM
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M033',  BUG,    45,       10)
+	set m = AbstractMonster.create(DUNE_WORM,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 0,  4,   2,   4,   4,   3,   1,   0)
 	call m.setAttrMax( 4,  7,   4,   8,   10,   7,   3,   2)
@@ -35,7 +35,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  DRAGONFLY
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M034',  BUG,    45,       10)
+	set m = AbstractMonster.create(DRAGONFLY,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -44,7 +44,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  SCORPION
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M035',  BUG,    45,       10)
+	set m = AbstractMonster.create(SCORPION,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 4,  5,   2,   3,   2,   4,   2,   1)
 	call m.setAttrMax( 6,  6,   5,   5,   4,   8,   4,   4)
@@ -53,7 +53,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  WEEDBUG
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M036',  BUG,    45,       10)
+	set m = AbstractMonster.create(WEEDBUG,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -62,7 +62,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  SNAILY
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M037',  BUG,    45,       10)
+	set m = AbstractMonster.create(SNAILY,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -71,7 +71,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  SCARAB
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M038',  BUG,    45,       10)
+	set m = AbstractMonster.create(SCARAB,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 7,  5,   4,   1,   0,   6,   4,   2)
 	call m.setAttrMax( 10,  6,   7,   3,   2,   10,   5,   5)
@@ -80,7 +80,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  DIGSTER
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M039',  BUG,    45,       10)
+	set m = AbstractMonster.create(DIGSTER,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -89,7 +89,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  WAR_SPIDER
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M040',  BUG,    45,       10)
+	set m = AbstractMonster.create(WAR_SPIDER,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -98,7 +98,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  SKULARACH
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M041',  BUG,    45,       10)
+	set m = AbstractMonster.create(SKULARACH,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -107,7 +107,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  BLOOD_BEETLE
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M042',  BUG,    45,       10)
+	set m = AbstractMonster.create(BLOOD_BEETLE,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -116,7 +116,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  ARMORPION
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M043',  BUG,    45,       10)
+	set m = AbstractMonster.create(ARMORPION,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
@@ -125,7 +125,7 @@ private function init takes nothing returns nothing
 	//**************************************
 	//********  TREMOR
 	//********                        id     family   maxLvl    rcLvl
-	set m = AbstractMonster.create( 'M044',  BUG,    45,       10)
+	set m = AbstractMonster.create(TREMOR,  BUG,    45,       10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
 	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)

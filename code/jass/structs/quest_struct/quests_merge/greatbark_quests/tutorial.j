@@ -6,7 +6,7 @@
         call playerDatum[i].addQuest(q)
 		
         call q.addGoal("Speak to the Royal Chaplain.", STORY_GOAL)
-        call q.goals[goalNum].setStoryGoal(Chaplain.index, CHAPLAIN_TUTORIAL_STORY_1, "Where am I?", false)
+        call q.goals[goalNum].setStoryGoal(ROYAL_CHAPLAIN, CHAPLAIN_TUTORIAL_STORY_1, "Where am I?", false)
         set goalNum = goalNum + 1
 		
         call q.addGoal("Pick up your first monster at the farm.", PARTY_SIZE_GOAL)
@@ -18,9 +18,8 @@
         set goalNum = goalNum + 1
 		
         call q.addGoal("Return to the Royal Chaplain.", STORY_GOAL)
-        call q.goals[goalNum].setStoryGoal(Chaplain.index, CHAPLAIN_TUTORIAL_STORY_2, "I've got everything.", false)
+        call q.goals[goalNum].setStoryGoal(ROYAL_CHAPLAIN, CHAPLAIN_TUTORIAL_STORY_2, "I've got everything.", false)
         set goalNum = goalNum + 1
 		
-        //set q.reward = rewardTable[TUTORIAL_QUEST]
-        set i = i + 1
+        set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0

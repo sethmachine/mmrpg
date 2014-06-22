@@ -48,7 +48,7 @@ private function putGold takes nothing returns boolean
     local integer gold
     local integer amount
     local integer pGold = GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)
-    local NPC npc = playerDatum[pid].npcs[Bank.index]
+    local NPC npc = playerDatum[pid].npcs[ITEM_VAULT]
     if GetClickedButton() == npc.twoD[GOLD_DIALOG * MAX_BTTNS].button[HUNDRED_BTTN] then
         if pGold < HUNDRED then
             call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, RED + "Error:|r You only have " + GOLD + I2S(pGold) + " gold!")
@@ -96,7 +96,7 @@ private function takeGold takes nothing returns boolean
     local integer pid = GetPlayerId(p)
     local integer amount
     local integer pGold
-    local NPC npc = playerDatum[pid].npcs[Bank.index]
+    local NPC npc = playerDatum[pid].npcs[ITEM_VAULT]
     local integer gold = npc.gold
     if GetClickedButton() == npc.twoD[GOLD_DIALOG * MAX_BTTNS].button[HUNDRED_BTTN] then
         if gold < HUNDRED then
@@ -129,7 +129,7 @@ private function takeGold takes nothing returns boolean
             call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, BANK_HEADER + " Withdrew " + GOLD + I2S(amount) + " gold|r, with " + GOLD + I2S(gold - amount) + " gold|r remaining in your vault.")
         endif
     elseif GetClickedButton() == npc.twoD[GOLD_DIALOG * MAX_BTTNS].button[ALL_BTTN] then
-        set amount = playerDatum[pid].npcs[Bank.index].gold
+        set amount = npc.gold
         set pGold = GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)
         set npc.gold = gold - amount
         call SetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD, pGold + amount)
@@ -147,7 +147,7 @@ private function removeMain takes nothing returns boolean
     local integer i = 0 //search the farm for the to be released monster
     local Item target
     local ItemGroup bank = playerDatum[pid].bank
-    local NPC npc = playerDatum[pid].npcs[Bank.index]
+    local NPC npc = playerDatum[pid].npcs[ITEM_VAULT]
     if b == npc.twoD[REMOVE_DIALOG * MAX_BTTNS].button[REMOVE_YES_BTTN] then
         loop
             exitwhen i == MAX_BANK_SIZE
@@ -182,12 +182,12 @@ private function removeItem takes nothing returns boolean
     local integer i = 0 //counter
     local Item target
     local ItemGroup bank = playerDatum[pid].bank
-    local NPC npc = playerDatum[pid].npcs[Bank.index]
+    local NPC npc = playerDatum[pid].npcs[ITEM_VAULT]
     loop
         exitwhen i == MAX_BANK_SIZE
         if b == bank.bttns[i] then
             set target = bank.items[i]
-            if target.isQuestItem then
+            if target.itemType == QUEST_ITEM then
                 call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, RED + "Error:|r Quest items cannot be removed!")
             else
                 set target.toRemove = true
@@ -260,7 +260,7 @@ private function introMain takes nothing returns boolean
     local trigger t
     local ItemGroup backpack = playerDatum[pid].backpack
     local ItemGroup bank = playerDatum[pid].bank
-    local NPC npc = playerDatum[pid].npcs[Bank.index]
+    local NPC npc = playerDatum[pid].npcs[ITEM_VAULT]
     if b == npc.twoD[INTRO * MAX_BTTNS].button[TAKE_BTTN] then
         call bank.displayGroup(IDIALOG_TAKE_MSG)
         set t = CreateTrigger()
@@ -284,7 +284,7 @@ private function introMain takes nothing returns boolean
         call TriggerAddCondition(t, Condition(function removeItem))
         set playerDatum[pid].npcTrig = t
     elseif b == npc.twoD[INTRO * MAX_BTTNS].button[TAKE_GOLD_BTTN] then
-        if playerDatum[pid].npcs[Bank.index].gold == 0 then //no gold inside the bank
+        if npc.gold == 0 then //no gold inside the bank
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, DSPLY_TXT_DUR, ERR_TAKE)
         else
             call DialogSetMessage(npc.oneD.dialog[GOLD_DIALOG], "Withdraw how much?\nAvailable: " + I2S(npc.gold))
@@ -310,7 +310,6 @@ private function introMain takes nothing returns boolean
 endfunction
 
 struct Bank extends NPC
-    static integer index = 0
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         local trigger t = CreateTrigger()

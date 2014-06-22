@@ -72,6 +72,7 @@
 		//! i makechange(current, 'unam', HEALTH_unam[i])
 		//! i makechange(current, 'utip', "Purchase " .. HEALTH_unam[i])
 		//! i makechange(current, 'utub', "Heals " .. HEALTH_Rej1[i] .. " hit points over " .. ADUR .. " seconds when used.")
+		//! i makechange(current, 'ilev', "1")
 		//! i upoi = upoi + 1
 	//! i end
 	
@@ -124,6 +125,7 @@
 		//! i makechange(current, 'unam', MANA_unam[i])
 		//! i makechange(current, 'utip', "Purchase " .. MANA_unam[i])
 		//! i makechange(current, 'utub', "Restores " .. MANA_Rej2[i] .. " mana over " .. ADUR .. " seconds when used.")
+		//! i makechange(current, 'ilev', "1")
 		//! i upoi = upoi + 1
 	//! i end
 
@@ -178,6 +180,7 @@
 		//! i makechange(current, 'unam', RESTORE_unam[i])
 		//! i makechange(current, 'utip', "Purchase " .. RESTORE_unam[i])
 		//! i makechange(current, 'utub', "Restores " .. RESTORE_Rej1[i] .. " health and " .. RESTORE_Rej2[i] .. " mana over " .. ADUR .. " seconds when used.")
+		//! i makechange(current, 'ilev', "1")
 		//! i upoi = upoi + 1
 	//! i end
 //! endexternalblock

@@ -70,6 +70,7 @@
 	//! i makechange(current, 'unam', WARP_unam)
 	//! i makechange(current, 'utip', "Purchase " .. WARP_unam)
 	//! i makechange(current, 'utub', "Teleports the player and party back to GreatBark.")
+	//! i makechange(current, 'ilev', "1")
 	//! i upoi = upoi + 1
 	
 	

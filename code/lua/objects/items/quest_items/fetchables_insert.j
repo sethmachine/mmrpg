@@ -1,7 +1,7 @@
 //! externalblock extension=lua ObjectMerger $FILENAME$
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	//! i id = 'f000'
-	//! i baseId = 'shwd'
+	//! i baseId = 'kybl'
 	
 	//! i function add(value, result)
 		//! i if value == "" then
@@ -36,9 +36,9 @@
 	//! i unam = "Desert Flowers"
 	//! i write_item(unam, ides, ifil, iico, igol)
 	//! i makechange(current, "ipaw", "0")
-	//! i makechange(current, "idraw", "0")
+	//! i makechange(current, "idro", "0")
 	//! i makechange(current, 'utub', "A gathering of rare desert flowers.")
-	//! i end
+	//! i makechange(current, 'ilev', "2")
 	//]]
 
 //! endexternalblock

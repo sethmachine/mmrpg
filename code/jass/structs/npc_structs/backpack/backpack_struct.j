@@ -45,7 +45,7 @@ private function removeMain2 takes nothing returns boolean
     local player p = GetTriggerPlayer()
     local integer pid = GetPlayerId(p)
     local integer i = 0
-    local NPC npc = playerDatum[pid].npcs[Backpack.index]
+    local NPC npc = playerDatum[pid].backpackMenu
     local MagicKeyGroup keys = playerDatum[pid].keys
     local MagicKey target
     if b == npc.twoD[REMOVE_DIALOG2 * MAX_BTTNS].button[REMOVE_YES_BTTN] then
@@ -79,7 +79,7 @@ private function removeKey takes nothing returns boolean
     local player p = GetTriggerPlayer()
     local integer pid = GetPlayerId(p)
     local integer i = 0 //counter
-    local NPC npc = playerDatum[pid].npcs[Backpack.index]
+    local NPC npc = playerDatum[pid].backpackMenu
     local MagicKey target
     local MagicKeyGroup keys = playerDatum[pid].keys
     loop
@@ -108,7 +108,7 @@ private function removeMain takes nothing returns boolean
     local player p = GetTriggerPlayer()
     local integer pid = GetPlayerId(p)
     local integer i = 0 //search the farm for the to be released monster
-    local NPC npc = playerDatum[pid].npcs[Backpack.index]
+    local NPC npc = playerDatum[pid].backpackMenu
     local ItemGroup backpack = playerDatum[pid].backpack
     local Item target
     if b == npc.twoD[REMOVE_DIALOG * MAX_BTTNS].button[REMOVE_YES_BTTN] then
@@ -143,14 +143,14 @@ private function removeItem takes nothing returns boolean
     local player p = GetTriggerPlayer()
     local integer pid = GetPlayerId(p)
     local integer i = 0 //counter
-    local NPC npc = playerDatum[pid].npcs[Backpack.index]
+    local NPC npc = playerDatum[pid].backpackMenu
     local Item target
     local ItemGroup backpack = playerDatum[pid].backpack
     loop
         exitwhen i == MAX_BACKPACK_SIZE
         if b == backpack.bttns[i] then
             set target = backpack.items[i]
-            if target.isQuestItem then
+            if target.itemType == QUEST_ITEM then
                 call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, RED + "Error:|r Quest items cannot be removed!")
             else
                 set target.toRemove = true
@@ -197,7 +197,7 @@ private function itemMain takes nothing returns boolean
     local button b = GetClickedButton()
     local player p = GetTriggerPlayer()
     local integer pid = GetPlayerId(p)
-    local NPC npc = playerDatum[pid].npcs[Backpack.index]
+    local NPC npc = playerDatum[pid].backpackMenu
     local trigger t
     local ItemGroup backpack = playerDatum[pid].backpack
     if b == npc.twoD[ITEM_DIALOG * MAX_BTTNS].button[TAKE_BTTN] then
@@ -245,7 +245,7 @@ private function introMain takes nothing returns boolean
     local button b = GetClickedButton()
     local player p = GetTriggerPlayer()
     local integer pid = GetPlayerId(p)
-    local NPC npc = playerDatum[pid].npcs[Backpack.index]
+    local NPC npc = playerDatum[pid].backpackMenu
     local ItemGroup backpack = playerDatum[pid].backpack
     local ItemGroup bank = playerDatum[pid].bank
     local trigger t
@@ -272,7 +272,6 @@ private function introMain takes nothing returns boolean
 endfunction
 
 struct Backpack extends NPC
-    static integer index = 0
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         local trigger t = CreateTrigger()

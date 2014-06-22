@@ -18,6 +18,7 @@ struct PlayerData
     dialog recruitDialog
     button recruitYes
     button recruitNo
+	NPC backpackMenu
     NPC array npcs[20] //the list of all the interactable NPCs for this player
     Warp array warps[100] //all useable warps in the game
     Quest array quests[TOTAL_QUESTS] //the list of all the quests, not all may be activated however
@@ -78,7 +79,7 @@ struct PlayerData
         local integer i = 0
         loop
             exitwhen i == TOTAL_QUESTS
-            if quests[i].title == title then //found the quest
+            if quests[i].colorlessTitle == title then //found the quest
                 return i
             endif
             set i = i + 1

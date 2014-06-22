@@ -55,7 +55,7 @@ struct Monster extends AbstractMonster
         local integer uType = GetUnitTypeId(u)
         local AbstractMonster m = AbstractMonsterTable[GetUnitPointValueByType(uType)]
         local thistype this = thistype.allocate(m.unitType, m.familyId, m.maxLvl, m.rcLvl)//, m.name)
-        loop
+		loop
             exitwhen attrNum == MAX_ATTRIBUTES
             set this.attrMin[attrNum] = m.attrMin[attrNum]
             set this.attrMax[attrNum] = m.attrMax[attrNum]
