@@ -225,8 +225,8 @@ endfunction
 
 
 function itemGiveByTypeMain takes nothing returns boolean
-    local player p = GetTriggerPlayer()
-    local integer pid = GetPlayerId(p)
+    local player p = players[0]
+    local integer pid = 0
     local integer currQuest = 0
     local integer currQuestStage = 0
     local integer questRange = 0
@@ -244,7 +244,7 @@ function itemGiveByTypeMain takes nothing returns boolean
             set goalNpc = playerDatum[pid].quests[currQuest].goals[currQuestStage].goalNpc
             set goalDialog = playerDatum[pid].quests[currQuest].goals[currQuestStage].goalDialog
             if GetClickedButton() == playerDatum[pid].npcs[goalNpc].twoD[goalDialog * MAX_DIALOGS].button[goalBttn] then
-                loop
+				loop
                     exitwhen i == MAX_ITEMS
                     if GetItemTypeId(UnitItemInSlot(playerDatum[pid].pc.u, i)) == playerDatum[pid].quests[currQuest].goals[currQuestStage].goalItemType then
                         if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant > 0 then
@@ -287,7 +287,10 @@ function itemGetByTypeMain takes nothing returns boolean
             set currQuestStage = playerDatum[pid].quests[currQuest].stage
             if currQuest >= 0 then
                 if GetItemTypeId(i) == playerDatum[pid].quests[currQuest].goals[currQuestStage].goalItemType then
-					set playerDatum[pid].quests[currQuest].goals[currQuestStage].quant = playerDatum[pid].quests[currQuest].goals[currQuestStage].quant - 1
+					if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant != 0 then
+						set playerDatum[pid].quests[currQuest].goals[currQuestStage].quant = playerDatum[pid].quests[currQuest].goals[currQuestStage].quant - 1
+						set questRange = TOTAL_QUESTS
+					endif
                     if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant == 0 then
 						call playerDatum[pid].quests[currQuest].advance()
 						call DestroyTrigger(GetTriggeringTrigger())
@@ -344,7 +347,7 @@ struct Goal
         local trigger t = CreateTrigger()
 		set this.quant = quant
         set this.goalItemType = goalItemType
-        call TriggerRegisterPlayerUnitEventSimple(t, Player(pid), EVENT_PLAYER_UNIT_PICKUP_ITEM)
+        call TriggerRegisterPlayerUnitEventSimple(t, players[pid], EVENT_PLAYER_UNIT_PICKUP_ITEM)
         call TriggerAddCondition(t, Condition(function itemGetByTypeMain))
         set goalTrig = t
         call DisableTrigger(goalTrig)

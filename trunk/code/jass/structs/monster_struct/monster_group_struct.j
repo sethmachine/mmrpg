@@ -122,7 +122,7 @@ struct MonsterGroup
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Could not find " + GetHeroProperName(u) + " in the group")
+        //call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Could not find " + GetHeroProperName(u) + " in the group")
         return false
     endmethod
 

@@ -1,6 +1,6 @@
 //! externalblock extension=lua ObjectMerger $FILENAME$
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	//! i id = 'f000'
+	//! i itemId = 'f000'
 	//! i baseId = 'kybl'
 	
 	//! i function add(value, result)
@@ -18,7 +18,6 @@
 	//! i end
 	
 	//! i function write_item(unam, ides, ifil, iico, igol)
-		//! i id = add(id, "")
 		//! i setobjecttype("items")
 		//! i createobject(baseId, id)
 		//! i makechange(current, "ides", ides)
@@ -26,6 +25,7 @@
 		//! i makechange(current, "iico", iico)
 		//! i makechange(current, "igol", igol)
 		//! i makechange(current, 'unam', unam)
+		//! i itemId = add(itemId, "")
 	//! i end
 	
 	//insert

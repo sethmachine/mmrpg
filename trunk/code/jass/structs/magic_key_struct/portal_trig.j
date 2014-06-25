@@ -2,7 +2,7 @@ library PortalTrig requires PlayerDataTable
 
 globals
     private constant string PORTAL_MSG = CYAN + "Select a key to use."
-    constant integer PORTAL_ID = 'w000'
+    constant integer PORTAL_ID = 'w00b'
 endglobals
 
 private function main takes nothing returns boolean

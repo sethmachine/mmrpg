@@ -9,8 +9,9 @@ function questInit takes nothing returns nothing
     local integer goalNum = 0
     local Quest q
     loop
+		exitwhen i == TOTAL_PLAYERS
 	//insert
-	set i = i + 1
+		set i = i + 1
     endloop
 endfunction
         

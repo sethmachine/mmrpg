@@ -26,16 +26,9 @@ struct Quest
     questitem array stageItems[MAX_GOALS] //each subquest goal
     string array stageStrings[MAX_GOALS] //the description of each subquest goal
     Goal array goals[MAX_GOALS]
-	Event array events[MAX_GOALS]
     
     static method create takes string title, string colorCode, integer pid returns thistype
-		local integer i = 0
         local thistype this = thistype.allocate()
-		loop
-			exitwhen i == MAX_GOALS
-			set events[i] = 0
-			set i = i + 1
-		endloop
         set this.colorlessTitle = title
         set this.title = colorCode + title
         set this.pid = pid
@@ -68,7 +61,7 @@ struct Quest
     
 	method questFanfare takes nothing returns nothing
         if GetLocalPlayer() == players[pid] then
-            //call StartSound(gg_snd_QuestNew)
+            call StartSound(gg_snd_QuestNew)
             call QuestSetEnabled(q, true)
             call FlashQuestDialogButton()
         endif
@@ -99,21 +92,7 @@ struct Quest
         endloop
         return -1
     endmethod
-	
-	method addEvent takes Event whichEvent returns integer
-		local integer i = 0
-		loop
-			exitwhen i == MAX_GOALS
-			if events[i] == 0 then //found a free slot
-				set events[i] = whichEvent
-				return i
-				//call print("added an event successfully to the quest."
-			endif
-			set i = i + 1
-		endloop
-		return -1
-	endmethod
-    
+	    
     method advance takes nothing returns nothing
 		if stage > 0 or notHidden then
 			call QuestItemSetCompleted(stageItems[stage], true) //complete the goal
@@ -123,13 +102,10 @@ struct Quest
 		endif
         call goals[stage].flush() //flush the goal
         call goals[stage].destroy() //destroy the goal
-		if events[stage] != 0 then //check if any event for this goal
-			call events[stage].do(pid) //if so, run that event
-		endif
 		if stage > 0 or notHidden then
 			call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_GOAL_FINISH + stageStrings[stage])
 			if GetLocalPlayer() == players[pid] then
-            //call StartSound(gg_snd_QuestLog)
+				call StartSound(gg_snd_QuestLog)
 				call FlashQuestDialogButtonBJ()
 			endif
 		endif
@@ -138,7 +114,7 @@ struct Quest
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_COMPLETE + title)
             call QuestSetCompleted(q, true)
             if GetLocalPlayer() == players[pid] then
-                //call StartSound(gg_snd_QuestCompleted)
+                call StartSound(gg_snd_QuestCompleted)
             endif
             call reward.award(pid) //give the quest's reward(s)
         else //more goals to do

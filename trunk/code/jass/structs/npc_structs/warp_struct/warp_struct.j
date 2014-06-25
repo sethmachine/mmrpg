@@ -22,25 +22,27 @@ struct Warp
     endmethod
     
     method warp takes integer pid returns nothing
-        local integer i = 0
-        local unit u = playerDatum[pid].pc.u
-        local MonsterGroup party = playerDatum[pid].party
-        if fanfare then
-            call DestroyEffect(AddSpecialEffectTarget( "Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl", u, "origin"))
-            loop
-                exitwhen i == party.maxSize
-                call DestroyEffect(AddSpecialEffectTarget( "Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl", party.monsters[i].u, "origin"))
-                set i = i + 1
-            endloop
-        endif
-        call IssueImmediateOrder(u, "stop")
-        call SetUnitPositionLoc(u, targetLoc)
-        call party.moveGroupToLoc(targetLoc)
-        call IssueImmediateOrder(u, "stop")
-        if GetLocalPlayer() == Player(pid) then
-            call PanCameraToTimed(GetLocationX(targetLoc), GetLocationY(targetLoc), 0)
-        endif
-        set u = null
+		local integer i = 0
+		local unit u = playerDatum[pid].pc.u
+		local MonsterGroup party = playerDatum[pid].party
+		if isActive then
+			if fanfare then
+				call DestroyEffect(AddSpecialEffectTarget( "Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl", u, "origin"))
+				loop
+					exitwhen i == party.maxSize
+					call DestroyEffect(AddSpecialEffectTarget( "Abilities\\Spells\\Human\\MassTeleport\\MassTeleportTarget.mdl", party.monsters[i].u, "origin"))
+					set i = i + 1
+				endloop
+			endif
+			call IssueImmediateOrder(u, "stop")
+			call SetUnitPositionLoc(u, targetLoc)
+			call party.moveGroupToLoc(targetLoc)
+			call IssueImmediateOrder(u, "stop")
+			if GetLocalPlayer() == Player(pid) then
+				call PanCameraToTimed(GetLocationX(targetLoc), GetLocationY(targetLoc), 0)
+			endif
+		endif
+		set u = null
     endmethod
     
 endstruct

@@ -1,7 +1,7 @@
 library CreepRegionTable initializer init requires RectUtil
 
 globals
-    constant integer MAX_CREEP_REGIONS = 8000
+    constant integer MAX_CREEP_REGIONS = 500
     CreepRegion array creepRegionTable
 endglobals
 

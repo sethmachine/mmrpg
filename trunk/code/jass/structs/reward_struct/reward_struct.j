@@ -13,6 +13,7 @@ struct Reward
     boolean itemReward = false
     boolean expReward = false
 	boolean questReward = false
+	boolean unknownReward = false
     
     integer gold = 0
     integer key = 0
@@ -39,6 +40,10 @@ struct Reward
         set expReward = true
         set this.exp = exp
     endmethod
+	
+	method setUnknownReward takes nothing returns nothing
+		set this.unknownReward = true
+	endmethod
 
 
     method setItemReward takes integer itemId returns nothing
@@ -108,10 +113,14 @@ struct Reward
 				set i = i + 1
             endloop
         endif
-        
-        /*if GetLocalPlayer() == p then
+		
+		if unknownReward then
+			call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, CYAN + "Reward|r: " + "????????")
+        endif
+		
+        if GetLocalPlayer() == p then
             call StartSound(gg_snd_ItemReceived)
-        endif*/
+        endif
         
         set p = null
         set loc = null

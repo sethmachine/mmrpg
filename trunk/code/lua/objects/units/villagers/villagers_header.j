@@ -41,7 +41,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_MAN1, DUMMY_MAN1)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
     //! i makechange(current, "unsf", "(Generic Male1)")
@@ -54,7 +54,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_MAN2, DUMMY_MAN2)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
     //! i makechange(current, "unsf", "(Generic Male2)")
@@ -67,7 +67,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_WOMAN, DUMMY_WOMAN)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
     //! i makechange(current, "unsf", "(Generic Woman)")
@@ -80,7 +80,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_CHILD1, DUMMY_CHILD1)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Child")
     //! i makechange(current, "unsf", "(Generic Child1)")
@@ -93,7 +93,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_CHILD1, DUMMY_CHILD2)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Child")
     //! i makechange(current, "unsf", "(Generic Child2)")

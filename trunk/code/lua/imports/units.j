@@ -202,4 +202,13 @@
 //texture
 //! external FileImporter C:\Imports\\units\\DemonWitch\DemonWitch.blp Textures\DemonWitch.blp
 
+//*************************************
+//***** Slime *************************
+//*************************************
+//model
+//! external FileImporter C:\Imports\\units\\Slime\\Slime.mdx Slime.mdx
+
+//btns
+//! external FileImporter C:\Imports\\units\\BTNWaterElemental\\BTNWaterElemental.blp BTNWaterElemental.blp
+//! external FileImporter C:\Imports\\units\\BTNWaterElemental\\DISBTNWaterElemental.blp DISBTNWaterElemental.blp
 

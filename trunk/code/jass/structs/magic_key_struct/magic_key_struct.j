@@ -11,11 +11,11 @@ struct MagicKey
     location targetLoc
     boolean toRemove
     
-    static method create takes string name, integer keyType, unit doorShrine returns thistype
+    static method create takes string name, integer keyType, location whichLoc returns thistype
         local thistype this = thistype.allocate()
         set this.name = name
         set this.keyType = keyType
-        set this.targetLoc = GetUnitLoc(doorShrine)
+        set this.targetLoc = whichLoc
         set toRemove = false
         return this
     endmethod
@@ -43,6 +43,9 @@ struct MagicKey
         endloop
         call SetUnitPositionLoc(u, targetLoc)
         call party.moveGroupToLoc(targetLoc)
+		if GetLocalPlayer() == Player(pid) then
+			call PanCameraToTimed(GetLocationX(targetLoc), GetLocationY(targetLoc), 0)
+		endif
         set u = null
     endmethod
     

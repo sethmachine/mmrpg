@@ -41,7 +41,7 @@ struct CreepTable
         call SetHeroLevel(u, level, false)
         call UnitAddAbility(u, ABIL_WANDER)
         set m = Monster.create(u, GetPlayerId(BOT_ENEMY), 0)
-        call m.newLevelUp(level)
+        call m.levelUp(level)
         return m
     endmethod
     

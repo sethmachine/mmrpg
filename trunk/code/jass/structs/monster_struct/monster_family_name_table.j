@@ -11,6 +11,7 @@ globals
     constant integer WATER = 7
     constant integer ZOMBIE = 8
     constant integer BOSS = 9
+	constant integer SLIME_FAM = 10
     string array familyId2Str
 endglobals
 
@@ -25,6 +26,7 @@ private function initTable takes nothing returns nothing
     set familyId2Str[WATER] = "|cff227bdcWater|r"
     set familyId2Str[ZOMBIE] = "|cff9851aeZombie|r"
     set familyId2Str[BOSS] = "|cffbc424e???|r"
+    set familyId2Str[SLIME] = "|cff80ffffSlime|r"
 endfunction
 
 endlibrary

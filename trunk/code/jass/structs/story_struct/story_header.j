@@ -1,12 +1,10 @@
-library StoryTable initializer storyInit requires QuestInit
+library StoryTable initializer storyInit requires QuestInit, NPCInit
 
 globals
     constant integer TOTAL_STORIES = 8000
     Story array storyTable[TOTAL_STORIES]
     Story array bigStoryTable[TOTAL_STORIES]
     private timer t
-    constant integer CHAPLAIN_TUTORIAL_STORY_1 = 0
-    constant integer CHAPLAIN_TUTORIAL_STORY_2 = 1
 endglobals
 
 private function fillTable takes nothing returns nothing
