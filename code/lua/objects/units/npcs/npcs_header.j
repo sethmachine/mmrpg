@@ -8,9 +8,9 @@
     //! i vendorBaseId = "nhem"
     //ids for the dummy NPC and dummy vendor
     //! i dummyHeroId = "N000"
-    //! i dummyVendorId = "n000"
+    //! i dummyVendorId = "m000"
     //! i heroId = "N000"
-    //! i vendorId = "n000"
+    //! i vendorId = "m000"
     //base damage for melee based monsters -- they do 5 base damage - always 1 less
     //! i MELEE_DMG = "10"
     //base attack speed for all monsters - Average

@@ -3,8 +3,8 @@ library EventItemCreateInRect requires EventStruct
 globals
 endglobals
 
-//changes the water tint for a players
-//uses a local player block to do this
+//creates quant number of items
+//each in a random position in a rect
 struct EventItemCreateInRect extends Event
 	rect r = null
 	integer itemId = 0
@@ -27,6 +27,7 @@ struct EventItemCreateInRect extends Event
 		endloop
 		call RemoveLocation(randomLoc)
 		set itm = null
+		call doNext(pid)
 	endmethod
 	
 	//******************************

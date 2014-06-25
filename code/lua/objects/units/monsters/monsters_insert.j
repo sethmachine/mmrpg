@@ -58,6 +58,7 @@
     //! i WATER = "|cff227bdcWater|r"
     //! i ZOMBIE = "|cff9851aeZombie|r"
     //! i BOSS = "|cffbc424e???|r"
+	//! i SLIME = "|cff80ffffSlime|r"
     //String for the custom object id
     //! i CUSTOM_ID = "M"
     //use this function to make each monster's custom object id
@@ -1112,6 +1113,63 @@
     ////! i makechange(current, "ua1m", "Abilities\\Weapons\\DragonHawkMissile\\DragonHawkMissile.mdl")
     //! i upoi = upoi + 1
 
+// Eagle Warrior
+    //***************
+    //! i setobjecttype("units")
+    //! i createobject(DUMMY_MELEE, make_id(upoi))
+    //! i makechange(current, "unam", BIRD)
+    //! i makechange(current, "properNames", "Azurile (m),Azurile (f)")
+    //! i makechange(current, "umdl", "EagleWarrior.mdx")
+    //! i makechange(current, "uico", "BTNEagleWarrior.blp")
+    //! i makechange(current, "ussi", "BTNEagleWarrior.blp")
+    //! i makechange(current, "usnd", "HippoGryph")
+    //various art values
+    //! i makechange(current, "ucbs", "1.530")
+    //! i makechange(current, "ucpt", "0.9")
+    //! i makechange(current, "urun", "120.00")
+    //! i makechange(current, "uwal", "120.00")
+    //! i makechange(current, "udtm", "3.0")
+    //! i makechange(current, "uept", "0")
+    //! i makechange(current, "uerd", "50.00")
+    //! i makechange(current, "umxp", "10.00")
+    //! i makechange(current, "umxr", "10.00")
+    //! i makechange(current, "uisz", "0")
+    //! i makechange(current, "uimz", "100.00")
+    //! i makechange(current, "ulpx", "0.00")
+    //! i makechange(current, "ulpy", "0.00")
+    //! i makechange(current, "ulsz", "0.00")
+    //! i makechange(current, "ulpz", "60.00")
+    //! i makechange(current, "uprw", "60.00")
+    //! i makechange(current, "uaap", "medium")
+    //backswing stuff - for Eagle Warrior
+    //! i makechange(current, "ubs1", "0.833")
+    //! i makechange(current, "udp1", "1.033")
+    ////! i makechange(current, "uslz", "230.00") flyers only
+    //! i makechange(current, "ushx", "60.00")
+    //! i makechange(current, "ushy", "60.00")
+    //! i makechange(current, "ushh", "160.00")
+    //! i makechange(current, "ushw", "160.00")
+    //the scaling of the model
+    //! i makechange(current, "usca", "1.0")
+    //selection circle size
+    //! i makechange(current, "ussc", "1.5")
+    //collision size
+    //! i makechange(current, "ucol", "32")
+    //point value - index
+    //! i makechange(current, "upoi", "" .. upoi)
+    //movement speed
+    //! i makechange(current, "umvs", "270")
+    //what hitting the unit sounds like
+    //! i makechange(current, "uarm", "Flesh")
+    //what sound the unit makes when attacking (melee only)
+    //! i makechange(current, "ucs1", "MetalHeavySlice")
+    //the unit's armor type, e.g. "hero"
+    //! i makechange(current, "udty", "hero")
+    //! i makechange(current, "ua1t", "hero")
+    //the unit's projectile (ranged/flying only)
+    ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
+    //! i upoi = upoi + 1
+
 // Dracky
     //***************
     //! i setobjecttype("units")
@@ -1176,63 +1234,6 @@
     //! i makechange(current, "ua1t", "pierce")
     //the unit's projectile (ranged/flying only)
     //! i makechange(current, "ua1m", "Abilities\\Weapons\\GargoyleMissile\\GargoyleMissile.mdl")
-    //! i upoi = upoi + 1
-
-// Eagle Warrior
-    //***************
-    //! i setobjecttype("units")
-    //! i createobject(DUMMY_MELEE, make_id(upoi))
-    //! i makechange(current, "unam", BIRD)
-    //! i makechange(current, "properNames", "Azurile (m),Azurile (f)")
-    //! i makechange(current, "umdl", "EagleWarrior.mdx")
-    //! i makechange(current, "uico", "BTNEagleWarrior.blp")
-    //! i makechange(current, "ussi", "BTNEagleWarrior.blp")
-    //! i makechange(current, "usnd", "HippoGryph")
-    //various art values
-    //! i makechange(current, "ucbs", "1.530")
-    //! i makechange(current, "ucpt", "0.9")
-    //! i makechange(current, "urun", "120.00")
-    //! i makechange(current, "uwal", "120.00")
-    //! i makechange(current, "udtm", "3.0")
-    //! i makechange(current, "uept", "0")
-    //! i makechange(current, "uerd", "50.00")
-    //! i makechange(current, "umxp", "10.00")
-    //! i makechange(current, "umxr", "10.00")
-    //! i makechange(current, "uisz", "0")
-    //! i makechange(current, "uimz", "100.00")
-    //! i makechange(current, "ulpx", "0.00")
-    //! i makechange(current, "ulpy", "0.00")
-    //! i makechange(current, "ulsz", "0.00")
-    //! i makechange(current, "ulpz", "60.00")
-    //! i makechange(current, "uprw", "60.00")
-    //! i makechange(current, "uaap", "medium")
-    //backswing stuff - for Eagle Warrior
-    //! i makechange(current, "ubs1", "0.833")
-    //! i makechange(current, "udp1", "1.033")
-    ////! i makechange(current, "uslz", "230.00") flyers only
-    //! i makechange(current, "ushx", "60.00")
-    //! i makechange(current, "ushy", "60.00")
-    //! i makechange(current, "ushh", "160.00")
-    //! i makechange(current, "ushw", "160.00")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //selection circle size
-    //! i makechange(current, "ussc", "1.5")
-    //collision size
-    //! i makechange(current, "ucol", "32")
-    //point value - index
-    //! i makechange(current, "upoi", "" .. upoi)
-    //movement speed
-    //! i makechange(current, "umvs", "270")
-    //what hitting the unit sounds like
-    //! i makechange(current, "uarm", "Flesh")
-    //what sound the unit makes when attacking (melee only)
-    //! i makechange(current, "ucs1", "MetalHeavySlice")
-    //the unit's armor type, e.g. "hero"
-    //! i makechange(current, "udty", "hero")
-    //! i makechange(current, "ua1t", "hero")
-    //the unit's projectile (ranged/flying only)
-    ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
     //! i upoi = upoi + 1
 
 // Harpy (bird + bug)
@@ -1471,6 +1472,72 @@
     //! i makechange(current, "ua1t", "magic")
     //the unit's projectile (ranged/flying only)
     //! i makechange(current, "ua1m", "Abilities\\Weapons\\ZigguratMissile\\ZigguratMissile.mdl")
+    //! i upoi = upoi + 1
+
+// War Hawk
+    //***************
+    //! i setobjecttype("units")
+    //! i createobject(DUMMY_FLYING, make_id(upoi))
+    //! i makechange(current, "unam", BIRD)
+    //! i makechange(current, "properNames", "Mask Hawk (m),Mask Hawk (f)")
+    //! i makechange(current, "umdl", "units\\creeps\\WarEagle\\WarEagle")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNWarEagle.blp")
+    //! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNWarEagle.blp")
+    //! i makechange(current, "usnd", "WarEagle")
+    //various art values
+    //! i makechange(current, "ucbs", "0.510")
+    //! i makechange(current, "ucpt", "0.300")
+    //! i makechange(current, "urun", "200.0")
+    //! i makechange(current, "uwal", "200.0")
+    //! i makechange(current, "udtm", "1.0")
+    //! i makechange(current, "uept", "2")
+    //! i makechange(current, "uerd", "20.00")
+    //! i makechange(current, "umxp", "33.00")
+    //! i makechange(current, "umxr", "25.00")
+    //! i makechange(current, "uisz", "0")
+    //! i makechange(current, "uimz", "60.00")
+    //! i makechange(current, "ulpx", "0.00")
+    //! i makechange(current, "ulpy", "0.00")
+    //! i makechange(current, "ulsz", "0.00")
+    //! i makechange(current, "ulpz", "60.00")
+    //! i makechange(current, "uprw", "61.00")
+    //! i makechange(current, "uaap", "medium")
+    //flyers only
+    //! i makechange(current, "uslz", "230.00")
+    //! i makechange(current, "ushx", "60.00")
+    //! i makechange(current, "ushy", "60.00")
+    //! i makechange(current, "ushh", "120.00")
+    //! i makechange(current, "ushw", "120.00")
+    //movement height (flyers only)
+    //! i makechange(current, "umvh", "240.00")
+    //flyer min height
+    //! i makechange(current, "umvf", "90.00")
+    //the scaling of the model
+    //! i makechange(current, "usca", "1.10")
+    //selection circle size
+    //! i makechange(current, "ussc", "1.5")
+    //backswing stuff
+    //! i makechange(current, "ubs1", "0.670")
+    //! i makechange(current, "udp1", "0.500")
+    //collision size
+    //! i makechange(current, "ucol", "32")
+    //point value - index
+    //! i makechange(current, "upoi", "" .. upoi)
+    //tinting values for some units
+    //! i makechange(current, "uclr", "255")
+    //! i makechange(current, "uclg", "255")
+    //! i makechange(current, "uclb", "255")
+    //movement speed
+    //! i makechange(current, "umvs", "300")
+    //what hitting the unit sounds like
+    //! i makechange(current, "uarm", "Flesh")
+    //what sound the unit makes when attacking (melee only)
+    //! i makechange(current, "ucs1", "NONE")
+    //the unit's armor type, e.g. "hero"
+    //! i makechange(current, "udty", "none")
+    //! i makechange(current, "ua1t", "pierce")
+    //the unit's projectile (ranged/flying only)
+    //! i makechange(current, "ua1m", "Abilities\\Weapons\\HarpyMissile\\HarpyMissile.mdl")
     //! i upoi = upoi + 1
 
 // Penguin
@@ -1791,72 +1858,6 @@
     //! i makechange(current, "uclb", "255")
     //movement speed
     //! i makechange(current, "umvs", "320")
-    //what hitting the unit sounds like
-    //! i makechange(current, "uarm", "Flesh")
-    //what sound the unit makes when attacking (melee only)
-    //! i makechange(current, "ucs1", "NONE")
-    //the unit's armor type, e.g. "hero"
-    //! i makechange(current, "udty", "none")
-    //! i makechange(current, "ua1t", "pierce")
-    //the unit's projectile (ranged/flying only)
-    //! i makechange(current, "ua1m", "Abilities\\Weapons\\HarpyMissile\\HarpyMissile.mdl")
-    //! i upoi = upoi + 1
-
-// War Hawk
-    //***************
-    //! i setobjecttype("units")
-    //! i createobject(DUMMY_FLYING, make_id(upoi))
-    //! i makechange(current, "unam", BIRD)
-    //! i makechange(current, "properNames", "Mask Hawk (m),Mask Hawk (f)")
-    //! i makechange(current, "umdl", "units\\creeps\\WarEagle\\WarEagle")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNWarEagle.blp")
-    //! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNWarEagle.blp")
-    //! i makechange(current, "usnd", "WarEagle")
-    //various art values
-    //! i makechange(current, "ucbs", "0.510")
-    //! i makechange(current, "ucpt", "0.300")
-    //! i makechange(current, "urun", "200.0")
-    //! i makechange(current, "uwal", "200.0")
-    //! i makechange(current, "udtm", "1.0")
-    //! i makechange(current, "uept", "2")
-    //! i makechange(current, "uerd", "20.00")
-    //! i makechange(current, "umxp", "33.00")
-    //! i makechange(current, "umxr", "25.00")
-    //! i makechange(current, "uisz", "0")
-    //! i makechange(current, "uimz", "60.00")
-    //! i makechange(current, "ulpx", "0.00")
-    //! i makechange(current, "ulpy", "0.00")
-    //! i makechange(current, "ulsz", "0.00")
-    //! i makechange(current, "ulpz", "60.00")
-    //! i makechange(current, "uprw", "61.00")
-    //! i makechange(current, "uaap", "medium")
-    //flyers only
-    //! i makechange(current, "uslz", "230.00")
-    //! i makechange(current, "ushx", "60.00")
-    //! i makechange(current, "ushy", "60.00")
-    //! i makechange(current, "ushh", "120.00")
-    //! i makechange(current, "ushw", "120.00")
-    //movement height (flyers only)
-    //! i makechange(current, "umvh", "240.00")
-    //flyer min height
-    //! i makechange(current, "umvf", "90.00")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.10")
-    //selection circle size
-    //! i makechange(current, "ussc", "1.5")
-    //backswing stuff
-    //! i makechange(current, "ubs1", "0.670")
-    //! i makechange(current, "udp1", "0.500")
-    //collision size
-    //! i makechange(current, "ucol", "32")
-    //point value - index
-    //! i makechange(current, "upoi", "" .. upoi)
-    //tinting values for some units
-    //! i makechange(current, "uclr", "255")
-    //! i makechange(current, "uclg", "255")
-    //! i makechange(current, "uclb", "255")
-    //movement speed
-    //! i makechange(current, "umvs", "300")
     //what hitting the unit sounds like
     //! i makechange(current, "uarm", "Flesh")
     //what sound the unit makes when attacking (melee only)
@@ -7670,6 +7671,67 @@
     //the unit's armor type, e.g. "hero"
     //! i makechange(current, "udty", "large")
     //! i makechange(current, "ua1t", "hero")
+    //! i upoi = upoi + 1
+
+// Slime
+    //***************
+    //! i setobjecttype("units")
+    //! i createobject(DUMMY_MELEE, make_id(upoi))
+    //! i makechange(current, "unam", SLIME)
+    //! i makechange(current, "properNames", "Slime (m),Slime (f)")
+    //! i makechange(current, "umdl", "Slime.mdx")
+    //! i makechange(current, "uico", "BTNWaterElemental.blp")
+    //! i makechange(current, "ussi", "BTNWaterElemental.blp")
+    //! i makechange(current, "usnd", "Murloc")
+    //various art values
+    //! i makechange(current, "ucbs", "0.510")
+    //! i makechange(current, "ucpt", "0.000")
+    //! i makechange(current, "urun", "200.00")
+    //! i makechange(current, "uwal", "200.00")
+    //! i makechange(current, "udtm", "1.67")
+    //! i makechange(current, "uept", "0")
+    //! i makechange(current, "uerd", "20.00")
+    //! i makechange(current, "umxp", "60.00")
+    //! i makechange(current, "umxr", "25.00")
+    //! i makechange(current, "uisz", "0")
+    //! i makechange(current, "uimz", "60.00")
+    //! i makechange(current, "ulpx", "0.00")
+    //! i makechange(current, "ulpy", "0.00")
+    //! i makechange(current, "ulsz", "0.00")
+    //! i makechange(current, "ulpz", "60.00")
+    //! i makechange(current, "uprw", "60.00")
+    ////! i makechange(current, "uaap", "medium")
+    ////! i makechange(current, "uslz", "230.00") flyers only
+    //! i makechange(current, "ushx", "35.00")
+    //! i makechange(current, "ushy", "35.00")
+    //! i makechange(current, "ushh", "70.00")
+    //! i makechange(current, "ushw", "70.00")
+    //the scaling of the model
+    //! i makechange(current, "usca", "1.0")
+    //selection circle size
+    //! i makechange(current, "ussc", ".9")
+    //tint stuff
+    //! i makechange(current, "uclr", "255")
+    //! i makechange(current, "uclg", "255")
+    //! i makechange(current, "uclb", "255")
+    //backswing stuff
+    //! i makechange(current, "ubs1", "0.000")
+    //! i makechange(current, "udp1", "0.000")
+    //collision size
+    //! i makechange(current, "ucol", "16")
+    //point value - index
+    //! i makechange(current, "upoi", "" .. upoi)
+    //movement speed
+    //! i makechange(current, "umvs", "300")
+    //what hitting the unit sounds like
+    //! i makechange(current, "uarm", "Ethereal")
+    //what sound the unit makes when attacking (melee only)
+    //! i makechange(current, "ucs1", "WoodLightBash")
+    //the unit's armor type, e.g. "hero"
+    //! i makechange(current, "udty", "none")
+    //! i makechange(current, "ua1t", "magic")
+    //the unit's projectile (ranged/flying only)
+    ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
     //! i upoi = upoi + 1
 
 // Blood Gill

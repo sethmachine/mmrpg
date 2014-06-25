@@ -1,12 +1,24 @@
-library EventStruct requires Util
+library EventStruct initializer init requires Util
 
 globals
+	private Table timerTable
 endglobals
+
+private function afterWait takes nothing returns nothing
+	local timer expired = GetExpiredTimer()
+	local integer index = GetHandleId(expired)
+	local Event e = timerTable[index]
+	local integer pid = R2I(timerTable.real[index])
+	call e.doNext(pid)
+	call DestroyTimer(expired)
+endfunction
 
 //a representation of an event
 //an event is essentially anything that can happen
 struct Event
+	real wait = 0.1 //duration to wait between calling next event
 	Event next //the next event to be called
+	
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
         return this
@@ -20,6 +32,14 @@ struct Event
 		endif
 	endmethod
 	
+	method doWait takes integer pid, real wait returns nothing
+		local timer t = CreateTimer()
+		set timerTable[GetHandleId(t)] = this
+		set timerTable.real[GetHandleId(t)] = pid
+		call TimerStart(t, wait, false, function afterWait)
+		set t = null
+	endmethod
+
     //nulls and destroys all objects
     stub method flush takes nothing returns nothing
     endmethod
@@ -58,7 +78,20 @@ struct Event
 	stub method setEnableQuest takes string whichQuest returns nothing
 		call print("WARNING: stub method not implemented.")
 	endmethod
+
+	stub method setWarp takes integer whichWarp, boolean state returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
+
+	stub method setSFXInCircleAtPC takes string whichSFX, integer quant returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
 	
 	
 endstruct
+
+private function init takes nothing returns nothing
+	set timerTable = Table.create()
+endfunction
+
 endlibrary

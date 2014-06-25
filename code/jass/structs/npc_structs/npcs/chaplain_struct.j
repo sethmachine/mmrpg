@@ -28,16 +28,16 @@ private function introMain takes nothing returns boolean
             if m.isDead() then
                 call ReviveHeroLoc(m.u, GetUnitLoc(u), true)
             elseif m != 0 then
-                call SetUnitState(m.u, UNIT_STATE_MAX_LIFE, GetUnitState(m.u, UNIT_STATE_MAX_LIFE))
-                call SetUnitState(m.u, UNIT_STATE_MAX_MANA, GetUnitState(m.u, UNIT_STATE_MAX_MANA))
+				call SetUnitLifePercentBJ(m.u, 100.0)
+				call SetUnitManaPercentBJ(m.u, 100.0)
             endif
             set i = i + 1
         endloop
-        call SetUnitState(u, UNIT_STATE_MAX_LIFE, GetUnitState(u, UNIT_STATE_MAX_LIFE))
-        call SetUnitState(u, UNIT_STATE_MAX_MANA, GetUnitState(u, UNIT_STATE_MAX_MANA))
-        /*if GetLocalPlayer() == p then
-            call StartSound(gg_snd_Restore)
-        endif*/
+		call SetUnitLifePercentBJ(u, 100.0)
+		call SetUnitManaPercentBJ(u, 100.0)
+        if p == GetLocalPlayer() then
+            call StartSound(gg_snd_RestorationPotion)
+        endif
     endif
     set b = null
     set t = null

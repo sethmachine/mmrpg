@@ -4,11 +4,13 @@ import os
 import platform
 import re
 
+BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 JASS_FILE_EXTENSION = ".j"
 
 TEXT_FILE_EXTENSION = ".txt"
 
-getFileName = re.compile(r'[a-z_]+(?=\.j)', re.IGNORECASE)
+getFileName = re.compile(r'[a-z_0-9]+(?=\.j)', re.IGNORECASE)
 getDirName = re.compile(r'(?<=/|\\)[a-z ]+$', re.IGNORECASE)
 p = re.compile(r'// [a-zA-Z ]+.*?upoi \+ 1', re.DOTALL)
 
@@ -32,6 +34,20 @@ def directory_2_jass(path = "C:\\Users\\Seth\\mmrpg\\lua"):
         text = w.read()
         w.close()
         text_2_jass(text, fileName.replace(".txt", ""), path + "\\")
+
+def add(value, baseDigits = BASE_62, result = ""):
+    if value == "":
+        value = "0"
+    if value[-1] != baseDigits[-1]:
+        next_digit = baseDigits.find(value[-1]) + 1
+        return value[:-1] + baseDigits[next_digit] + result
+    else:
+        return add(value[:-1], baseDigits, result + "0")
+
+def name2Var(name):
+    name = name.replace(" ", "_")
+    name = name.upper()
+    return name
 
 def find(name, path):
     if path != "/Users/" and path != "C:\\":

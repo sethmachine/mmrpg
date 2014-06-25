@@ -129,6 +129,7 @@
         //! i makechange(current, "iabi", make_id(AD_PREFIX, i))
         ////! i makechange(current, "ansf", "(Attribute)")
         //! i makechange(current, "unam", "Attack Tome (+" .. i .. ")")
+		//! i makechange(current, "ilev", "0")
     //! i end
 
     //****************

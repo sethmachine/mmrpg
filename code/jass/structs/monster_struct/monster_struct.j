@@ -13,6 +13,7 @@ struct Monster extends AbstractMonster
     integer gender = 0 //the gender of the monster, i.e. 0 is male, 1 is female.  
 	integer owner = -1 //if the monster is earmarked to be recruited for a certain player
     boolean isActive = false //the status of the monster, i.e. in party or storage
+	boolean eventMonster = false
     boolean isGrown = false //whether the monster has reached its maximum level
     boolean toRelease = false //whether the player contemplates releasing this monster
     boolean toSwap = false //whether the player is swapping out this monster from the party
@@ -80,6 +81,7 @@ struct Monster extends AbstractMonster
     endmethod
     
 	method flush takes nothing returns nothing
+		call KillUnit(this.u)
 		call RemoveUnit(this.u)
 		set this.u = null
 		call DialogDestroy(this.info)
@@ -121,7 +123,7 @@ struct Monster extends AbstractMonster
         set s = s + "Intelligence: " + I2S(attrPts[INT]) + "\n"
         call DialogSetMessage(info, s)
         call DialogAddButton(info, "Ok.", 0)
-        call DialogDisplay(Player(pid), info, true)
+        call DialogDisplay(players[pid], info, true)
     endmethod
 
         
@@ -263,7 +265,7 @@ struct Monster extends AbstractMonster
     endmethod
         
     
-    method newLevelUp takes integer lvl returns nothing
+    method levelUp takes integer lvl returns nothing
         local integer i = 0
         call levelDEF(lvl)
         call levelSTR(lvl)
@@ -276,244 +278,6 @@ struct Monster extends AbstractMonster
         loop
             exitwhen i == lvl
             call levelAbil(GetHeroLevel(u))
-            set i = i + 1
-        endloop
-    endmethod
-
-    //called when the monster levels up
-    method levelUp takes nothing returns nothing
-        local integer cntNum = 0 //counter for each attribute
-        local integer newPts = 0 //a variable for the new attribute points
-        local integer gain = 0 //how much a monster has gained
-        local integer currAttrVal = 0 //the current value of agi, int, or str
-        local integer i = 0 //loop counter for attack speed, spell resistance, and mana
-        loop //level up all 8 attributes: DEF, INT, STR, ATT, AGI, HP, MANA, and SP
-            exitwhen cntNum == MAX_ATTRIBUTES
-            set newPts = attrPts[cntNum] + calcStatIncrease(attrIV[cntNum], attrMin[cntNum], attrMax[cntNum])
-            if (newPts / attrRatio[cntNum]) > (attrPts[cntNum] / attrRatio[cntNum]) then
-                set gain = (newPts / attrRatio[cntNum]) - (attrPts[cntNum] / attrRatio[cntNum])
-                if cntNum == DEF then
-                    set currAttrVal = GetHeroAgi(u, false)
-                    call SetHeroAgi(u, currAttrVal + gain, true)
-                elseif cntNum == INT then
-                    set currAttrVal = GetHeroInt(u, false)
-                    call SetHeroInt(u, currAttrVal + gain, true)
-                elseif cntNum == STR then
-                    set currAttrVal = GetHeroStr(u, false)
-                    call SetHeroStr(u, currAttrVal + gain, true)
-                elseif cntNum == ATT then
-                    loop
-                        exitwhen i == gain
-                        call UnitAddItemById(u, DAMAGE_TOME)
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                elseif cntNum == HP then
-                    loop
-                        exitwhen i == MAX_HEALTH_LVLS
-                        call UnitRemoveAbility(u, healthPts[i])
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    set gain = (newPts / attrRatio[cntNum])
-                    loop
-                        exitwhen gain == 0
-                        set i = binaryIndex(gain, false)
-                        set gain = gain - binaryIndex(gain, true)
-                        call UnitAddAbility(u, healthPts[i])
-                    endloop
-                    set i = 0
-                elseif cntNum == MANA then
-                    loop
-                        exitwhen i == MAX_MANA_LVLS
-                        call UnitRemoveAbility(u, manaPts[i])
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    set gain = (newPts / attrRatio[cntNum])
-                    loop
-                        exitwhen gain == 0
-                        set i = binaryIndex(gain, false)
-                        set gain = gain - binaryIndex(gain, true)
-                        call UnitAddAbility(u, manaPts[i])
-                    endloop
-                    set i = 0
-                elseif cntNum == AGI then
-                    loop
-                        exitwhen i == ATTRIBUTE_ABILITY_LVLS
-                        call UnitRemoveAbility(u, attackSpeed[i])
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    set gain = (newPts / attrRatio[cntNum])
-                    loop
-                        exitwhen gain == 0
-                        set i = binaryIndex(gain, false)
-                        set gain = gain - binaryIndex(gain, true)
-                        call UnitAddAbility(u, attackSpeed[i])
-                    endloop
-                    set i = 0
-                elseif cntNum == SP then
-                    if GetUnitAbilityLevel(u, SPELL_RESIST) == 0 then
-                        call UnitAddAbility(u, SPELL_RESIST)
-                    else
-                    call SetUnitAbilityLevel(u, SPELL_RESIST, (newPts / attrRatio[cntNum]))
-                    endif
-                endif
-            endif
-            set attrPts[cntNum] = newPts //set the pts to the new pts
-            set cntNum = cntNum + 1
-        endloop
-        set heroLvl = heroLvl + 1
-        set cntNum = 0 //reset the counter for abilities now
-        loop
-            exitwhen cntNum == MAX_ABILITIES
-            if abilities[cntNum] != 0 then //make sure its actually an ability
-                //call print("found a non-null ability")
-                //call print("abil level: " + I2S(GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]))) //0
-                //call print("hero level: " + I2S(heroLvl)) //31
-                //call print("intelligence: " + I2S(GetHeroInt(u, false))) //19
-                if abilities[cntNum].levelUp(GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]), heroLvl, GetHeroInt(u, false)) then
-                    //call print("attempting to do something to an ability")
-                    if GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]) == 0 then
-                        //call print("attempting to add an ability")
-                        call UnitAddAbility(u, abilities[cntNum].ids[cntNum])
-                    else
-                        //call print("attempting to increase ability level")
-                        call SetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum], GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]) + 1)
-                    endif
-                endif
-            endif
-            set cntNum = cntNum + 1
-        endloop
-    endmethod
-
-   //called when the monster levels up
-    method levelUpN2 takes integer lvl returns nothing
-        local integer cntNum = 0 //counter for each attribute
-        local integer newPts = 0 //a variable for the new attribute points
-        local integer gain = 0 //how much a monster has gained
-        local integer currAttrVal = 0 //the current value of agi, int, or str
-        local integer i = 0 //loop counter for attack speed, spell resistance, and mana
-        local integer j = 0
-        loop //level up all 8 attributes: DEF, INT, STR, ATT, AGI, HP, MANA, and SP
-            exitwhen cntNum == MAX_ATTRIBUTES
-            loop
-                exitwhen j == lvl
-                set newPts = newPts + attrPts[cntNum] + calcStatIncrease(attrIV[cntNum], attrMin[cntNum], attrMax[cntNum])
-                set j = j + 1
-            endloop
-            if (newPts / attrRatio[cntNum]) > (attrPts[cntNum] / attrRatio[cntNum]) then
-                set gain = (newPts / attrRatio[cntNum]) - (attrPts[cntNum] / attrRatio[cntNum])
-                if cntNum == DEF then
-                    set currAttrVal = GetHeroAgi(u, false)
-                    call SetHeroAgi(u, currAttrVal + gain, true)
-                elseif cntNum == INT then
-                    set currAttrVal = GetHeroInt(u, false)
-                    call SetHeroInt(u, currAttrVal + gain, true)
-                elseif cntNum == STR then
-                    set currAttrVal = GetHeroStr(u, false)
-                    call SetHeroStr(u, currAttrVal + gain, true)
-                elseif cntNum == ATT then
-                    if gain > 0 then
-                        call UnitAddItemById(u, damageTomes[gain])
-                    endif
-                    set i = 0
-                elseif cntNum == HP then
-                    loop
-                        exitwhen i == MAX_HEALTH_LVLS
-                        call UnitRemoveAbility(u, healthPts[i])
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    set gain = (newPts / attrRatio[cntNum])
-                    loop
-                        exitwhen gain == 0
-                        set i = binaryIndex(gain, false)
-                        set gain = gain - binaryIndex(gain, true)
-                        call UnitAddAbility(u, healthPts[i])
-                    endloop
-                    set i = 0
-                elseif cntNum == MANA then
-                    loop
-                        exitwhen i == MAX_MANA_LVLS
-                        call UnitRemoveAbility(u, manaPts[i])
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    set gain = (newPts / attrRatio[cntNum])
-                    loop
-                        exitwhen gain == 0
-                        set i = binaryIndex(gain, false)
-                        set gain = gain - binaryIndex(gain, true)
-                        call UnitAddAbility(u, manaPts[i])
-                    endloop
-                    set i = 0
-                elseif cntNum == AGI then
-                    loop
-                        exitwhen i == ATTRIBUTE_ABILITY_LVLS
-                        call UnitRemoveAbility(u, attackSpeed[i])
-                        set i = i + 1
-                    endloop
-                    set i = 0
-                    set gain = (newPts / attrRatio[cntNum])
-                    loop
-                        exitwhen gain == 0
-                        set i = binaryIndex(gain, false)
-                        set gain = gain - binaryIndex(gain, true)
-                        call UnitAddAbility(u, attackSpeed[i])
-                    endloop
-                    set i = 0
-                elseif cntNum == SP then
-                    if GetUnitAbilityLevel(u, SPELL_RESIST) == 0 then
-                        call UnitAddAbility(u, SPELL_RESIST)
-                    else
-                    call SetUnitAbilityLevel(u, SPELL_RESIST, (newPts / attrRatio[cntNum]))
-                    endif
-                endif
-            endif
-            set attrPts[cntNum] = newPts //set the pts to the new pts
-            set cntNum = cntNum + 1
-        endloop
-        //set heroLvl = heroLvl + 1
-        set cntNum = 0 //reset the counter for abilities now
-        loop
-            exitwhen cntNum == MAX_ABILITIES
-            if abilities[cntNum] != 0 then //make sure its actually an ability
-                //call print("found a non-null ability")
-                //call print("abil level: " + I2S(GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]))) //0
-                //call print("hero level: " + I2S(heroLvl)) //31
-                //call print("intelligence: " + I2S(GetHeroInt(u, false))) //19
-                if abilities[cntNum].levelUp(GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]), heroLvl, GetHeroInt(u, false)) then
-                    //call print("attempting to do something to an ability")
-                    if GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]) == 0 then
-                        //call print("attempting to add an ability")
-                        call UnitAddAbility(u, abilities[cntNum].ids[cntNum])
-                    else
-                        //call print("attempting to increase ability level")
-                        call SetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum], GetUnitAbilityLevel(u, abilities[cntNum].ids[cntNum]) + 1)
-                    endif
-                endif
-            endif
-            set cntNum = cntNum + 1
-        endloop
-    endmethod
-    
-    method levelUpN takes integer n returns nothing
-        local integer i = 0
-        loop
-            exitwhen i == n
-            call levelUp()
-            set i = i + 1
-        endloop
-    endmethod
-
-    method levelUpZ takes integer n returns nothing
-        local integer i = 0
-        loop
-            exitwhen i == n
-            call levelUp()
-            //set heroLvl = heroLvl - 1
             set i = i + 1
         endloop
     endmethod

@@ -2,8 +2,9 @@ library CreepSpawnTimer initializer init requires Util
 
 globals
     constant integer SPAWN_PERIOD = 15 //how often the timer checks
-    constant real SPAWN_DISTANCE = 1500.0 //how far away a creep spawns
-    constant real AMBUSH_DISTANCE = 1000.0
+    constant real SPAWN_DISTANCE = 900.0 //how far away a creep spawns
+    constant real AMBUSH_DISTANCE = 800.0
+	constant real TREE_DISTANCE = 200.0
 endglobals
 
 //! textmacro CreepTimerMain takes pid
@@ -18,9 +19,10 @@ private function main_$pid$ takes nothing returns nothing
     local Monster creep
     local PlayerData pd = playerDatum[$pid$]
     local CreepRegion cr
-    //call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "Starting creep spawn main")
+    call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "Starting creep spawn main")
+	call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, I2S(pd.creepRegion))
     if pd.creepRegion >= 0 then
-        call print("You are in CreepRegion: " + I2S(pd.creepRegion))
+		call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "You are in CreepRegion: " + I2S(pd.creepRegion))
         if pd.creepFreq >= GetRandomInt(0, 100) then
             set cr = creepRegionTable[pd.creepRegion]
             set mobSize = cr.mobSize
@@ -40,7 +42,7 @@ private function main_$pid$ takes nothing returns nothing
                 exitwhen i == mobSize
                 if cr.creeps.size < cr.creeps.maxSize then
                     if cr.ambushFreq >= GetRandomInt(0, 100) then //ambush time
-                        set targetLoc = getRandomReachableLoc(playerLoc, AMBUSH_DISTANCE, 500.00)
+                        set targetLoc = getRandomReachableLoc(playerLoc, AMBUSH_DISTANCE, TREE_DISTANCE)
                         set creep = creepTables[pd.creepRegion].genCreep(targetLoc)
                         call cr.creeps.addMonster(creep)
                         call IssuePointOrderLoc(creep.u, "attack", playerLoc)
@@ -49,7 +51,7 @@ private function main_$pid$ takes nothing returns nothing
                             call StartSound(gg_snd_EnemyAppears)
                         endif
                     else
-                        set targetLoc = getRandomReachableLoc(playerLoc, SPAWN_DISTANCE, 500.00)
+                        set targetLoc = getRandomReachableLoc(playerLoc, SPAWN_DISTANCE, TREE_DISTANCE)
                         set creep = creepTables[pd.creepRegion].genCreep(targetLoc)
                         call cr.creeps.addMonster(creep)
                     endif

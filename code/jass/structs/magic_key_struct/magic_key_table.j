@@ -14,12 +14,12 @@ private function fillTable takes nothing returns nothing
     //*********************************************
     //***** GreatBark  ****************************
     //*********************************************
-    set keyTable[i] = MagicKey.create("GreatBark", 0, gg_unit_w000_0002)
+    set keyTable[i] = MagicKey.create("GreatBark", 0, Location(-12797.8, 11826.5))
     set i = i + 1
     //*********************************************
     //***** Agon  *********************************
     //*********************************************
-    set keyTable[i] = MagicKey.create("Agon", 0, gg_unit_w000_0000)
+    set keyTable[i] = MagicKey.create("Agon", 0, Location(-14212.8, 7547.1))
     set i = i + 1
     
     

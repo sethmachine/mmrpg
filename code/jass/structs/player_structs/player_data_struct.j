@@ -12,6 +12,7 @@ struct PlayerData
     Monster recruit = 0 //a potential recruit
     MonsterGroup party //the player's party monsters
     MonsterGroup farm //the player's farm monsters
+	MonsterGroup eventMonsters
     ItemGroup backpack //the player's virtual inventory
     ItemGroup bank //the player's inventory at home
     MagicKeyGroup keys //the player's magic keys
@@ -31,6 +32,7 @@ struct PlayerData
         set this.pid = pid
         set this.party = MonsterGroup.create(PARTY, pid) //initialize the party
         set this.farm = MonsterGroup.create(FARM, pid) //initialze the farm
+		set this.eventMonsters = MonsterGroup.create(CREEP, pid)
         set this.backpack = ItemGroup.create(BACKPACK, pid)
         set this.bank = ItemGroup.create(BANK, pid)
         set this.keys = MagicKeyGroup.create(pid)

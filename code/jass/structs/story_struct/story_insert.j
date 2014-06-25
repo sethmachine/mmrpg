@@ -1,12 +1,10 @@
-library StoryTable initializer storyInit requires QuestInit
+library StoryTable initializer storyInit requires QuestInit, NPCInit
 
 globals
     constant integer TOTAL_STORIES = 8000
     Story array storyTable[TOTAL_STORIES]
     Story array bigStoryTable[TOTAL_STORIES]
     private timer t
-    constant integer CHAPLAIN_TUTORIAL_STORY_1 = 0
-    constant integer CHAPLAIN_TUTORIAL_STORY_2 = 1
 endglobals
 
 private function fillTable takes nothing returns nothing
@@ -15,6 +13,360 @@ private function fillTable takes nothing returns nothing
 	local Story currentStory
 	local Story previousStory
 	 //*********************************************
+ //***  - Isaiah Story1 Part 1 **
+ //*********************************************
+ set currentStory = Story.create()
+ call currentStory.setStoryMsg("     Oh sweet child, you are so     \n     kind to ask. My husband     \n     was a traveling merchant     \n     by trade, and when his     \n     caravan returned to Kalka,     \n     he did not come home.        \n")
+ call currentStory.addNextBttn("Where is he?")
+ call currentStory.addPrevBttn("Hold on...I need some time to myself.")
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set bigStoryTable[j] = currentStory
+ set i = i + 1
+ set j = j + 1
+ //*********************************************
+ //*** Isaiah Story1 Part 2 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      The caravan was ambushed     \n     by bandits in the desert,     \n     as I am told. The attack     \n     was brutal and the desert     \n     so fierce the survivors     \n     did not have time to bring     \n     back the dead, so they     \n     were buried out in the     \n     wastes. But my husband was     \n     not given proper burial     \n     rites.      \n")
+ call currentStory.addNextBttn("And what are those?")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set i = i + 1
+ //*********************************************
+ //***  - Isaiah Story1 Part 3 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      It is custom for a widow     \n     to bury her dead husband     \n     with a bundle of rare     \n     desert flowers. But, as it     \n     is too dangerous for me to     \n     go out and find these     \n     flowers, I have not been     \n     able to give my husband     \n     the peace he deserves.       \n")
+ call currentStory.addNextBttn("I could get the flowers for you.")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set i = i + 1
+ //*********************************************
+ //***  - Isaiah Story1 Part 4 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      You are brave, child!     \n     Please, do a grieving     \n     widow justice and bring     \n     back these desert flowers.     \n          \n")
+ call currentStory.addNextBttn("I'll find those flowers and bring them back.")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ call currentStory.setLink()
+ set storyTable[i] = currentStory
+ set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*********************************************
+ //***  - Isaiah Story2 Part 1 *
+ //*********************************************
+ set currentStory = Story.create()
+ call currentStory.setStoryMsg("     Oh sweet child, you are     \n     most kind. But I fear that     \n     these flowers will do no     \n     good unless they are laid     \n     aside the burial tomb of     \n     my late husband.       \n")
+ call currentStory.addNextBttn("You didn't mention that.")
+ call currentStory.addPrevBttn("Hold on...I need some time to myself.")
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set bigStoryTable[j] = currentStory
+ set i = i + 1
+ set j = j + 1
+ //*********************************************
+ //***  - Isaiah Story Part 2 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      I would do it myself, but     \n     the desert is too     \n     dangerous for a widow such     \n     as me. I know I ask much     \n     of you, but would you do     \n     me one last favor, and     \n     place these flowers on his     \n     tombstone?       \n")
+ call currentStory.addNextBttn("I suppose I can do that.")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set i = i + 1
+ //*********************************************
+ //***  - Isaiah Story Part 3 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("       Many thanks, sweet     \n     child. I am almost at     \n     peace of mind already, and     \n     I know my husband will     \n     find his rest soon enough,     \n     once you bring those     \n     flowers to his tombstone.     \n     As for its location--it     \n     could be anywhere in the     \n     desert.       \n")
+ call currentStory.addNextBttn("He'll get his flowers.")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ call currentStory.setLink()
+ set storyTable[i] = currentStory
+ set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*********************************************
  //*** Tutorial Quest - Chaplain Story1 Part 1 **
  //*********************************************
  set currentStory = Story.create()
@@ -101,6 +453,114 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //*** Tutorial Quest - Chaplain Story2 Part 1 *
  //*********************************************
@@ -149,6 +609,114 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

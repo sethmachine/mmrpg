@@ -58,6 +58,7 @@
     //! i WATER = "|cff227bdcWater|r"
     //! i ZOMBIE = "|cff9851aeZombie|r"
     //! i BOSS = "|cffbc424e???|r"
+	//! i SLIME = "|cff80ffffSlime|r"
     //String for the custom object id
     //! i CUSTOM_ID = "M"
     //use this function to make each monster's custom object id

@@ -32,9 +32,9 @@ struct CreepRegion
     endmethod
     
     static method leaveMain takes nothing returns boolean
-        local player p = GetTriggerPlayer()
-        local integer pid = GetPlayerId(p)
         local unit u = GetTriggerUnit()
+        local player p = GetOwningPlayer(GetTriggerUnit())
+        local integer pid = GetPlayerId(p)
         local CreepRegion cr
         if GetTriggerUnit() == playerDatum[pid].pc.u then
             set cr = findCreepRegion(GetTriggeringRegion())
@@ -48,9 +48,9 @@ struct CreepRegion
     endmethod
     
     static method enterMain takes nothing returns boolean
-        local player p = GetTriggerPlayer()
-        local integer pid = GetPlayerId(p)
         local unit u = GetTriggerUnit()
+        local player p = GetOwningPlayer(GetTriggerUnit())
+        local integer pid = GetPlayerId(p)
         local CreepRegion cr
         if GetTriggerUnit() == playerDatum[pid].pc.u then
             set cr = findCreepRegion(GetTriggeringRegion())

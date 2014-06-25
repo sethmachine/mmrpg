@@ -2,7 +2,7 @@
     //************ Agon Child1 *******************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_CHILD1, unitId)
+    //! i createobject(DUMMY_CHILD1, unitId)
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")

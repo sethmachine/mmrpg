@@ -41,7 +41,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_MAN1, DUMMY_MAN1)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
     //! i makechange(current, "unsf", "(Generic Male1)")
@@ -54,7 +54,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_MAN2, DUMMY_MAN2)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
     //! i makechange(current, "unsf", "(Generic Male2)")
@@ -67,7 +67,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_WOMAN, DUMMY_WOMAN)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
     //! i makechange(current, "unsf", "(Generic Woman)")
@@ -80,7 +80,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_CHILD1, DUMMY_CHILD1)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Child")
     //! i makechange(current, "unsf", "(Generic Child1)")
@@ -93,7 +93,7 @@
     //********************************************
     //! i setobjecttype("units")
     //! i createobject(BASE_ID_CHILD1, DUMMY_CHILD2)
-    //! i makechange(current, "uabi", "Avul, Awan")
+    //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Child")
     //! i makechange(current, "unsf", "(Generic Child2)")
@@ -105,7 +105,7 @@
     //************ Agon Child1 *******************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_CHILD1, unitId)
+    //! i createobject(DUMMY_CHILD1, unitId)
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")
@@ -118,7 +118,7 @@
     //************ Agon Child2 *******************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_CHILD2, unitId)
+    //! i createobject(DUMMY_CHILD2, unitId)
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")
@@ -131,7 +131,7 @@
     //************ Agon Man1 *********************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_MAN1, unitId)
+    //! i createobject(DUMMY_MAN1, unitId)
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")
@@ -144,7 +144,7 @@
     //************ Agon Man2 *********************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_MAN2, unitId)
+    //! i createobject(DUMMY_MAN2, unitId)
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")
@@ -157,7 +157,7 @@
     //************ Agon Woman ********************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_WOMAN, unitId)
+    //! i createobject(DUMMY_WOMAN1, unitId)
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "125")
     //! i makechange(current, "uclb", "75")
