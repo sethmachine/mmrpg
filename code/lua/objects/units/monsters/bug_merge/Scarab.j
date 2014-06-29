@@ -53,7 +53,7 @@
     //what sound the unit makes when attacking (melee only)
     //! i makechange(current, "ucs1", "WoodMediumBash")
     //the unit's armor type, e.g. "hero"
-    //! i makechange(current, "udty", "medium")
+    //! i makechange(current, "udty", "large")
     //! i makechange(current, "ua1t", "normal")
     //the unit's projectile (ranged/flying only)
     ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")

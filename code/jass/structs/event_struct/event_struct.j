@@ -1,7 +1,7 @@
-library EventStruct initializer init requires Util
+library EventStruct initializer init requires Util, Constants
 
 globals
-	private Table timerTable
+	Table timerTable
 endglobals
 
 private function afterWait takes nothing returns nothing
@@ -16,11 +16,14 @@ endfunction
 //a representation of an event
 //an event is essentially anything that can happen
 struct Event
+	Table eventTable
+	location eventLoc //the location where the event is, not valid for all events
 	real wait = 0.1 //duration to wait between calling next event
 	Event next //the next event to be called
 	
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
+		set this.eventTable = Table.create()
         return this
     endmethod
 	
@@ -39,6 +42,16 @@ struct Event
 		call TimerStart(t, wait, false, function afterWait)
 		set t = null
 	endmethod
+	
+	//gives a value to EventLoc, child specific
+	stub method setEventLoc takes integer pid returns nothing
+		call print("WARNING: stub method not implemented.")
+	endmethod
+	
+	//the eventLoc should not be null if this is called
+	method getEventLoc takes integer pid returns location
+		return eventTable.location[pid]
+	endmethod
 
     //nulls and destroys all objects
     stub method flush takes nothing returns nothing
@@ -55,10 +68,6 @@ struct Event
 		call print("WARNING: stub method not implemented.")
 	endmethod
 	
-	stub method setItemCreateInRect takes rect whichRect, integer itemId, integer quant returns nothing
-		call print("WARNING: stub method not implemented.")
-	endmethod
-
 	stub method setItemCreateAtLoc takes location whichLoc, integer itemId, integer quant returns nothing
 		call print("WARNING: stub method not implemented.")
 	endmethod
@@ -70,28 +79,9 @@ struct Event
 	stub method setCreepSpawnAtLoc takes location whichLoc, integer monsterId, integer lvl, integer rcLvl, integer gender, boolean hasOwner returns nothing
 		call print("WARNING: stub method not implemented.")
 	endmethod
-
-	stub method setCreepSpawnAtPC takes integer monsterId, integer lvl, integer rcLvl, integer gender, boolean hasOwner returns nothing
-		call print("WARNING: stub method not implemented.")
-	endmethod
-	
-	stub method setEnableQuest takes string whichQuest returns nothing
-		call print("WARNING: stub method not implemented.")
-	endmethod
-
-	stub method setWarp takes integer whichWarp, boolean state returns nothing
-		call print("WARNING: stub method not implemented.")
-	endmethod
-
-	stub method setSFXInCircleAtPC takes string whichSFX, integer quant returns nothing
-		call print("WARNING: stub method not implemented.")
-	endmethod
-	
-	
 endstruct
 
 private function init takes nothing returns nothing
 	set timerTable = Table.create()
 endfunction
-
 endlibrary

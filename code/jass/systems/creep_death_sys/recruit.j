@@ -1,7 +1,7 @@
 library RecruitTrig requires CreepRegionTable
 
 globals
-	location FARM_LOC = Location(-7715.8, 12245.1)
+	//location FARM_LOC = Location(-7715.8, 12245.1)
 endglobals
 
 private function recruitMain takes nothing returns boolean
@@ -29,9 +29,9 @@ private function recruitMain takes nothing returns boolean
 			call creep.flush()
 		endif
     elseif b == playerDatum[pid].recruitNo then
-		call creep.flush()
         call DisplayTimedTextToPlayer(p, 0, 0, 10, RED + "MONSTER JOIN:|r " + GOLD + GetHeroProperName(creep.u) + "|r sadly turned away...")
-    endif
+		call creep.flush()
+	endif
     set playerDatum[pid].recruit = 0
     set b = null
     set p = null

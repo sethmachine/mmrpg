@@ -8,6 +8,7 @@
 	//number of uses per item
 	//! i MEAT_CHARGES = 3
 	//! i POTION_CHARGES = 3
+	//! i WARP_STAFF_CHARGES = 3
 	//! i ADUR = 10
 	
 	//think about importing these values/arrays
@@ -175,7 +176,7 @@
 	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNRejuvPotion.blp"
 	//! i ifil = "Item_Potion_BigPurple_v2.mdx"
 	//! i ides = "Restores health and mana over time."
-	//! i unam = "Elf Dew"
+	//! i unam = "Moon Dew"
 	//! i ilev = PLAYER_ITEM
 	//! i write_item(unam, ides, ifil, iico, igol, ilev, POTION_CHARGES)
 	//! i makechange(current, 'iabi', 'ap10')

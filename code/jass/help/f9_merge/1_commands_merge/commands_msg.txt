@@ -1,0 +1,8 @@
+To start a new character, simply type in -female or -male when the game starts.
+\l
+To use the camera, simply type -zoom XXXX, where XXXX is the camera distance.
+\l
+There is a single keyboard command, which is pressing the ESC key.  This will pop open a dialog with several options.
+\l
+The final way to interact with the map objects, such as NPCs and warps, is via selecting your Monster Master hero,
+and then right clicking on the object you want to interact with.  The object must be owned by Player 11.

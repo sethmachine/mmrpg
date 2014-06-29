@@ -11,9 +11,15 @@ private function main takes nothing returns boolean
 endfunction
 
 private function init takes nothing returns nothing
-    local trigger t = CreateTrigger()
-    call TriggerRegisterPlayerChatEvent(t, Player(0), "-zoom", false)
-    call TriggerAddCondition(t, Condition(function main))
+    local trigger t
+    local integer i = 0 //counter for looping through players
+    loop
+        exitwhen i == TOTAL_PLAYERS
+		set t = CreateTrigger()
+		call TriggerRegisterPlayerChatEvent(t, Player(i), "-zoom", false)
+		call TriggerAddCondition(t, Condition(function main))
+		set i = i + 1
+	endloop
 endfunction
 
 endlibrary

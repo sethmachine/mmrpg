@@ -19,7 +19,7 @@
 	
 	//! i function write_item(unam, ides, ifil, iico, igol)
 		//! i setobjecttype("items")
-		//! i createobject(baseId, id)
+		//! i createobject(baseId, itemId)
 		//! i makechange(current, "ides", ides)
 		//! i makechange(current, "ifil", ifil)
 		//! i makechange(current, "iico", iico)

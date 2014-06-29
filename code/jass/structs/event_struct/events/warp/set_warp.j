@@ -8,21 +8,15 @@ struct EventSetWarp extends Event
 	integer warpIndex = 0
 	boolean state = false
 	
-    static method create takes nothing returns thistype
+    static method create takes integer warpIndex, boolean state returns thistype
         local thistype this = thistype.allocate()
+		set this.warpIndex = warpIndex
+		set this.state = state
         return this
     endmethod
 
 	method do takes integer pid returns nothing
 		set playerDatum[pid].warps[warpIndex].isActive = state
-	endmethod
-	
-	//******************************
-	// Child specific event setups *
-	//******************************
-	method setWarp takes integer whichWarp, boolean state returns nothing
-		set this.warpIndex = whichWarp
-		set this.state = state
 	endmethod
 endstruct
 endlibrary

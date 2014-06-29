@@ -1,4 +1,4 @@
-library Util requires PlayerFilters, Colors, RealWait, RandomLoc, Table, Print, Zoom
+library Util requires PlayerFilters, Colors, RealWait, RandomLoc, NPCLoc, Table, Print, Zoom, Debug
 
 globals
 endglobals

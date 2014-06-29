@@ -11,17 +11,34 @@ private function fillTable takes nothing returns nothing
 			//***********************
 		// FLOWERS_FOR_ALGERNON
 		//***********************
-		//part 1 - enable the quest
-		set e = EventEnableQuest.create()
-		call e.setEnableQuest("Flowers for Al-Jernan")
-		//part 2 - create three desert flowers in Agon overworld
-		//each flower is located in a random spot
-		set e.next = EventItemCreateInRect.create()
-		call e.next.setItemCreateInRect(Rect(-15520, -3904, -1216, 8384), 'f001', 1)
-		set e.next.next = EventItemCreateInRect.create()
-		call e.next.next.setItemCreateInRect(Rect(-15520, -3904, -1216, 8384), 'f001', 1)
-		set e.next.next.next = EventItemCreateInRect.create()
-		call e.next.next.next.setItemCreateInRect(Rect(-15520, -3904, -1216, 8384), 'f001', 1)
+		//enable the quest
+		set e = EventEnableQuest.create("Flowers for Al-Jernan")
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// FLOWERS_FOR_ALGERNON
+		//***********************
+		//create a desert flower in the Agon overworld
+		//located in a random spot
+		set e = EventItemCreateInRect.create(AGON_RECT, 500, DESERT_FLOWER, 1)
+		//put event inside array, increment
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// FLOWERS_FOR_ALGERNON
+		//***********************
+		//create a desert flower in the Agon overworld
+		//located in a random spot
+		set e = EventItemCreateInRect.create(AGON_RECT, 500, DESERT_FLOWER, 1)
+		//put event inside array, increment
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// FLOWERS_FOR_ALGERNON
+		//***********************
+		//create a desert flower in the Agon overworld
+		//located in a random spot
+		set e = EventItemCreateInRect.create(AGON_RECT, 500, DESERT_FLOWER, 1)
 		//put event inside array, increment
 		set eventTable[i] = e
 		set i = i + 1
@@ -29,13 +46,22 @@ private function fillTable takes nothing returns nothing
 		// FLOWERS_FOR_ALGERNON
 		//***********************
 		//create several lich skulls around the player
-		set e = EventSFXInCircleAtPC.create()
-		set e.wait = 3.0
-		call e.setSFXInCircleAtPC("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", 15)
+		set e = EventSFXInCircleAtPC.create("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", 15)
+		set e.wait = 2.0
+		set e.next = EventSFXInCircleAtPC.create("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", 15)
+		set e.next.wait = 2.0
+		set e.next.next = EventSFXInCircleAtPC.create("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", 15)
+		set e.next.next.wait = 2.0
 		//then summon the ghost/zombie of Al-Jernan
-		set e.next = EventCreepSpawnAtPC.create()
-		call e.next.setCreepSpawnAtPC(DEADNITE, 5, 100, 0, true)
+		set e.next.next.next = EventCreepSpawnAtPC.create(DEADNITE, 5, 100, 0, true)
 		//put event inside array, increment
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// TUTORIAL
+		//***********************
+		//activate the ferry to go to monster farm
+		set e = EventSetWarp.create(FERRY_TO_FARM, true)
 		set eventTable[i] = e
 		set i = i + 1
 

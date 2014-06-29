@@ -5,8 +5,8 @@
     //! i makechange(current, "unam", BUG)
     //! i makechange(current, "properNames", "Dune Flyer (m),Dune Flyer (f)")
     //! i makechange(current, "umdl", "DuneFlyer.mdx")
-    //! i makechange(current, "uico", "BTNDuneCrawler.blp")
-    //! i makechange(current, "ussi", "BTNDuneCrawler.blp")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNDuneCrawler.blp")
+    //! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNDuneCrawler.blp")
     //! i makechange(current, "usnd", "Spider")
     //various art values
     //! i makechange(current, "ucbs", "0.510")

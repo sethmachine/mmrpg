@@ -1,8 +1,6 @@
 scope City initializer init
 
 globals
-    constant real CITY_CENTER_X = -12826.9
-    constant real CITY_CENTER_Y = 12474.9
     destructable CITY_GATE = gg_dest_DTg5_0008
 endglobals
 

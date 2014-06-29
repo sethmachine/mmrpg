@@ -32,9 +32,9 @@
     //! i makechange(current, "ushh", "70.00")
     //! i makechange(current, "ushw", "70.00")
     //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
+    //! i makechange(current, "usca", "1.30")
     //selection circle size
-    //! i makechange(current, "ussc", ".9")
+    //! i makechange(current, "ussc", "1.0")
     //tint stuff
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "255")

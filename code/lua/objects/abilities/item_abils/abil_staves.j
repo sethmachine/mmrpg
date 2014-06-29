@@ -3,7 +3,8 @@
 	//! i BASE_ABIL_ID = "ANcl"
 	//! i CUSTOM_ID2 = "sw"
 	//! i ARAN = "200.00"
-	//! i WARP_UNAM = "Warp Staff Ability"
+	//! i WARP_unam = "Warp Staff Ability"
+	//! i WARP_iico = "ReplaceableTextures\\CommandButtons\\BTNAlleriaFlute.blp"
 	//duration
 	//! i AITE = "1"
 	//! i AHER = "0"
@@ -41,7 +42,7 @@
 	//! i makechange(current, "aran", "1", "0.00")
 	//! i makechange(current, "aher", AHER)
 	//! i makechange(current, "aite", AITE)
-	//! i makechange(current, "alev", "0")
+	//! i makechange(current, "alev", "1")
 	//! i makechange(current, "amcs", "1", "0")
     //! i makechange(current, "anam", WARP_unam)
     //! i makechange(current, "Ncl6", "1", "massteleport")

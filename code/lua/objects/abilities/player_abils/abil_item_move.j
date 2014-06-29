@@ -30,7 +30,7 @@
     //! i makechange(current, "Ncl2", "1", "1")
 
     //cast range, not hero ability, 1 levels
-    //! i makechange(current, "aran", "1", "100")
+    //! i makechange(current, "aran", "1", "300")
     //! i makechange(current, "aher", "0")
     //! i makechange(current, "alev", "1")
 
@@ -38,8 +38,8 @@
     //! i makechange(current, "arac", "human")
     //! i makechange(current, "atar", "1", "item")
 
-    //! i makechange(current, "ansf", "(W)")
-    //! i makechange(current, "ahky", "W")
+    //! i makechange(current, "ansf", "(T)")
+    //! i makechange(current, "ahky", "T")
     //! i makechange(current, "anam", "Item Move")
     //! i makechange(current, "aord", "magicleash")
     //! i makechange(current, "acdn", "1", "0.00")
@@ -47,7 +47,7 @@
     //! i makechange(current, "aubx", "0")
     //! i makechange(current, "auby", "2")
     //! i makechange(current, "achd", "0")
-    //! i makechange(current, "atp1", "1", "Item Move [W]")
+    //! i makechange(current, "atp1", "1", "Item Move [T]")
     //! i makechange(current, "aub1", "1", "Moves the target item to your backpack.  Fails if the item is not yours or your backpack is full.")  
 //! endexternalblock
 

@@ -11,8 +11,13 @@ struct EventCreepSpawnAtPC extends Event
 	integer gender = 0
 	boolean hasOwner = false
 	
-    static method create takes nothing returns thistype
+    static method create takes integer monsterId, integer lvl, integer rcLvl, integer gender, boolean hasOwner returns thistype
         local thistype this = thistype.allocate()
+		set this.monsterId = monsterId
+		set this.lvl = lvl
+		set this.rcLvl = rcLvl
+		set this.gender = gender
+		set this.hasOwner = hasOwner
         return this
     endmethod
 			
@@ -30,17 +35,6 @@ struct EventCreepSpawnAtPC extends Event
 		endif
 		call pd.eventMonsters.addMonster(m)
 		call doNext(pid)
-	endmethod
-	
-	//******************************
-	// Child specific event setups *
-	//******************************
-	method setCreepSpawnAtPC takes integer monsterId, integer lvl, integer rcLvl, integer gender, boolean hasOwner returns nothing
-		set this.monsterId = monsterId
-		set this.lvl = lvl
-		set this.rcLvl = rcLvl
-		set this.gender = gender
-		set this.hasOwner = hasOwner
 	endmethod
 endstruct
 endlibrary

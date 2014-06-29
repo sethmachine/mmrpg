@@ -1,0 +1,17 @@
+Welcome to the very first Monster Master RPG II alpha test!  
+\l
+
+The alpha version is a prototype of the basic mechanics and features of the map.  
+Thus you may notice things such as incomplete areas, objects which do not work, or even possibly 
+game breaking glitches.  The terrain is also quite lacking, something that will be sure to improve over time.  
+\l
+
+As an alpha tester, try to be as critical as possible, but also keep note of the features that you like.  
+The feedback you give will be invaluable, as it will ultimately influence the development of the MMRPG II project.
+\l
+
+Please read the other Optional Quests if you are lost!  For feedback, etc. visit the project thread by googling:
+\l
+
+Monster Master RPG 2
+

@@ -27,6 +27,7 @@
 		//! i makechange(current, 'unam', unam .. " (+" .. i .. ")")
 		//! i makechange(current, 'utip', "Purchase " .. unam)
 		//! i makechange(current, 'igol', "" .. (igol * i))
+		//! i makechange(current, 'ilev', "0")
 		//! i itemId = add(itemId, "")
 	//! i end
 	

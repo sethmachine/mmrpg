@@ -11,11 +11,11 @@
     //base attack speed for all monsters - Average
     //! i UA1C = "2.0"
     //base movement speed for all monsters - Average
-    //! i UMVS = "300"
+    //! i UMVS = "310"
     //base maximum health for all monsters
-    //! i UHPM = "25"
+    //! i UHPM = "125"
     //base maximum mana for all monsters
-    //! i UMPI = "15"
+    //! i UMPI = "25"
     //base mana regen for all monsters
     //! i UMPR = "0.03"
     //base attributes for all monsters - each set to 1
@@ -34,7 +34,7 @@
     //priority - so it doesnt get attacked immediately
     //! i UPRI = "0"
     //tooltip for reviving monsters
-    //! i UAWT = "Your monster master will revive shortly in town.  You lose all gold and items!"
+    //! i UAWT = "Your monster master will revive shortly in GreatBark."
     //PC can't attack (yet)
     //! i UAEN = "0"
     //index for each point value, incremented by 1 each time
@@ -64,7 +64,7 @@
     //! i makechange(current,"ua1c", UA1C) 
     //! i makechange(current,"umvs", UMVS)
     //! i makechange(current, "heroAbilList", "")
-    //! i makechange(current, "uabi", "AInv,Amve")
+    //! i makechange(current, "uabi", "AInv,Amve,qpth")
     //! i makechange(current, "ua1b", MELEE_DMG)
     //! i makechange(current, "dice1", 1)
     //! i makechange(current, "sides1", "1")
@@ -76,6 +76,7 @@
     //! i makechange(current, "STRplus", STRplus)
     //! i makechange(current, "uhpm", UHPM)
     //! i makechange(current, "umpi", UMPI)
+    //! i makechange(current, "umpm", UMPI)
     //! i makechange(current, "umpr", UMPR)
     //! i makechange(current, "uawt", UAWT)
     //! i makechange(current, "upra", UPRA)
@@ -84,6 +85,9 @@
     //! i makechange(current, "usid", USID)
     //sight of range for nighttime
     //! i makechange(current, "usin", USIN)
+	//! i makechange(current, "ufoo", "0")
+	//food produced - for party size
+	//! i makechange(current, "ufma", "3")
     //priority of 0
     ////! i makechange(current, "upri", UPRI)
     //monster masters are not allowed to attack anyone!

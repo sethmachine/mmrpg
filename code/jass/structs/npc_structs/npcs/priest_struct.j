@@ -1,7 +1,7 @@
 library PriestStruct requires PlayerDataTable
 
 globals
-    constant integer REVIVE_COST_FACTOR = 100 //the player pays gold equal to 100x the monster's level
+    constant integer REVIVE_COST_FACTOR = 25 //the player pays gold equal to 100x the monster's level
     constant string PRIEST_HEADER = "|cff00ffffPriest|r:" //the name of the character
     constant string PRIEST_MSG = "\nHow may the Gods be of service?"
     constant string REVIVE_BTTN_MSG = "Revive a monster"

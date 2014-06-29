@@ -9,7 +9,7 @@
 	//duration
 	//! i ADUR = "10.00"
 	//! i AITE = "1"
-	//! i ACDN = "5.0"
+	//! i ACDN = "0.0"
     //charges
     //! i CHARGES = 3
 	//! i upoi = 0

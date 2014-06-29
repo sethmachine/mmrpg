@@ -7,13 +7,13 @@
     //base object for most NPC characters
     //! i BASE_ID_MAN1 = "nvil"
     //! i BASE_ID_MAN2 = "nvl2"
-    //! i BASE_ID_WOMAN = "nvlw"
+    //! i BASE_ID_WOMAN1 = "nvlw"
     //! i BASE_ID_CHILD1 = "nvlk"
     //! i BASE_ID_CHILD2 = "nvk2"
 	//generic values
     //! i DUMMY_MAN1 = "v000"
     //! i DUMMY_MAN2 = "v001"
-    //! i DUMMY_WOMAN = "v002"
+    //! i DUMMY_WOMAN1 = "v002"
     //! i DUMMY_CHILD1 = "v003"
     //! i DUMMY_CHILD2 = "v004"
     //index for each point value, incremented by 1 each time
@@ -66,7 +66,7 @@
     //************ Generic Woman *****************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_WOMAN, DUMMY_WOMAN)
+    //! i createobject(BASE_ID_WOMAN1, DUMMY_WOMAN1)
     //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Villager")
@@ -92,7 +92,7 @@
     //************ Generic Child2 ****************
     //********************************************
     //! i setobjecttype("units")
-    //! i createobject(BASE_ID_CHILD1, DUMMY_CHILD2)
+    //! i createobject(BASE_ID_CHILD2, DUMMY_CHILD2)
     //! i makechange(current, "uabi", "Avul,Awan")
     //! i makechange(current, "ucam", "1")
     //! i makechange(current, "unam", "Child")

@@ -8,8 +8,10 @@ struct EventSFXInCircleAtPC extends Event
 	string sfx
 	integer quant
 	
-    static method create takes nothing returns thistype
+    static method create takes string whichSFX, integer quant returns thistype
         local thistype this = thistype.allocate()
+		set this.sfx = whichSFX
+		set this.quant = quant
         return this
     endmethod
 				
@@ -22,14 +24,6 @@ struct EventSFXInCircleAtPC extends Event
 			set i = i + 1
 		endloop
 		call doWait(pid, this.wait)
-	endmethod
-	
-	//******************************
-	// Child specific event setups *
-	//******************************
-	method setSFXInCircleAtPC takes string whichSFX, integer quant returns nothing
-		set this.sfx = whichSFX
-		set this.quant = quant
 	endmethod
 endstruct
 endlibrary

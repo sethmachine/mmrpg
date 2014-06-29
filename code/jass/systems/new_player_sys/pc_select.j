@@ -3,6 +3,7 @@ scope PCSelect initializer init
 globals
     constant string CHOOSE_MALE = "-male"
     constant string CHOOSE_FEMALE = "-female"
+	rect townArea
 endglobals
 
 private function main takes nothing returns boolean
@@ -19,15 +20,16 @@ private function main takes nothing returns boolean
     set owner = GetTriggerPlayer()
     set pid = GetPlayerId(owner)
     set str = StringCase(GetEventPlayerChatString(), false)
-	call SetPlayerAllianceStateBJ(owner, BOT_ALLY, bj_ALLIANCE_ALLIED)
-	call SetPlayerAllianceStateBJ(BOT_ALLY, owner, bj_ALLIANCE_ALLIED)
+	call FogModifierStart(CreateFogModifierRect(owner, FOG_OF_WAR_VISIBLE, townArea, true, false))
+	//call SetPlayerAllianceStateBJ(owner, BOT_ALLY, bj_ALLIANCE_ALLIED)
+	//call SetPlayerAllianceStateBJ(BOT_ALLY, owner, bj_ALLIANCE_ALLIED)
     if str == CHOOSE_MALE then
-        set u = CreateUnit(owner, MALE_ID, CITY_CENTER_X, CITY_CENTER_Y, 0)
+        set u = CreateUnitAtLoc(owner, MALE_ID, GREATBARK_LOC, 0)
         set pc = PC.create(u, pid, MALE)
         call DestroyTrigger(playerDatum[pid].npcTrig)
         set playerDatum[pid].npcTrig = null
     elseif str == CHOOSE_FEMALE then
-        set u = CreateUnit(owner, FEMALE_ID, CITY_CENTER_X, CITY_CENTER_Y, 0)
+        set u = CreateUnitAtLoc(owner, FEMALE_ID, GREATBARK_LOC, 0)
         set pc = PC.create(u, pid, FEMALE)
         call DestroyTrigger(playerDatum[pid].npcTrig)
         set playerDatum[pid].npcTrig = null
@@ -36,8 +38,12 @@ private function main takes nothing returns boolean
     //if owner == Player(0) then
     call playerDatum[pid].keys.add(keyTable[HOME])
     call playerDatum[pid].keys.add(keyTable[AGON])
-    call playerDatum[pid].bank.addItem(Item.create(CreateItem('ofro', CITY_CENTER_X, CITY_CENTER_Y), pid))
-    call playerDatum[pid].backpack.addItem(Item.create(CreateItem('ofro', CITY_CENTER_X, CITY_CENTER_Y), pid))
+    call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(HERBWATER, GREATBARK_LOC), pid))
+	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(HERBWATER, GREATBARK_LOC), pid))
+	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(PORKCHOP, GREATBARK_LOC), pid))
+    call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(WARP_STAFF, GREATBARK_LOC), pid))
+	//call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(LEATHER_ARMOR_0, GREATBARK_LOC), pid))
+	//call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(BASIC_SWORD_0, GREATBARK_LOC), pid))
     set creep = CreateUnitAtLoc(BOT_ALLY, SLIME, FARM_LOC, 0)
     call SetHeroLevel(creep, 5, true)
     set m = Monster.create(creep, pid, GetRandomInt(0, 1))
@@ -52,6 +58,7 @@ endfunction
 private function init takes nothing returns nothing
     local trigger t
     local integer i = 0 //counter for looping through players
+	set townArea = Rect(-15744, 9504, -5000, 15584)
     loop
         exitwhen i == TOTAL_PLAYERS
         set t = CreateTrigger()

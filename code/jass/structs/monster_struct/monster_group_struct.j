@@ -40,7 +40,7 @@ struct MonsterGroup
     method addMonster takes Monster monster returns boolean
         local integer i = 0 //used to loop through the available slots
         if size == maxSize then //make sure the group actually has room
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: This monster group is full.  Max monsters is: " + I2S(maxSize))
+            call printl("Error: This monster group is full.  Max monsters is: " + I2S(maxSize))
             return false
         endif
         loop
@@ -53,7 +53,7 @@ struct MonsterGroup
             set i = i + 1
         endloop
         //error in case somehow the loop fails to add the monster even though the group isn't full
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: Monster group was not full, but monster was not added!")
+        call printl("Error: Monster group was not full, but monster was not added!")
         return false
     endmethod
     
@@ -63,21 +63,21 @@ struct MonsterGroup
         local integer i = 0 //used to loop through available monsters
         if groupType == PARTY then //only parties cannot go to 0 monsters
             if size == MIN_PARTY_SIZE then //a party must always have at least one monster
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: You must have at least 1 monster in your party.")
+                call printl("Error: You must have at least 1 monster in your party.")
                 return false
             endif
         endif
         loop
             exitwhen i == maxSize
             if monster.equals(monsters[i]) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, monster.toString() + " has been removed from the group")
+                call printl(monster.toString() + " has been removed from the group")
                 set monsters[i] = 0 //free the slot
                 set size = size - 1 //decrement the size of the group
                 return true
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: " + monster.toString() + " does not exist in this group")
+        call printl("Error: " + monster.toString() + " does not exist in this group")
         return false
     endmethod
     
@@ -101,12 +101,12 @@ struct MonsterGroup
         loop
             exitwhen i == maxSize
             if monsters[i].equals(m) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Found " + m.toString() + " in the group")
+                call printl("Found " + m.toString() + " in the group")
                 return true
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Could not find " + m.toString() + " in the group")
+        call printl("Could not find " + m.toString() + " in the group")
         return false
     endmethod
 
@@ -117,7 +117,7 @@ struct MonsterGroup
         loop
             exitwhen i == maxSize
             if monsters[i].u == u then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Found " + GetHeroProperName(u) + " in the group")
+                call printl("Found " + GetHeroProperName(u) + " in the group")
                 return true
             endif
             set i = i + 1
@@ -133,12 +133,12 @@ struct MonsterGroup
         loop
             exitwhen i == maxSize
             if monsters[i].equals(m) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Found " + m.toString() + " in the group")
+                call printl("Found " + m.toString() + " in the group")
                 return monsters[i]
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Could not find " + m.toString() + " in the group")
+        call printl("Could not find " + m.toString() + " in the group")
         return 0
     endmethod
 
@@ -149,12 +149,12 @@ struct MonsterGroup
         loop
             exitwhen i == maxSize
             if monsters[i].u == u then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Found " + GetHeroProperName(u) + " in the group")
+                call printl("Found " + GetHeroProperName(u) + " in the group")
                 return monsters[i]
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Could not find " + GetHeroProperName(u) + " in the group")
+        call printl("Could not find " + GetHeroProperName(u) + " in the group")
         return 0
     endmethod
     
@@ -164,14 +164,14 @@ struct MonsterGroup
     method moveMonster takes MonsterGroup targetGroup, Monster targetMonster returns boolean
         if this.monsterStructInGroup(targetMonster) then
             if targetGroup.addMonster(targetMonster) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Moved " + targetMonster.toString() + " to the group")
+                call printl("Moved " + targetMonster.toString() + " to the group")
                 call this.removeMonster(targetMonster) //remove the monster from the origin group
                 return true
             endif
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: Cannot add " + targetMonster.toString() + " to the group.")
+            call printl("Error: Cannot add " + targetMonster.toString() + " to the group.")
             return false
         endif
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: " + targetMonster.toString() + " does not exist in origin group!")
+        call printl("Error: " + targetMonster.toString() + " does not exist in origin group!")
         return false
     endmethod
     
@@ -191,7 +191,7 @@ struct MonsterGroup
         loop
             exitwhen i == maxSize
             if monsters[i] != 0 then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, monsters[i].toString())
+                call printl(monsters[i].toString())
             endif
             set i = i + 1
         endloop

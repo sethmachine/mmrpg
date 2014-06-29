@@ -11,7 +11,7 @@ globals
 	constant integer HERB_DEW = 'c008'
 	constant integer LOVEWATER = 'c009'
 	constant integer MOONWATER = 'c00a'
-	constant integer ELF_DEW = 'c00b'
+	constant integer MOON_DEW = 'c00b'
 	constant integer OCEANWATER = 'c00c'
 	constant integer POTION = 'c00d'
 	constant integer SUNWATER = 'c00e'

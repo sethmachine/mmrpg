@@ -37,9 +37,9 @@
     //flyer min height
     //! i makechange(current, "umvf", "90.00")
     //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
+    //! i makechange(current, "usca", "1.40")
     //selection circle size
-    //! i makechange(current, "ussc", "1.2")
+    //! i makechange(current, "ussc", "1.3")
     //backswing stuff
     //! i makechange(current, "ubs1", "0.300")
     //! i makechange(current, "udp1", "0.300")

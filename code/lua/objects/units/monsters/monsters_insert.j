@@ -99,7 +99,7 @@
     //! i makechange(current, "upra", UPRA)
     //paladin has 2 base defense, we set it to 0
     //! i makechange(current, "udef", "0")
-    //! i makechange(current, "ufoo", "0")
+    //! i makechange(current, "ufoo", "1")
     //! i makechange(current, "umpm", "15")
 
     //********************************************
@@ -127,7 +127,7 @@
     //! i makechange(current, "umpr", UMPR)
     //! i makechange(current, "uawt", UAWT)
     //! i makechange(current, "upra", UPRA)
-    //! i makechange(current, "ufoo", "0")
+    //! i makechange(current, "ufoo", "1")
     //! i makechange(current, "umpm", "15")
     //********************************************
     //************ Flying Hero *******************
@@ -1275,9 +1275,9 @@
     //flyer min height
     //! i makechange(current, "umvf", "90.00")
     //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
+    //! i makechange(current, "usca", "1.40")
     //selection circle size
-    //! i makechange(current, "ussc", "1.2")
+    //! i makechange(current, "ussc", "1.3")
     //backswing stuff
     //! i makechange(current, "ubs1", "0.300")
     //! i makechange(current, "udp1", "0.300")
@@ -1845,9 +1845,9 @@
     //flyer min height
     //! i makechange(current, "umvf", "90.00")
     //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
+    //! i makechange(current, "usca", "1.3")
     //selection circle size
-    //! i makechange(current, "ussc", "1.0")
+    //! i makechange(current, "ussc", "1.1")
     //collision size
     //! i makechange(current, "ucol", "18")
     //point value - index
@@ -2987,8 +2987,8 @@
     //! i makechange(current, "unam", BUG)
     //! i makechange(current, "properNames", "Dune Flyer (m),Dune Flyer (f)")
     //! i makechange(current, "umdl", "DuneFlyer.mdx")
-    //! i makechange(current, "uico", "BTNDuneCrawler.blp")
-    //! i makechange(current, "ussi", "BTNDuneCrawler.blp")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNDuneCrawler.blp")
+    //! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNDuneCrawler.blp")
     //! i makechange(current, "usnd", "Spider")
     //various art values
     //! i makechange(current, "ucbs", "0.510")
@@ -3080,9 +3080,9 @@
     //! i makechange(current, "ushh", "70.00")
     //! i makechange(current, "ushw", "70.00")
     //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
+    //! i makechange(current, "usca", "1.30")
     //selection circle size
-    //! i makechange(current, "ussc", ".9")
+    //! i makechange(current, "ussc", "1.0")
     //tint stuff
     //! i makechange(current, "uclr", "255")
     //! i makechange(current, "uclg", "255")
@@ -3162,7 +3162,7 @@
     //what sound the unit makes when attacking (melee only)
     //! i makechange(current, "ucs1", "WoodMediumBash")
     //the unit's armor type, e.g. "hero"
-    //! i makechange(current, "udty", "medium")
+    //! i makechange(current, "udty", "large")
     //! i makechange(current, "ua1t", "normal")
     //the unit's projectile (ranged/flying only)
     ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
@@ -3202,7 +3202,7 @@
     //! i makechange(current, "ushh", "140.00")
     //! i makechange(current, "ushw", "140.00")
     //the scaling of the model
-    //! i makechange(current, "usca", ".65")
+    //! i makechange(current, "usca", ".75")
     //selection circle size
     //! i makechange(current, "ussc", "1.2")
     //tint stuff
@@ -3223,7 +3223,7 @@
     //what sound the unit makes when attacking (melee only)
     //! i makechange(current, "ucs1", "MetalMediumChop")
     //the unit's armor type, e.g. "hero"
-    //! i makechange(current, "udty", "large")
+    //! i makechange(current, "udty", "medium")
     //! i makechange(current, "ua1t", "pierce")
     //the unit's projectile (ranged/flying only)
     ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")
@@ -7680,8 +7680,8 @@
     //! i makechange(current, "unam", SLIME)
     //! i makechange(current, "properNames", "Slime (m),Slime (f)")
     //! i makechange(current, "umdl", "Slime.mdx")
-    //! i makechange(current, "uico", "BTNWaterElemental.blp")
-    //! i makechange(current, "ussi", "BTNWaterElemental.blp")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNWaterElemental.blp")
+    //! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNWaterElemental.blp")
     //! i makechange(current, "usnd", "Murloc")
     //various art values
     //! i makechange(current, "ucbs", "0.510")
@@ -7722,7 +7722,7 @@
     //point value - index
     //! i makechange(current, "upoi", "" .. upoi)
     //movement speed
-    //! i makechange(current, "umvs", "300")
+    //! i makechange(current, "umvs", "270")
     //what hitting the unit sounds like
     //! i makechange(current, "uarm", "Ethereal")
     //what sound the unit makes when attacking (melee only)
