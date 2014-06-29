@@ -15,6 +15,6 @@
 		//! i itemBonusId2 = ARMOR_IDS[math.ceil(i / 2)]
 		//! i write_item(unam, ides, ifil, iico, igol, i)
 		//! i makechange(current, 'iabi', itemBonusId1 .. "," .. itemBonusId2)
-		//! i makechange(current, 'utub', "Increases armor by " .. itemBonus1 .. " and health by " .. itemBonus2 .. " when worn.")
+		//! i makechange(current, 'utub', "Increases armor by " .. itemBonus2 .. " and health by " .. itemBonus1 .. " when worn.")
 	//! i end
 	//]]
