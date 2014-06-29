@@ -16,6 +16,7 @@
 //import attributes, item move, abil attack
 //! import "C:\Users\seth\mmrpg\code\lua\objects\abilities\misc_abils\attributes.j"
 //! import "C:\Users\seth\mmrpg\code\lua\objects\abilities\player_abils\abil_item_move.j"
+//! import "C:\Users\seth\mmrpg\code\lua\objects\abilities\player_abils\abil_show_quest_path.j"
 //! import "C:\Users\seth\mmrpg\code\lua\objects\abilities\monster_abils\attack\abil_attack.j"
 
 //import potion abil, meat abil, staff abil
