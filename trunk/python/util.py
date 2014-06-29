@@ -78,11 +78,3 @@ def getFileNames(importDir, cwd, keywords = []):
     l = []
     getLinesArr(importDir, cwd, l, keywords)
     return l
-
-
-
-
-
-
-
-    
