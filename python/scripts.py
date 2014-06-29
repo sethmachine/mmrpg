@@ -7,6 +7,7 @@ import constants as cns
 import itemConstants as icns
 import dialog as d
 import questMsg as qm
+import f9log as f9
 
 
 
@@ -25,6 +26,13 @@ cns.constants("monsters", "tables/monsters_constants.j", "lua", ["header", "inse
 
 #creates library for npc constants--integer to integer
 cns.constants("npcs", "tables/npcs_constants.j", "lua", ["header", "insert"])
+
+#create npc unit id libraries
+cns.constants("npcs", "tables/npc_vendor_id_constants.j", "lua", ["header", "insert", "hero"], "g", "_ID", "HeroIds")
+cns.constants("npcs", "tables/npc_hero_id_constants.j", "lua", ["header", "insert", "vendor"], "N", "_ID", "VendorIds")
+
+#creates library for npc names--for enumeration, string to string
+#cns.constantsStr("npcs", "tables/npc_names_constants.j", "lua", ["header", "insert"])
 
 #creates library for warp constants--integer to integer
 cns.constants("warps", "tables/warps_constants.j", "lua", ["header", "insert"])
@@ -99,6 +107,16 @@ icns.itemConstants("fetchables_insert.j", "tables/fetchables_constants.j", "item
 
 #generate constants library
 cns.constantsLib("constants", "constants_library.j", "jass", ["library"])
+
+
+#generate the help/optional quests
+#insert the quest descriptions
+f9.insertMsg("f9_merge", "help")
+#build the credits
+f9.addCredits("credits.j")
+#finally, compile all the files into a single scope
+ins.insert("f9_header.j", "f9_merge", "f9_insert.j", "jass", "//insert", ["msg"])
+
 
 #finally, write the final import scripts for jass, lua, and imports
 imp.writeImport("jass", "jass", "jass.j", ["merge", "header", "decrep", "imports", "msg"])
