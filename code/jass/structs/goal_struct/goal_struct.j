@@ -135,17 +135,18 @@ function askBttnMain takes nothing returns boolean
     local integer goalNpc = 0
     local integer goalDialog = 0
     local integer goalStory = 0
+	local PlayerData pd = playerDatum[pid]
     loop
         exitwhen questRange == TOTAL_QUESTS
-        set currQuest = playerDatum[pid].findQuestByGoalType(STORY_GOAL, questRange)
-        set currQuestStage = playerDatum[pid].quests[currQuest].stage
+        set currQuest = pd.findQuestByGoalType(STORY_GOAL, questRange)
+        set currQuestStage = pd.quests[currQuest].stage
         if currQuest >= 0 then
-            set askBttn = playerDatum[pid].quests[currQuest].goals[currQuestStage].askBttn
-            set goalNpc = playerDatum[pid].quests[currQuest].goals[currQuestStage].goalNpc
-            set goalDialog = playerDatum[pid].quests[currQuest].goals[currQuestStage].goalDialog
-            set goalStory = playerDatum[pid].quests[currQuest].goals[currQuestStage].goalStory
-            if GetClickedButton() == playerDatum[pid].npcs[goalNpc].twoD[INTRO * MAX_DIALOGS].button[askBttn] then
-                call storyTable[goalStory].setStoryMsg(bigStoryTable[goalStory].title)
+            set askBttn = pd.quests[currQuest].goals[currQuestStage].askBttn
+            set goalNpc = pd.quests[currQuest].goals[currQuestStage].goalNpc
+            set goalDialog = pd.quests[currQuest].goals[currQuestStage].goalDialog
+            set goalStory = pd.quests[currQuest].goals[currQuestStage].goalStory
+            if GetClickedButton() == pd.npcs[goalNpc].twoD[INTRO * MAX_DIALOGS].button[askBttn] then
+				call bigStoryTable[goalStory].setStoryMsg(bigStoryTable[goalStory].title)
                 call DialogDisplay(p, bigStoryTable[goalStory].d, true)
                 set questRange = TOTAL_QUESTS
             else

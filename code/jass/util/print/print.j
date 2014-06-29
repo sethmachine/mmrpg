@@ -1,7 +1,7 @@
 library Print
 
 globals
-	boolean DEBUG = false //set to false to disable all print calls
+	boolean DEBUG = true //set to false to disable all print calls
 endglobals
 
 function print takes string msg returns nothing

@@ -189,6 +189,11 @@ function questInit takes nothing returns nothing
 
 
 
+
+
+
+
+
 		//************************************
 		// name: TUTORIAL_QUEST
 		// strname: "New Beginnings"
@@ -211,6 +216,7 @@ function questInit takes nothing returns nothing
 		
         call q.addGoal("Withdraw your gold from the item vault.", GOLD_AMOUNT_GOAL)
         call q.goals[goalNum].setGoldAmountGoal(100)
+		set q.goals[goalNum].goalLoc = getNPCLoc(ITEM_VAULT_ID)
         set goalNum = goalNum + 1
 		
         call q.addGoal("Return to the Royal Chaplain.", STORY_GOAL)
@@ -220,6 +226,11 @@ function questInit takes nothing returns nothing
 		
         set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0
+
+
+
+
+
 
 
 
