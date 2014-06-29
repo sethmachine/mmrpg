@@ -91,6 +91,11 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
     //***************************
 	// Commands Quest Log
 	//***************************
@@ -178,6 +183,11 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
     //***************************
 	// Credits
 	//***************************
@@ -188,7 +198,7 @@ private function init takes nothing returns nothing
     call QuestSetRequired(q, false)
     call QuestSetDiscovered(q, true)
     call QuestSetCompleted(q, false)
-																																																																									call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
+																																																																														call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Palaslayer (BTNCombat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Sellenisko (BTNDarkElfAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
