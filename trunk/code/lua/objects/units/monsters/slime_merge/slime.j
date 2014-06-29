@@ -5,8 +5,8 @@
     //! i makechange(current, "unam", SLIME)
     //! i makechange(current, "properNames", "Slime (m),Slime (f)")
     //! i makechange(current, "umdl", "Slime.mdx")
-    //! i makechange(current, "uico", "BTNWaterElemental.blp")
-    //! i makechange(current, "ussi", "BTNWaterElemental.blp")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNWaterElemental.blp")
+    //! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNWaterElemental.blp")
     //! i makechange(current, "usnd", "Murloc")
     //various art values
     //! i makechange(current, "ucbs", "0.510")
@@ -47,7 +47,7 @@
     //point value - index
     //! i makechange(current, "upoi", "" .. upoi)
     //movement speed
-    //! i makechange(current, "umvs", "300")
+    //! i makechange(current, "umvs", "270")
     //what hitting the unit sounds like
     //! i makechange(current, "uarm", "Ethereal")
     //what sound the unit makes when attacking (melee only)

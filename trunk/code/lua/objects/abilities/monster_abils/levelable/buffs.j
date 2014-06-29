@@ -515,7 +515,7 @@
     //effect - aeff
     ////! i write_fieldVar(ALEV, 'aeff', 'XNmo')
     //mana cost - amcs
-    //! i write_fieldArr(ALEV, "amcs", {"75", "85", "95", "105", "115", "125"})
+    //! i write_fieldArr(ALEV, "amcs", {"30", "45", "60", "75", "90", "105"})
     //targets - atar
     //! i write_fieldVar(ALEV, "atar", "air,ground,ward,vuln,invu,tree")
     //autocast
@@ -1038,7 +1038,7 @@
     //effect - aeff
     ////! i write_fieldVar(ALEV, 'aeff', 'XNmo')
     //mana cost - amcs
-    //! i write_fieldArr(ALEV, "amcs", {"50", "75", "100", "125", "150", "175"})
+    //! i write_fieldArr(ALEV, "amcs", {"20", "40", "60", "80", "100", "120"})
     //targets - atar
     //! i write_fieldVar(ALEV, "atar", "air,ground,self")
     //autocast

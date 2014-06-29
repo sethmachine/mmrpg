@@ -154,7 +154,7 @@ private function initTable takes nothing returns nothing
 	//**********************************************
 	//*************** Spiked Carapace
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    10,        25,     1)
+	set ab = Ability.create(    6,        6,     1)
 	call ab.setIds('Ap35', 'Ap36', 'Ap37', 'Ap38', 'Ap39')
 	set abilityTable[SPIKED_CARAPACE] = ab
 	//**********************************************
@@ -166,7 +166,7 @@ private function initTable takes nothing returns nothing
 	//**********************************************
 	//*************** Reflect Bounder
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    10,        25,     1)
+	set ab = Ability.create(    8,        10,     1)
 	call ab.setIds('Ap45', 'Ap46', 'Ap47', 'Ap48', 'Ap49')
 	set abilityTable[REFLECT_BOUNDER] = ab
 	//**********************************************
@@ -190,13 +190,13 @@ private function initTable takes nothing returns nothing
 	//**********************************************
 	//*************** Slow Poison
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    5,        7,     1)
+	set ab = Ability.create(    4,        7,     1)
 	call ab.setIds('Ap65', 'Ap66', 'Ap67', 'Ap68', 'Ap69')
 	set abilityTable[SLOW_POISON] = ab
 	//**********************************************
 	//*************** Jolting Venom
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    5,        6,     1)
+	set ab = Ability.create(    4,        6,     1)
 	call ab.setIds('Ap70', 'Ap71', 'Ap72', 'Ap73', 'Ap74')
 	set abilityTable[JOLTING_VENOM] = ab
 	//**********************************************
@@ -520,7 +520,7 @@ private function initTable takes nothing returns nothing
 	//**********************************************
 	//*************** Unholy Frenzy
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    3,        6,     1)
+	set ab = Ability.create(    3,        5,     1)
 	call ab.setIds('Ab55', 'Ab56', 'Ab57', 'Ab58', 'Ab59')
 	set abilityTable[UNHOLY_FRENZY] = ab
 	//**********************************************
@@ -532,7 +532,7 @@ private function initTable takes nothing returns nothing
 	//**********************************************
 	//*************** Sleep
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    10,        25,     1)
+	set ab = Ability.create(    4,        5,     1)
 	call ab.setIds('Ab65', 'Ab66', 'Ab67', 'Ab68', 'Ab69')
 	set abilityTable[SLEEP] = ab
 	//**********************************************
@@ -580,7 +580,7 @@ private function initTable takes nothing returns nothing
 	//**********************************************
 	//*************** Firebolt
 	//************************ minLvl    minInt   IC
-	set ab = Ability.create(    10,        25,     1)
+	set ab = Ability.create(    5,        7,     1)
 	call ab.setIds('At20', 'At21', 'At22', 'At23', 'At24')
 	set abilityTable[FIREBOLT] = ab
 	//**********************************************

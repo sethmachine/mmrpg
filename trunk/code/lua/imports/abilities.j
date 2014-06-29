@@ -82,4 +82,10 @@
 //! external FileImporter C:\Imports\\abilities\\FlameStrike\MegaBlast2.blp MegaBlast2.blp
 //! external FileImporter C:\Imports\\abilities\\FlameStrike\NetherStrike.mdx NetherStrik.mdx
 
+//*************************************
+//***** Path **************************
+//*************************************
+//! external FileImporter C:\Imports\abilities\BTNPath\BTNPath.blp BTNPath.blp
+//! external FileImporter C:\Imports\abilities\BTNPath\DISBTNPath.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNPath.blp
+
 

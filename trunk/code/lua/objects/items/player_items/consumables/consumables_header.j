@@ -8,6 +8,7 @@
 	//number of uses per item
 	//! i MEAT_CHARGES = 3
 	//! i POTION_CHARGES = 3
+	//! i WARP_STAFF_CHARGES = 3
 	//! i ADUR = 10
 	
 	//think about importing these values/arrays

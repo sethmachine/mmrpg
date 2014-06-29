@@ -37,9 +37,9 @@
     //flyer min height
     //! i makechange(current, "umvf", "90.00")
     //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
+    //! i makechange(current, "usca", "1.3")
     //selection circle size
-    //! i makechange(current, "ussc", "1.0")
+    //! i makechange(current, "ussc", "1.1")
     //collision size
     //! i makechange(current, "ucol", "18")
     //point value - index

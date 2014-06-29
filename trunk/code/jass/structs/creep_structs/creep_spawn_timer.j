@@ -1,10 +1,10 @@
 library CreepSpawnTimer initializer init requires Util
 
 globals
-    constant integer SPAWN_PERIOD = 15 //how often the timer checks
+    constant integer SPAWN_PERIOD = 20 //how often the timer checks
     constant real SPAWN_DISTANCE = 900.0 //how far away a creep spawns
     constant real AMBUSH_DISTANCE = 800.0
-	constant real TREE_DISTANCE = 200.0
+	constant real TREE_DISTANCE = 400.0
 endglobals
 
 //! textmacro CreepTimerMain takes pid
@@ -19,10 +19,9 @@ private function main_$pid$ takes nothing returns nothing
     local Monster creep
     local PlayerData pd = playerDatum[$pid$]
     local CreepRegion cr
-    call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "Starting creep spawn main")
-	call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, I2S(pd.creepRegion))
+    //call printl("Starting creep spawn main")
     if pd.creepRegion >= 0 then
-		call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "You are in CreepRegion: " + I2S(pd.creepRegion))
+		//call printl("You are in CreepRegion: " + I2S(pd.creepRegion))
         if pd.creepFreq >= GetRandomInt(0, 100) then
             set cr = creepRegionTable[pd.creepRegion]
             set mobSize = cr.mobSize
@@ -57,13 +56,13 @@ private function main_$pid$ takes nothing returns nothing
                     endif
                     call RemoveLocation(targetLoc)
                 else
-                    call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "Creepgroup is full at " + I2S(cr.creeps.size) + " creeps.")
+                    //call printl("Creepgroup is full at " + I2S(cr.creeps.size) + " creeps.")
                 endif
                 set i = i + 1
             endloop
             set pd.creepFreq = creepRegionTable[pd.creepRegion].freq
         else
-            call DisplayTimedTextToPlayer(players[$pid$], 0, 0, 10, "Failed to spawn a creep this time")
+            //call printl("Failed to spawn a creep this time")
             set pd.creepFreq = pd.creepFreq + 20
         endif
     else

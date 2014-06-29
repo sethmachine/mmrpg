@@ -26,6 +26,7 @@ struct AbstractMonster
         set this.unitType = unitType
         set this.index = GetUnitPointValueByType(unitType)
         set this.familyId = familyId
+		set this.maxLvl = maxLvl
         set this.rcLvl = rcLvl //recruit level
         set this.familyName = familyId2Str[familyId]
         return this

@@ -1,7 +1,7 @@
 library CreepRemoveTimer initializer init requires CreepRegionTable
 
 globals
-    constant integer DESPAWN_PERIOD = 25 //how often the timer checks
+    constant integer DESPAWN_PERIOD = 20 //how often the timer checks
 endglobals
 
 private function main takes nothing returns nothing
@@ -9,13 +9,13 @@ private function main takes nothing returns nothing
     local integer sum = getCreepRegionTableSize()
     local MonsterGroup creeps
     local Monster victim
-    //call DisplayTimedTextToPlayer(Player(0), 0, 0, 10, "Starting creep remove main")
+    //call printl("Starting creep remove main")
     loop
         exitwhen i == sum
         if creepRegionTable[i].totalPlayers == 0 then //the region is empty, despawn stuff
-            //call DisplayTimedTextToPlayer(Player(0), 0, 0, 10, "Found an empty region")
+            //call printl("Found an empty region")
             if creepRegionTable[i].creeps.size > 0 then //make sure the region still has creeps in it
-                //call DisplayTimedTextToPlayer(Player(0), 0, 0, 10, "Removing a creep from empty region")
+                //call printl("Removing a creep from empty region")
                 set creeps = creepRegionTable[i].creeps
                 set victim = creeps.getFirstMonster() //take the monster which has been out the longest
                 call creeps.removeMonster(victim) //remove the monster from the group

@@ -276,9 +276,12 @@ function itemGetByTypeMain takes nothing returns boolean
     local integer pid = GetPlayerId(p)
     local unit u = GetTriggerUnit()
     local item i = GetManipulatedItem()
+	local integer itemId = GetItemTypeId(i)
     local integer currQuest = 0
     local integer currQuestStage = 0
     local integer questRange = 0
+	local integer j = 0 //loop through inventory + backpack
+	local integer total = 0 //total of the item type
     if not isLoot(i, pid) then
     elseif GetTriggerUnit() == playerDatum[pid].pc.u then
         loop
@@ -286,16 +289,37 @@ function itemGetByTypeMain takes nothing returns boolean
             set currQuest = playerDatum[pid].findQuestByGoalType(ITEM_TYPE_GET_GOAL, questRange)
             set currQuestStage = playerDatum[pid].quests[currQuest].stage
             if currQuest >= 0 then
-                if GetItemTypeId(i) == playerDatum[pid].quests[currQuest].goals[currQuestStage].goalItemType then
-					if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant != 0 then
-						set playerDatum[pid].quests[currQuest].goals[currQuestStage].quant = playerDatum[pid].quests[currQuest].goals[currQuestStage].quant - 1
-						set questRange = TOTAL_QUESTS
-					endif
-                    if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant == 0 then
+                if itemId == playerDatum[pid].quests[currQuest].goals[currQuestStage].goalItemType then
+					loop
+						exitwhen j == MAX_ITEMS
+						if itemId == GetItemTypeId(UnitItemInSlot(playerDatum[pid].pc.u, j)) then
+							set total = total + 1
+						endif
+						set j = j + 1
+					endloop
+					set j = 0
+					loop
+						exitwhen j == MAX_BACKPACK_SIZE
+						if itemId == playerDatum[pid].backpack.items[j].itemId then
+							set total = total + 1
+						endif
+						set j = j + 1
+					endloop
+					if total >= playerDatum[pid].quests[currQuest].goals[currQuestStage].quant then
 						call playerDatum[pid].quests[currQuest].advance()
 						call DestroyTrigger(GetTriggeringTrigger())
 						set questRange = TOTAL_QUESTS
 					endif
+					/*if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant != 0 then
+						set playerDatum[pid].quests[currQuest].goals[currQuestStage].quant = playerDatum[pid].quests[currQuest].goals[currQuestStage].quant - 1
+						set questRange = TOTAL_QUESTS
+					endif
+					call print("quant : " + I2S(playerDatum[pid].quests[currQuest].goals[currQuestStage].quant))
+                    if playerDatum[pid].quests[currQuest].goals[currQuestStage].quant == 0 then
+						call playerDatum[pid].quests[currQuest].advance()
+						call DestroyTrigger(GetTriggeringTrigger())
+						set questRange = TOTAL_QUESTS
+					endif*/
                 else
                     set questRange = currQuest + 1 //advance the quest counter, in case another quest has item obtain goal
                 endif
@@ -329,7 +353,9 @@ struct Goal
     string goalString
     string askBttnMsg
     integer askBttn
-	Event goalEvent
+	Event goalCause //event that runs when the goal is just started
+	Event goalResult //event that runs when the goal is just finished
+	location goalLoc //the location that gets pinged, if any
     
     static method create takes integer goalType, integer pid returns thistype
         local thistype this = thistype.allocate()
@@ -341,6 +367,10 @@ struct Goal
     //nulls and destroys all objects in the goal
     method flush takes nothing returns nothing
         set goalRegion = null
+		if goalLoc != null then
+			call RemoveLocation(goalLoc)
+		endif
+		set goalLoc = null
     endmethod
     
     method setGetItemByTypeGoal takes integer goalItemType, integer quant returns nothing

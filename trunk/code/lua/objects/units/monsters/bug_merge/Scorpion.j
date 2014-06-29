@@ -32,7 +32,7 @@
     //! i makechange(current, "ushh", "140.00")
     //! i makechange(current, "ushw", "140.00")
     //the scaling of the model
-    //! i makechange(current, "usca", ".65")
+    //! i makechange(current, "usca", ".75")
     //selection circle size
     //! i makechange(current, "ussc", "1.2")
     //tint stuff
@@ -53,7 +53,7 @@
     //what sound the unit makes when attacking (melee only)
     //! i makechange(current, "ucs1", "MetalMediumChop")
     //the unit's armor type, e.g. "hero"
-    //! i makechange(current, "udty", "large")
+    //! i makechange(current, "udty", "medium")
     //! i makechange(current, "ua1t", "pierce")
     //the unit's projectile (ranged/flying only)
     ////! i makechange(current, "ua1m", "Abilities\\Weapons\\FireBallMissile\\FireBallMissile.mdl")

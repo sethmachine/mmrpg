@@ -45,7 +45,7 @@
 //! external FileImporter C:\Imports\\items\\BTN_Potion\DISBTN_Potion_GreenBig.blp DISBTN_Potion_GreenBig.blp
 //bttns - small green
 //! external FileImporter C:\Imports\\items\\BTN_Potion\BTNPotionBlueSmall2.blp BTNPotionBlueSmall2.blp
-//! external FileImporter C:\Imports\\items\\BTN_Potion\DISBTNPotionBlueSmall2.blp DISBTNPotionBlueSmall2.blp
+//! external FileImporter C:\Imports\\items\\BTN_Potion\DISBTNPotionBlueSmall2.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNPotionBlueSmall2.blp
 
 //*************************************
 //***** ItemPotionBlue ****************
@@ -56,7 +56,7 @@
 //! external FileImporter C:\Imports\\items\\ItemPotionLargeBlue\Item_Potion_LargeBlue_v2.mdx Item_Potion_LargeBlue_v2.mdx
 //bttns - tiny blue
 //! external FileImporter C:\Imports\\items\\BTN_Potion\BTNPotionGreenSmall2.blp BTNPotionGreenSmall2.blp
-//! external FileImporter C:\Imports\\items\\BTN_Potion\DISBTNPotionGreenSmall2.blp DISBTNPotionGreenSmall2.blp
+//! external FileImporter C:\Imports\\items\\BTN_Potion\DISBTNPotionGreenSmall2.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNPotionGreenSmall2.blp
 
 //*************************************
 //***** ItemPotionPurple **************
@@ -132,5 +132,13 @@
 //***** Pendant of Energy *************
 //*************************************
 //! external FileImporter C:\Imports\\items\\xgm\PendantOfEnergy_v2.mdx PendantOfEnergy_v2.mdx
+
+//*************************************
+//***** Silver Coin *******************
+//*************************************
+//! external FileImporter C:\Imports\items\ItemSilverCoin\SilverCoin_v2.mdx SilverCoin.mdx
+//texture
+//! external FileImporter C:\Imports\items\ItemSilverCoin\SilverCoin.blp SilverCoin.blp
+
 
 

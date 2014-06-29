@@ -40,7 +40,7 @@ struct MagicKeyGroup
             set i = i + 1
         endloop
         //error in case somehow the loop fails to add the monster even though the group isn't full
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: Key group was not full, but key was not added!")
+        call printl("Error: Key group was not full, but key was not added!")
         return false
     endmethod
 
@@ -49,14 +49,14 @@ struct MagicKeyGroup
         loop
             exitwhen i == maxSize
             if key.equals(keys[i]) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, key.toString() + " has been removed from the group")
+                call printl(key.toString() + " has been removed from the group")
                 set keys[i] = 0 //free the slot
                 set size = size - 1 //decrement the size of the group
                 return true
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: " + key.toString() + " does not exist in this group")
+        call printl("Error: " + key.toString() + " does not exist in this group")
         return false
     endmethod
                 
@@ -66,7 +66,7 @@ struct MagicKeyGroup
         loop
             exitwhen i == maxSize
             if keys[i] != 0 then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 11, keys[i].toString())
+                call printl(keys[i].toString())
             endif
             set i = i + 1
         endloop

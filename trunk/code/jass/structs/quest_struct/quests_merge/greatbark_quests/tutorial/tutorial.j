@@ -9,24 +9,113 @@
 		
         call q.addGoal("Speak to the Royal Chaplain.", STORY_GOAL)
         call q.goals[goalNum].setStoryGoal(ROYAL_CHAPLAIN, CHAPLAIN_PART1, "Where am I?", false)
-		set q.goals[goalNum].goalEvent = EventSetWarp.create()
-		call q.goals[goalNum].goalEvent.setWarp(FERRY_TO_FARM, true)
+		set q.goals[goalNum].goalResult = eventTable[TUTORIAL_E1]
+		set q.goals[goalNum].goalLoc = getNPCLoc(ROYAL_CHAPLAIN_ID)
 		set goalNum = goalNum + 1
 		
         call q.addGoal("Pick up your first monster at the farm.", PARTY_SIZE_GOAL)
         call q.goals[goalNum].setPartySizeGoal(1)
+		set q.goals[goalNum].goalLoc = getNPCLoc(MONSTER_FARMER_ID)
         set goalNum = goalNum + 1
 		
         call q.addGoal("Withdraw your gold from the item vault.", GOLD_AMOUNT_GOAL)
         call q.goals[goalNum].setGoldAmountGoal(100)
+		set q.goals[goalNum].goalLoc = getNPCLoc(ITEM_VAULT_ID)
         set goalNum = goalNum + 1
 		
         call q.addGoal("Return to the Royal Chaplain.", STORY_GOAL)
         call q.goals[goalNum].setStoryGoal(ROYAL_CHAPLAIN, CHAPLAIN_PART2, "I've got everything.", false)
-        set goalNum = goalNum + 1
+        set q.goals[goalNum].goalLoc = getNPCLoc(ROYAL_CHAPLAIN_ID)
+		set goalNum = goalNum + 1
 		
         set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

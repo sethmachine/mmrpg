@@ -221,8 +221,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(HARPY, BIRD, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 0,  6,   0,   1,   7,   3,   6,   3)
+	call m.setAttrMax( 1,  7,   1,   3,   10,   6,   10,   5)
 	call m.setAbilities(FAN_OF_KNIVES, SEARING_ARROWS, CRITICAL_STRIKE)
 	set AbstractMonsterTable[m.index] = m
 
@@ -320,8 +320,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(VULTURE, BIRD, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 0,  7,   0,   0,   6,   0,   9,   0)
+	call m.setAttrMax( 1,  10,   1,   5,   10,   4,   15,   1)
 	call m.setAbilities(CRIPPLE, CYCLONE, EVASION)
 	set AbstractMonsterTable[m.index] = m
 
@@ -518,8 +518,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(DUNE_FLYER, BUG, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 0,  3,   0,   1,   3,   5,   7,   3)
+	call m.setAttrMax( 3,  7,   2,   5,   6,   8,   13,   6)
 	call m.setAbilities(CARRION_SWARM, PARASITE, SLOW_POISON)
 	set AbstractMonsterTable[m.index] = m
 
@@ -529,8 +529,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(DUNE_WORM, BUG, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 0,  2,   1,   4,   6,   1,   3,   0)
+	call m.setAttrMax( 1,  5,   3,   10,   9,   6,   8,   1)
 	call m.setAbilities(LIFE_DRAIN, UNHOLY_FRENZY, CRITICAL_STRIKE)
 	set AbstractMonsterTable[m.index] = m
 
@@ -551,8 +551,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(SCORPION, BUG, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 3,  2,   3,   4,   0,   5,   2,   1)
+	call m.setAttrMax( 8,  5,   7,   8,   3,   7,   5,   3)
 	call m.setAbilities(IMPALE, SHADOW_STRIKE, SPIKED_CARAPACE)
 	set AbstractMonsterTable[m.index] = m
 
@@ -881,8 +881,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(KING_COBRA, DRAGON, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 3,  5,   3,   4,   5,   5,   5,   3)
+	call m.setAttrMax( 5,  8,   5,   7,   7,   10,   10,   6)
 	call m.setAbilities(ABOLISH_MAGIC, MIRROR_IMAGE, JOLTING_VENOM)
 	set AbstractMonsterTable[m.index] = m
 
@@ -1286,10 +1286,24 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	// SLIME
 	//*******************
+	/* 
+	Slime has a decent HP gain, along with decent SP.
+	This makes it ideal for tanking spell casts, since they ignore armor.
+	Slime's defense, however, is terrible, making it not so great at tanking attack based monsters.
+	Slime also has poor strength, meaning it can't wear heavy armors/items that would be good for a tank
+	
+	On the other hand, Slime has decent attack growth--it is nearly guaranteed to gain one attack point
+	every two levels, and it carries a rare damage type: magical.
+	
+	The rest of its stats are lackluster.  With Reflect Bounder,
+	Slime can ammend for its poor defense and strength.  
+	
+	Overall Slime would best serve in the role of an anti-spell caster DPS tank.
+	*/
 	set m = AbstractMonster.create(SLIME, SLIME_FAM, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 0,  0,   0,   3,   3,   9,   1,   2)
+	call m.setAttrMax( 1,  5,   2,   6,   6,   12,   5,   5)
 	call m.setAbilities(FIREBOLT, PURGE, REFLECT_BOUNDER)
 	set AbstractMonsterTable[m.index] = m
 

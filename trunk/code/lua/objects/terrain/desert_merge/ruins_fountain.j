@@ -10,5 +10,8 @@
 	//! i makechange(current, "ucam", "0")
 	//! i makechange(current, "urac", "other")
     //! i makechange(current, "unam", "Fountain")
+    //! i makechange(current, "uclr", "75")
+    //! i makechange(current, "uclg", "255")
+    //! i makechange(current, "uclb", "75")
     //the scaling of the model
     //! i makechange(current, "usca", "1.0")

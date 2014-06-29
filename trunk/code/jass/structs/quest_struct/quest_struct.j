@@ -92,13 +92,19 @@ struct Quest
         endloop
         return -1
     endmethod
+	
+	method ping takes nothing returns nothing
+		if goals[stage].goalLoc != null then //check to see if the goal has an actual loc
+		endif
+	endmethod
+			
 	    
     method advance takes nothing returns nothing
 		if stage > 0 or notHidden then
 			call QuestItemSetCompleted(stageItems[stage], true) //complete the goal
 		endif
-		if goals[stage].goalEvent != 0 then
-			call goals[stage].goalEvent.do(pid)
+		if goals[stage].goalResult != 0 then
+			call goals[stage].goalResult.do(pid)
 		endif
         call goals[stage].flush() //flush the goal
         call goals[stage].destroy() //destroy the goal
@@ -124,6 +130,9 @@ struct Quest
             if goals[stage].goalType == STORY_GOAL then
                 call goals[stage].enableStoryGoal()
             endif
+			if goals[stage].goalCause != 0 then
+				call goals[stage].goalCause.do(pid)
+			endif
         endif
     endmethod
 endstruct

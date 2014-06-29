@@ -99,7 +99,7 @@
     //! i makechange(current, "upra", UPRA)
     //paladin has 2 base defense, we set it to 0
     //! i makechange(current, "udef", "0")
-    //! i makechange(current, "ufoo", "0")
+    //! i makechange(current, "ufoo", "1")
     //! i makechange(current, "umpm", "15")
 
     //********************************************
@@ -127,7 +127,7 @@
     //! i makechange(current, "umpr", UMPR)
     //! i makechange(current, "uawt", UAWT)
     //! i makechange(current, "upra", UPRA)
-    //! i makechange(current, "ufoo", "0")
+    //! i makechange(current, "ufoo", "1")
     //! i makechange(current, "umpm", "15")
     //********************************************
     //************ Flying Hero *******************

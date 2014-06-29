@@ -1,6 +1,8 @@
 library MonsterStruct requires AbstractMonsterStruct, Attributes
 
 globals
+	constant integer BASE_HP = 25
+	constant integer BASE_MANA = 15
 endglobals
 
 struct Monster extends AbstractMonster
@@ -82,7 +84,7 @@ struct Monster extends AbstractMonster
     
 	method flush takes nothing returns nothing
 		call KillUnit(this.u)
-		call RemoveUnit(this.u)
+		//call RemoveUnit(this.u)
 		set this.u = null
 		call DialogDestroy(this.info)
 		set this.info = null
@@ -113,12 +115,12 @@ struct Monster extends AbstractMonster
         else
             set s = s + "Female" + "\n"
         endif
-        set s = s + "Hitpoints: " + I2S(attrPts[HP]) + "\n"
+        set s = s + "Hitpoints: " + I2S(attrPts[HP] + BASE_HP) + "\n"
         set s = s + "Attack: " + I2S(attrPts[ATT]) + "\n"
         set s = s + "Defense: " + I2S(attrPts[DEF]) + "\n"
         set s = s + "Strength: " + I2S(attrPts[STR]) + "\n"
         set s = s + "Agility: " + I2S(attrPts[AGI]) + "\n"
-        set s = s + "Mana: " + I2S(attrPts[MANA]) + "\n"
+        set s = s + "Mana: " + I2S(attrPts[MANA] + BASE_MANA) + "\n"
         set s = s + "Spell resistance: " + I2S(attrPts[SP]) + "\n"
         set s = s + "Intelligence: " + I2S(attrPts[INT]) + "\n"
         call DialogSetMessage(info, s)
@@ -180,6 +182,9 @@ struct Monster extends AbstractMonster
         set newPts = addPts + attrPts[ATT]
         if (newPts / attrRatio[ATT]) > (attrPts[ATT] / attrRatio[ATT]) then
             set gain = (newPts / attrRatio[ATT]) - (attrPts[ATT] / attrRatio[ATT])
+			if IssueImmediateOrder(u, "stop") == false then
+				call printl("thinks the stop order is false")
+			endif
             call UnitAddItemById(u, damageTomes[gain])
         endif
         set attrPts[ATT] = newPts

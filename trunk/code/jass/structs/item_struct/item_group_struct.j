@@ -36,7 +36,7 @@ struct ItemGroup
     method addItem takes Item itm returns boolean
         local integer i = 0 //used to loop through the available slots
         if size == maxSize then //make sure the group actually has room
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: This item group is full.  Max items is: " + I2S(maxSize))
+            call printl("Error: This item group is full.  Max items is: " + I2S(maxSize))
             return false
         endif
         loop
@@ -49,7 +49,7 @@ struct ItemGroup
             set i = i + 1
         endloop
         //error in case somehow the loop fails to add the monster even though the group isn't full
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: Item group was not full, but item was not added!")
+        call printl("Error: Item group was not full, but item was not added!")
         return false
     endmethod
 
@@ -58,14 +58,14 @@ struct ItemGroup
         loop
             exitwhen i == maxSize
             if itm.equals(items[i]) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, itm.toString() + " has been removed from the group")
+                call printl(itm.toString() + " has been removed from the group")
                 set items[i] = 0 //free the slot
                 set size = size - 1 //decrement the size of the group
                 return true
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: " + itm.toString() + " does not exist in this group")
+        call printl("Error: " + itm.toString() + " does not exist in this group")
         return false
     endmethod
             
@@ -76,12 +76,12 @@ struct ItemGroup
         loop
             exitwhen i == maxSize
             if items[i].equals(itm) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Found " + itm.toString() + " in the group")
+                call printl("Found " + itm.toString() + " in the group")
                 return true
             endif
             set i = i + 1
         endloop
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Could not find " + itm.toString() + " in the group")
+        call printl("Could not find " + itm.toString() + " in the group")
         return false
     endmethod
     
@@ -89,14 +89,14 @@ struct ItemGroup
     method moveItem takes ItemGroup targetGroup, Item targetItem returns boolean
         if this.itemStructInGroup(targetItem) then
             if targetGroup.addItem(targetItem) then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Moved " + targetItem.toString() + " to the group")
+                call printl("Moved " + targetItem.toString() + " to the group")
                 call this.remove(targetItem) //remove the monster from the origin group
                 return true
             endif
-            call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: Cannot add " + targetItem.toString() + " to the group.")
+            call printl("Error: Cannot add " + targetItem.toString() + " to the group.")
             return false
         endif
-        call DisplayTimedTextToPlayer(Player(pid), 0, 0, 10, "Error: " + targetItem.toString() + " does not exist in origin group!")
+        call printl("Error: " + targetItem.toString() + " does not exist in origin group!")
         return false
     endmethod
     
@@ -116,7 +116,7 @@ struct ItemGroup
         loop
             exitwhen i == maxSize
             if items[i] != 0 then
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, 11, items[i].toString())
+                call printl(items[i].toString())
             endif
             set i = i + 1
         endloop

@@ -58,8 +58,8 @@
 //model
 //! external FileImporter C:\Imports\\units\\DuneFlyer\DuneFlyer.mdx DuneFlyer.mdx
 //button
-//! external FileImporter C:\Imports\\units\\BTNDuneCrawler\BTNDuneCrawler.blp BTNDuneCrawler.blp
-//! external FileImporter C:\Imports\\units\\BTNDuneCrawler\DISBTNDuneCrawler.blp DISBTNDuneCrawler.blp
+//! external FileImporter C:\Imports\\units\\BTNDuneCrawler\BTNDuneCrawler.blp ReplaceableTextures\CommandButtons\BTNDuneCrawler.blp
+//! external FileImporter C:\Imports\\units\\BTNDuneCrawler\DISBTNDuneCrawler.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNDuneCrawler.blp
 //*************************************
 //***** Scarlet Needle ****************
 //*************************************
@@ -209,6 +209,6 @@
 //! external FileImporter C:\Imports\\units\\Slime\\Slime.mdx Slime.mdx
 
 //btns
-//! external FileImporter C:\Imports\\units\\BTNWaterElemental\\BTNWaterElemental.blp BTNWaterElemental.blp
-//! external FileImporter C:\Imports\\units\\BTNWaterElemental\\DISBTNWaterElemental.blp DISBTNWaterElemental.blp
+//! external FileImporter C:\Imports\\units\\BTNWaterElemental\\BTNWaterElemental.blp ReplaceableTextures\CommandButtons\BTNWaterElemental.blp
+//! external FileImporter C:\Imports\\units\\BTNWaterElemental\\DISBTNWaterElemental.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNWaterElemental.blp
 

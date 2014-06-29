@@ -5,10 +5,11 @@ endglobals
 
 //creates an item at a given location
 struct EventEnableQuest extends Event
-	string questTitle = ""
+	string questTitle
 	
-    static method create takes nothing returns thistype
+    static method create takes string questTitle returns thistype
         local thistype this = thistype.allocate()
+		set this.questTitle = questTitle
         return this
     endmethod
 
@@ -16,13 +17,6 @@ struct EventEnableQuest extends Event
 		local integer questIndex = playerDatum[pid].findQuestByTitle(questTitle)
 		call playerDatum[pid].quests[questIndex].questFanfare()
 		call doNext(pid)
-	endmethod
-	
-	//******************************
-	// Child specific event setups *
-	//******************************
-	method setEnableQuest takes string whichQuest returns nothing
-		set this.questTitle = whichQuest
 	endmethod
 endstruct
 endlibrary
