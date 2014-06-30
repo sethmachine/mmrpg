@@ -4,8 +4,8 @@ globals
 	constant integer ATTACK_MELEE = 'ATT0'
 	constant integer ATTACK_RANGED = 'ATT1'
 	constant integer BASE_DAMAGE = 5
-	constant real MELEE_MULTIPLIER = 1
-	constant real RANGED_MULTIPLIER = 0.75
+	constant real MELEE_MULTIPLIER = 0.60
+	constant real RANGED_MULTIPLIER = 0.40
 endglobals
 
 

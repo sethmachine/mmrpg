@@ -48,7 +48,7 @@ function getRandomReachableLocInRect takes rect whichRect, real range returns lo
 		set randomLoc = GetRandomLocInRect(whichRect)
 		set i = i + 1
 	endloop
-	call print("found a random loc in: " + I2S(i) + " tries.")
+	//call print("found a random loc in: " + I2S(i) + " tries.")
 	return randomLoc
 endfunction
 
