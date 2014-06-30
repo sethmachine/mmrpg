@@ -50,11 +50,16 @@ private function main takes nothing returns boolean
 	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(HEALTH_STONE_0, GREATBARK_LOC), pid))*/
     set creep = CreateUnitAtLoc(BOT_ALLY, SLIME, FARM_LOC, 0)
     call SetHeroLevel(creep, 5, true)
-    set m = Monster.create(creep, pid, GetRandomInt(0, 1))
+    set m = Monster.create(creep, pid)
     call m.levelUp(5)
     call playerDatum[pid].farm.addMonster(m)
     call playerDatum[pid].startQuest("New Beginnings", true)
     set creep = null
+	if DEBUG then
+		call Cheat("whosyourdaddy")
+		call Cheat("iseedeadpeople")
+		call Cheat("greedisgood 100000")
+	endif
     //endif
     return false
 endfunction

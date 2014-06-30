@@ -94,6 +94,7 @@
 //! import "C:\Users\seth\mmrpg\code\jass\systems\rect_subset_sys\rect_play.j"
 //! import "C:\Users\seth\mmrpg\code\jass\systems\rect_subset_sys\rect_util.j"
 //! import "C:\Users\seth\mmrpg\code\jass\systems\team_attack_sys\team_attack.j"
+//! import "C:\Users\seth\mmrpg\code\jass\util\camera\test.j"
 //! import "C:\Users\seth\mmrpg\code\jass\util\camera\zoom.j"
 //! import "C:\Users\seth\mmrpg\code\jass\util\colors\colors.j"
 //! import "C:\Users\seth\mmrpg\code\jass\util\data_structures\table.j"

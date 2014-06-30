@@ -12,12 +12,15 @@ private function main takes nothing returns boolean
 	local Monster m
 	local integer currLvl
 	local integer prevLvl
+	local integer newLvl
 	if pid < TOTAL_PLAYERS then
 		set pd = playerDatum[pid]
 		if u != pd.pc.u then
 			set m = pd.party.getMonsterByUnit(u)
 			set currLvl = GetHeroLevel(u)
 			set prevLvl = m.heroLvl
+			set newLvl = currLvl - prevLvl
+			call print("level up being called : " + I2S(newLvl) + " times.")
 			call m.levelUp(currLvl - prevLvl)
 			set m.heroLvl = currLvl
 			call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, LEVEL_UP_MSG + GetHeroProperName(u) + " is now level " + I2S(currLvl) + "!")
