@@ -52,10 +52,12 @@ struct Monster extends AbstractMonster
         endloop
     endmethod
     
-    static method create takes unit u, integer pid, integer gender returns thistype
+    static method create takes unit u, integer pid returns thistype
         local integer abilityNum = 0 //counter for setting abilities array
         local integer attrNum = 0 //counter for setting attribute arrays
         local integer uType = GetUnitTypeId(u)
+		local string name = GetHeroProperName(u)
+		local string genderString = SubString(name, StringLength(name) - 2, StringLength(name) - 1)
         local AbstractMonster m = AbstractMonsterTable[GetUnitPointValueByType(uType)]
         local thistype this = thistype.allocate(m.unitType, m.familyId, m.maxLvl, m.rcLvl)//, m.name)
 		loop
@@ -72,13 +74,17 @@ struct Monster extends AbstractMonster
         set this.u = u
         set this.heroLvl = GetHeroLevel(u)
         set this.pid = pid
-        set this.gender = gender
+		if genderString == "f" then
+			set this.gender = 1
+		else
+			set this.gender = 0
+		endif
         call this.setIVs() //set the monster's IVs
         set attrPts[DEF] = 10
         set attrPts[STR] = 10
         set attrPts[INT] = 10
-        set attrPts[MANA] = 15
-        set attrPts[HP] = 25
+        //set attrPts[MANA] = 15
+        //set attrPts[HP] = 25
         return this
     endmethod
     
@@ -176,10 +182,12 @@ struct Monster extends AbstractMonster
         loop
             exitwhen i == lvl
             set statInc = calcStatIncrease(attrIV[ATT], attrMin[ATT], attrMax[ATT])
+			call print("stat gain for 1 loop: " + I2S(statInc))
             set addPts = addPts + statInc
             set i = i + 1
         endloop
         set newPts = addPts + attrPts[ATT]
+		call print("new attack points: " + I2S(newPts))
         if (newPts / attrRatio[ATT]) > (attrPts[ATT] / attrRatio[ATT]) then
             set gain = (newPts / attrRatio[ATT]) - (attrPts[ATT] / attrRatio[ATT])
 			if IssueImmediateOrder(u, "stop") == false then
