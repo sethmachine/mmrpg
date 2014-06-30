@@ -38,10 +38,9 @@ struct CreepTable
         local integer level = GetRandomInt(minLevel, maxLevel)
         local integer i = GetRandomInt(0, size - 1)
         local unit u = CreateUnitAtLoc(BOT_ENEMY, creepIds[i], targetLoc, 0)
-		call print(I2S(level))
         call SetHeroLevel(u, level, false)
         call UnitAddAbility(u, ABIL_WANDER)
-        set m = Monster.create(u, GetPlayerId(BOT_ENEMY), 0)
+        set m = Monster.create(u, GetPlayerId(BOT_ENEMY))
         call m.levelUp(level)
         return m
     endmethod

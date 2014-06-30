@@ -516,7 +516,7 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	// DUNE_FLYER
 	//*******************
-	set m = AbstractMonster.create(DUNE_FLYER, BUG, 30, 10)
+	set m = AbstractMonster.create(DUNE_FLYER, BUG, 30, 100)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 0,  3,   0,   1,   3,   5,   7,   3)
 	call m.setAttrMax( 3,  7,   2,   5,   6,   8,   13,   6)
@@ -527,7 +527,7 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	// DUNE_WORM
 	//*******************
-	set m = AbstractMonster.create(DUNE_WORM, BUG, 30, 10)
+	set m = AbstractMonster.create(DUNE_WORM, BUG, 30, 100)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 0,  2,   1,   4,   6,   1,   3,   0)
 	call m.setAttrMax( 1,  5,   3,   10,   9,   6,   8,   1)
