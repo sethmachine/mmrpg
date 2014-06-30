@@ -13,8 +13,8 @@
     //! i ATT_MELEE_RANGE = "100.00"
     //! i ATT_RANGED_RANGE = "600.00"
     //damage based on attack points modifier
-    //! i ATT_MELEE_MOD = "1"
-    //! i ATT_RANGED_MOD = "0.75"
+    //! i ATT_MELEE_MOD = "0.60"
+    //! i ATT_RANGED_MOD = "0.40"
     //! i BASE_DMG = "5"
     //prefixes
     //! i MINV_PREFIX = "AMI"
