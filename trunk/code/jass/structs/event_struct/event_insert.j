@@ -53,7 +53,7 @@ private function fillTable takes nothing returns nothing
 		set e.next.next = EventSFXInCircleAtPC.create("Objects\\Spawnmodels\\Undead\\UndeadDissipate\\UndeadDissipate.mdl", 15)
 		set e.next.next.wait = 4.0
 		//then summon the ghost/zombie of Al-Jernan
-		set e.next.next.next = EventCreepSpawnAtPC.create(DEADNITE, 5, 100, 0, true)
+		set e.next.next.next = EventCreepSpawnAtPC.create(DEADNITE, 5, 100, true)
 		//put event inside array, increment
 		set eventTable[i] = e
 		set i = i + 1

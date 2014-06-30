@@ -1,7 +1,7 @@
 	//*******************
 	// DUNE_WORM
 	//*******************
-	set m = AbstractMonster.create(DUNE_WORM, BUG, 30, 10)
+	set m = AbstractMonster.create(DUNE_WORM, BUG, 30, 100)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 0,  2,   1,   4,   6,   1,   3,   0)
 	call m.setAttrMax( 1,  5,   3,   10,   9,   6,   8,   1)
