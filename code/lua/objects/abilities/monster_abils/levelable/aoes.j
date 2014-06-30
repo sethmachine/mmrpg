@@ -1325,7 +1325,8 @@
     //! i FAN_anam = "Fan of Knives"
     //! i FAN_areq = ""
     //damage dealt
-    //! i write_fieldArr(ALEV, "Efk1", {"35.00", "65.00", "95.00", "135.00", "175.00", "225.0"})
+	//! i FAN_Efk1 = {"35.00", "65.00", "95.00", "135.00", "175.00", "225.0"}
+    //! i write_fieldArr(ALEV, "Efk1", FAN_Efk1)
     //max speed adjustment
     //! i write_fieldVar(ALEV, "Efk4", "100.00")
     //max damage
@@ -1357,7 +1358,7 @@
     //tool tip (FANlay quantity/effect)
     //! i FAN_aub1 = {}
     //! i for i=1, ALEV do
-       //! i FAN_aub1[i] = "Hurls a flurry of knives, damaging nearby enemies.  Each knife does <AEfk, DataA" .. i .. "> damage."
+       //! i FAN_aub1[i] = "Hurls a flurry of knives, damaging nearby enemies.  Each knife does " .. FAN_Efk1[i] .. " damage."
    //! i end
     //various misc traits of the ability
     //! i makechange(current, "abpx", ABPX_Q)
