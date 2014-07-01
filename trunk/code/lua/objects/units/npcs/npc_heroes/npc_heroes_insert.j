@@ -41,7 +41,7 @@
 	//! i upro = "The King"
 	//! i write_unit(uico, umdl, unam, upro, paladinId)
 	//]]
-	//[[ Old-Oak
+	//[[ Old Oak
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNHeroPaladin.blp"
     //! i umdl = "units\\human\\Uther\\Uther"
     //! i unam = "Monster General"

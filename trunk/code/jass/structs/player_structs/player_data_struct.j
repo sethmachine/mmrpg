@@ -1,6 +1,7 @@
 library PlayerDataStruct requires MonsterGroupStruct, NPCStruct
 
 globals
+	constant integer TOTAL_NPCS = 100
 endglobals
 
 
@@ -20,7 +21,7 @@ struct PlayerData
     button recruitYes
     button recruitNo
 	NPC backpackMenu
-    NPC array npcs[20] //the list of all the interactable NPCs for this player
+    NPC array npcs[TOTAL_NPCS] //the list of all the interactable NPCs for this player
     Warp array warps[100] //all useable warps in the game
     Quest array quests[TOTAL_QUESTS] //the list of all the quests, not all may be activated however
     trigger npcTrig //the current npc trig, destroyed everytime a convo finishes
@@ -61,31 +62,23 @@ struct PlayerData
         return false //no room in the quests array
     endmethod
     
-    method addQuest takes Quest q returns boolean
+	//! textmacro AddObject takes type, arrayName, arrayMax
+    method add$type$ takes $type$ o returns boolean
         local integer i = 0
         loop
-            exitwhen i == TOTAL_QUESTS
-            if quests[i] == 0 then //found a free slot
-                set quests[i] = q
+            exitwhen i == $arrayMax$
+            if $arrayName$[i] == 0 then //found a free slot
+                set $arrayName$[i] = o
                 return true //found room in the quests array, added it
             endif
             set i = i + 1
         endloop
         return false //no room in the quests array
     endmethod
-
-    method addNPC takes Quest q returns boolean
-        local integer i = 0
-        loop
-            exitwhen i == TOTAL_QUESTS
-            if quests[i] == 0 then //found a free slot
-                set quests[i] = q
-                return true //found room in the quests array, added it
-            endif
-            set i = i + 1
-        endloop
-        return false //no room in the quests array
-    endmethod
+	//! endtextmacro
+	
+	//! runtextmacro AddObject("Quest", "quests", "TOTAL_QUESTS")
+	//! runtextmacro AddObject("NPC", "npcs", "TOTAL_NPCS")
 
 //searches through the quests array by the title of a quest
 //returns the index of where that quest is in the array
@@ -118,6 +111,10 @@ struct PlayerData
         endloop
         return -1 //no such quest
     endmethod
+	
+	method getNPCById takes integer id returns NPC
+		return npcs[npcUnitIdTable[id]]
+	endmethod
 
 endstruct
 endlibrary

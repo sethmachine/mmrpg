@@ -19,6 +19,8 @@ getId = re.compile(r'(?<=//! i id = \')[a-z0-9]+', re.IGNORECASE)
 #finds the name of each object in the insert file
 getNames = re.compile(r'(?<=//\[\[ )[a-z ]+', re.IGNORECASE)
 
+getConstantsNames = re.compile(r'(?<=integer )[a-z_0-9]+', re.IGNORECASE)
+
 p = re.compile(r'// [a-zA-Z ]+.*?upoi \+ 1', re.DOTALL)
 
 if platform.system() == 'Windows':
@@ -113,4 +115,9 @@ def getInsertFileData(insertFile):
         rawcode = add(rawcode)
     return(namen, ids)
     
-    
+
+def getConstantsFileVars(constantsFile):
+    w = open(find(constantsFile, root), 'r')
+    t = w.read()
+    w.close()
+    return getConstantsNames.findall(t)

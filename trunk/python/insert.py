@@ -7,9 +7,10 @@ import util
 
 getInsertFileDir = re.compile(r'(?<=/|\\)[^/\\]+')
 
-def insert(insertFile, insertDir, newFile, cwd, header, keywords = []):
+def insert(insertFile, insertDir, newFile, cwd, header, keywords = [], sort = False):
     fileNames = util.getFileNames(insertDir, cwd, keywords)
-    fileNames = sorted(fileNames, key=lambda filename: os.stat(filename).st_ctime)
+    if sort:
+        fileNames = sorted(fileNames, key=lambda filename: os.stat(filename).st_ctime)
     insertFile = util.find(insertFile, util.find(cwd, util.root))
     insertions = ""
     for fileName in fileNames:

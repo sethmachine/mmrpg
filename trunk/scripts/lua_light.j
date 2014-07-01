@@ -5,7 +5,8 @@
 //import all 146 monsters
 //! import "C:\Users\seth\mmrpg\code\lua\objects\units\monsters\monsters_insert.j"
 //import all npcs
-//! import "C:\Users\seth\mmrpg\code\lua\objects\units\npcs\npcs_insert.j"
+//! import "C:\Users\seth\mmrpg\code\lua\objects\units\npcs\npc_units\npc_units_insert.j"
+//! import "C:\Users\seth\mmrpg\code\lua\objects\units\npcs\npc_heroes\npc_heroes_insert.j"
 //import all warps
 //! import "C:\Users\seth\mmrpg\code\lua\objects\\units\buildings\warps\warps_insert.j"
 //import villagers

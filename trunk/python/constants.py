@@ -76,7 +76,7 @@ def rawCns(insertFile, constantsFile, suffix = "id"):
         print "Error: The size of names and ids is not the same!"
         return
     #build the first part of the library
-    header = "library " + util.name2Lib(insertFile.replace("_insert.j", "")) + "Constants\n"
+    header = "library " + util.name2Lib(insertFile.replace("_insert.j", "") + suffix) + "Constants\n"
     header = header.replace("_", "")
     header += "globals\n"
     #now for each name, create a constant integer
@@ -87,6 +87,48 @@ def rawCns(insertFile, constantsFile, suffix = "id"):
     w = open(path, 'w')
     print>>w, header
     w.close()
+
+def intCns(insertFile, constantsFile, suffix = ""):
+    """Takes an insert file as an argument and creates a vJASS library,
+    which contains each of the objects' rawcodes represented as
+    JASS constant integers."""
+    data = util.getInsertFileData(insertFile)
+    names = data[0]
+    ids = data[1]
+    if len(names) != len(ids):
+        print "Error: The size of names and ids is not the same!"
+        return
+    #build the first part of the library
+    header = "library " + util.name2Lib(insertFile.replace("_insert.j", "")) + "Constants\n"
+    header = header.replace("_", "")
+    header += "globals\n"
+    #now for each name, create a constant integer
+    for x in range(0, len(names)):
+        header += "\tconstant integer " + util.name2Var(names[x]) + " = " + str(x) + "\n"
+    header += "endglobals\nendlibrary"
+    path = os.path.join(CONSTANTS_DIR, constantsFile)
+    w = open(path, 'w')
+    print>>w, header
+    w.close()
+
+def writeTable(constantsFiles = [], tableFile = "npc_unit_id_table_header.j", tableName = "npcUnitIdTable"):
+    tableFile = util.find(tableFile, util.root)
+    w = open(tableFile, 'r')
+    t = w.read()
+    w.close()
+    tableStatements = ""
+    for constantsFile in constantsFiles:
+        names = util.getConstantsFileVars(constantsFile)
+        for name in names:
+            cell = "[" + name + "]"
+            tableStatements += "\tset " + tableName + cell + " = " + name.replace("_ID", "") + "\n"
+    t = t.replace("//insert", tableStatements)
+    w = open(tableFile.replace("_header.j", "") + "_insert.j", 'w')
+    print>>w, t
+    w.close()
+            
+        
+    
 
 def constantsStr(constantsDir, constantsFile, cwd, keywords = [], suffix = "_STR"):
     fileNames = util.getFileNames(constantsDir, cwd, keywords)

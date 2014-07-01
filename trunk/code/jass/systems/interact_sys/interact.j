@@ -18,7 +18,8 @@ private function main takes nothing returns boolean
                         call usePortal(pid)
                     elseif upoi >= 300 and upoi < 500 then
 						call SetUnitFacingToFaceUnitTimed(target, u, 0.5)
-                        call playerDatum[pid].npcs[upoi - NPC_CONS].interact(pid)
+						call playerDatum[pid].getNPCById(GetUnitTypeId(target)).interact(pid)
+                        //call playerDatum[pid].npcs[upoi - NPC_CONS].interact(pid)
                     elseif upoi >= 500 then
                         call playerDatum[pid].warps[upoi - WARP_CONS].warp(pid)
                     endif

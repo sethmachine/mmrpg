@@ -1,4 +1,4 @@
-	//[[ Royal Chaplain Ricard
+	//[[ Royal Chaplain
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNBanditMage.blp"
     //! i umdl = "units\\creeps\\HumanMage\\HumanMage"
     //! i unam = "Royal Chaplain Ricard"
