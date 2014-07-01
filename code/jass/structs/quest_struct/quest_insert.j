@@ -232,6 +232,13 @@ function questInit takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
 		//************************************
 		// name: TUTORIAL_QUEST
 		// strname: "New Beginnings"
@@ -264,6 +271,13 @@ function questInit takes nothing returns nothing
 		
         set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0
+
+
+
+
+
+
+
 
 
 

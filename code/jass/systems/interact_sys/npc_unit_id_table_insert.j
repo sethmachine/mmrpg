@@ -22,6 +22,23 @@ private function main takes nothing returns nothing
 	set npcUnitIdTable[OLD_OAK_ID] = OLD_OAK
 	set npcUnitIdTable[ABU_DHABI_ID] = ABU_DHABI
 	set npcUnitIdTable[JAFFAR_ID] = JAFFAR
+	set npcUnitIdTable[FERRY_TO_FARM_ID] = FERRY_TO_FARM
+	set npcUnitIdTable[FERRY_TO_GREATBARK_ID] = FERRY_TO_GREATBARK
+	set npcUnitIdTable[MAGIC_DOOR_SHRINE_ID] = MAGIC_DOOR_SHRINE
+	set npcUnitIdTable[CASTLE_CAZBAR_ID] = CASTLE_CAZBAR
+	set npcUnitIdTable[CASTLE_CAZBAR_EXIT_ID] = CASTLE_CAZBAR_EXIT
+	set npcUnitIdTable[CAZBAR_ID] = CAZBAR
+	set npcUnitIdTable[CAZBAR_EXIT_ID] = CAZBAR_EXIT
+	set npcUnitIdTable[CAZBAR_WELL_ID] = CAZBAR_WELL
+	set npcUnitIdTable[WELL_EXIT_ID] = WELL_EXIT
+	set npcUnitIdTable[DESERT_TEMPLE_ID] = DESERT_TEMPLE
+	set npcUnitIdTable[DESERT_TEMPLE_EXIT_ID] = DESERT_TEMPLE_EXIT
+	set npcUnitIdTable[KALKA_ID] = KALKA
+	set npcUnitIdTable[KALKA_EXIT_ID] = KALKA_EXIT
+	set npcUnitIdTable[KALKA_SEWERS_ID] = KALKA_SEWERS
+	set npcUnitIdTable[KALKA_SEWERS_EXIT_ID] = KALKA_SEWERS_EXIT
+	set npcUnitIdTable[MIRAGE_LAKE_ID] = MIRAGE_LAKE
+	set npcUnitIdTable[MIRAGE_LAKE_EXIT_ID] = MIRAGE_LAKE_EXIT
 
 	call DestroyTimer(t)
 	set t = null

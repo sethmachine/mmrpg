@@ -28,8 +28,8 @@ cns.constants("monsters", "tables/monsters_constants.j", "lua", ["header", "inse
 #cns.constantsStr("npcs", "tables/npc_names_constants.j", "lua", ["header", "insert"])
 
 #creates library for warp constants--integer to integer
-cns.constants("warps", "tables/warps_constants.j", "lua", ["header", "insert"])
-cns.constants("warps", "tables/warp_id_constants.j", "lua", ["header", "insert"], "w", "_ID", "Ids")
+#cns.constants("warps", "tables/warps_constants.j", "lua", ["header", "insert"])
+#cns.constants("warps", "tables/warp_id_constants.j", "lua", ["header", "insert"], "w", "_ID", "Ids")
 
 #creates library for quest constants--integer to integer
 cns.constants("quests_merge", "tables/quests_constants.j", "quest_struct", ["header", "insert", "msg"])
@@ -60,7 +60,8 @@ ins.insert("npc_heroes_header.j", "npc_heroes", "npc_heroes_insert.j", "npc_hero
 ins.insert("monsters_header.j", "monsters", "monsters_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
 
 #creates lua file for warps
-ins.insert("warps_header.j", "warps", "warps_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
+#ins.insert("warps_header.j", "warps", "warps_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
+ins.insert("warps_header.j", "warps_merge", "warps_insert.j", "warps", "//insert", ["decrep", "header", "insert"], True)
 
 #creates lua file for monster items
 ins.insert("passive_header.j", "monster_equipment", "passive_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
@@ -90,7 +91,7 @@ ins.insert("event_header.j", "events_merge", "event_insert.j", "jass", "//insert
 ins.insert("abstract_monster_header.j", "abstract_monster_merge", "abstract_monster_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])
 
 #creates the jass file for warps
-ins.insert("warp_header.j", "warp_merge", "warp_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])
+#ins.insert("warp_header.j", "warp_merge", "warp_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])
 
 #wrap up constants generation / library
 
@@ -107,8 +108,10 @@ cns.rawCns("npc_units_insert.j", "tables/npc_unit_id_constants.j")
 cns.intCns("npc_units_insert.j", "tables/npc_unit_constants.j")
 cns.rawCns("npc_heroes_insert.j", "tables/npc_hero_id_constants.j")
 cns.intCns("npc_heroes_insert.j", "tables/npc_hero_constants.j")
+cns.rawCns("warps_insert.j", "tables/warp_id_constants.j")
+cns.intCns("warps_insert.j", "tables/warp_constants.j")
 
-cns.writeTable(["npc_unit_id_constants.j", "npc_hero_id_constants.j"])
+cns.writeTable(["npc_unit_id_constants.j", "npc_hero_id_constants.j", "warp_id_constants.j"])
 
 #generate constants library
 cns.constantsLib("constants", "constants_library.j", "jass", ["library"])
