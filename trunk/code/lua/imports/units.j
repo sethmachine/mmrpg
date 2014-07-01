@@ -212,3 +212,12 @@
 //! external FileImporter C:\Imports\\units\\BTNWaterElemental\\BTNWaterElemental.blp ReplaceableTextures\CommandButtons\BTNWaterElemental.blp
 //! external FileImporter C:\Imports\\units\\BTNWaterElemental\\DISBTNWaterElemental.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNWaterElemental.blp
 
+//*************************************
+//***** Merchant **********************
+//*************************************
+//model
+//! external FileImporter C:\Imports\units\LeprekonHerbalist\Leprekon_v2.mdx Leprekon.mdx
+//texture
+//! external FileImporter C:\Imports\units\LeprekonHerbalist\Leprekon.blp Leprekon.blp
+//portrait
+//! external FileImporter C:\Imports\units\LeprekonHerbalist\Leprekon_Portrait_v2.mdx Leprekon_Portrait.mdx

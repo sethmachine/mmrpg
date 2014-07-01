@@ -2,7 +2,7 @@
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	//! i itemId = 'f000'
 	//! i baseId = 'kybl'
-	
+	//! i QUEST_ITEM = "2"
 	//! i function add(value, result)
 		//! i if value == "" then
 			//! i value = "0"
@@ -15,8 +15,7 @@
 		//! i else
 			//! i return add(string.sub(value, 1, string.len(value) - 1), result .. "0")
 		//! i end
-	//! i end
-	
+	//! i end	
 	//! i function write_item(unam, ides, ifil, iico, igol)
 		//! i setobjecttype("items")
 		//! i createobject(baseId, itemId)
@@ -27,6 +26,5 @@
 		//! i makechange(current, 'unam', unam)
 		//! i itemId = add(itemId, "")
 	//! i end
-	
-	//insert
+//insert
 //! endexternalblock

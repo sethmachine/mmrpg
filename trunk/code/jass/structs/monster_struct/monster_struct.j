@@ -83,8 +83,11 @@ struct Monster extends AbstractMonster
         set attrPts[DEF] = 10
         set attrPts[STR] = 10
         set attrPts[INT] = 10
-        //set attrPts[MANA] = 15
-        //set attrPts[HP] = 25
+		set attrPts[ATT] = 0
+		set attrPts[SP] = 0
+		set attrPts[MANA] = 0
+		set attrPts[AGI] = 0
+		set attrPts[HP] = 0
         return this
     endmethod
     
@@ -182,12 +185,10 @@ struct Monster extends AbstractMonster
         loop
             exitwhen i == lvl
             set statInc = calcStatIncrease(attrIV[ATT], attrMin[ATT], attrMax[ATT])
-			call print("stat gain for 1 loop: " + I2S(statInc))
             set addPts = addPts + statInc
             set i = i + 1
         endloop
         set newPts = addPts + attrPts[ATT]
-		call print("new attack points: " + I2S(newPts))
         if (newPts / attrRatio[ATT]) > (attrPts[ATT] / attrRatio[ATT]) then
             set gain = (newPts / attrRatio[ATT]) - (attrPts[ATT] / attrRatio[ATT])
 			if IssueImmediateOrder(u, "stop") == false then

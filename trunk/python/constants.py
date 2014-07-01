@@ -16,6 +16,12 @@ getObjectName = re.compile(r'(?<="unam", ")[^"]+')
 
 getIdType = re.compile(r'(?<=add\()[^,]+')
 
+#finds the rawcode id of the insert file
+getId = re.compile(r'(?<=//! i id = \')[a-z0-9]+', re.IGNORECASE)
+
+#finds the name of each object in the insert file
+getNames = re.compile(r'(?<=//\[\[ )[a-z ]+', re.IGNORECASE)
+
 def int2Rawcode(integer, rawId):
     if integer < 10:
         return  "'" + rawId + "00" + str(integer) + "'"
@@ -38,44 +44,50 @@ def constants(constantsDir, constantsFile, cwd, keywords = [], rawCode = "", suf
     header = header.replace("_", "")
     header += "globals\n"
     i = 0
-    if rawCode == "g" or rawCode == "N":
+    objID = rawCode + "000"
+    if rawCode == "N":
         i = 1
+    elif rawCode == "w":
+        i = "vZZZ"
+    elif rawCode == "g":
+        objID = rawCode + "001"
     for var in varNames:
         value = i
-        if rawCode != "":
+        if rawCode != "" and rawCode != "w" and rawCode != "g":
             value = int2Rawcode(value, rawCode)
+        elif rawCode == "w" or rawCode == "g":
+            value = "'" + objID + "'"
+            objID = util.add(objID)
         header += "\tconstant integer " + var.upper() + suffix + " = " + str(value) + "\n"
-        i += 1
+        if rawCode != "w" and rawCode != "g":
+            i += 1
     header += "endglobals\nendlibrary"
     print>>w, header
     w.close()
 
-
-"""def constantsNPC(npcsFile = "npcs_insert.j", constantsFile, suffix = ""):
-    w = open(util.find(npcsFile, util.root))
-    t = w.read()
-    w.close()
-    path = os.path.join(CONSTANTS_DIR, constantsFile)
-    w = open(path, 'w')
-    header = "library " + "NPCIdsConstants\n"
+def rawCns(insertFile, constantsFile, suffix = "id"):
+    """Takes an insert file as an argument and creates a vJASS library,
+    which contains each of the objects' rawcodes represented as
+    JASS constant integers."""
+    data = util.getInsertFileData(insertFile)
+    names = data[0]
+    ids = data[1]
+    if len(names) != len(ids):
+        print "Error: The size of names and ids is not the same!"
+        return
+    #build the first part of the library
+    header = "library " + util.name2Lib(insertFile.replace("_insert.j", "")) + "Constants\n"
     header = header.replace("_", "")
     header += "globals\n"
-    i = 0
-    j = 0
-    names = getObjectName.findall(t)
-    idTypes = getIdType.findall(t)
+    #now for each name, create a constant integer
     for x in range(0, len(names)):
-        if name == 
-    for var in varNames:
-        value = i
-        if rawCode != "":
-            value = int2Rawcode(value, rawCode)
-        header += "\tconstant integer " + var.upper() + suffix + " = " + str(value) + "\n"
-        i += 1
+        header += "\tconstant integer " + util.name2Var(names[x] + "_" + suffix) + " = \'" + ids[x] + "\'\n"
     header += "endglobals\nendlibrary"
+    path = os.path.join(CONSTANTS_DIR, constantsFile)
+    w = open(path, 'w')
     print>>w, header
-    w.close()"""
-    
+    w.close()
+
 def constantsStr(constantsDir, constantsFile, cwd, keywords = [], suffix = "_STR"):
     fileNames = util.getFileNames(constantsDir, cwd, keywords)
     varNames = [util.getFileName.findall(x)[0] for x in fileNames]

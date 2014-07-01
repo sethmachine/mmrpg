@@ -33,7 +33,6 @@ struct Story
         local Story s = getStoryByDialog(GetClickedDialog())
         if GetClickedButton() == s.next then
             call DialogSetMessage(s.nextStory.d, s.nextStory.title)
-			call print("next story msg : " + s.nextStory.title)
             call DialogDisplay(p, s.nextStory.d, true)
         elseif GetClickedButton() == s.prev then
             call DialogSetMessage(s.prevStory.d, s.prevStory.title)

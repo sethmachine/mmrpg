@@ -3,7 +3,7 @@
     //! i destBaseId = 'LTrc'
 	//! i destId = 'B000'
 	//! i unitBaseId = 'nmgv'
-	//! i unitId = 'p000'
+	//! i unitId = 't000'
 
 	//! i function add(value, result)
 		//! i if value == "" then

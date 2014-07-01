@@ -28,14 +28,15 @@ cns.constants("monsters", "tables/monsters_constants.j", "lua", ["header", "inse
 cns.constants("npcs", "tables/npcs_constants.j", "lua", ["header", "insert"])
 
 #create npc unit id libraries
-cns.constants("npcs", "tables/npc_vendor_id_constants.j", "lua", ["header", "insert", "hero"], "g", "_ID", "HeroIds")
-cns.constants("npcs", "tables/npc_hero_id_constants.j", "lua", ["header", "insert", "vendor"], "N", "_ID", "VendorIds")
+cns.constants("npcs", "tables/npc_vendor_id_constants.j", "lua", ["header", "insert", "hero"], "g", "_ID", "VendorIds")
+cns.constants("npcs", "tables/npc_hero_id_constants.j", "lua", ["header", "insert", "vendor"], "N", "_ID", "HeroIds")
 
 #creates library for npc names--for enumeration, string to string
 #cns.constantsStr("npcs", "tables/npc_names_constants.j", "lua", ["header", "insert"])
 
 #creates library for warp constants--integer to integer
 cns.constants("warps", "tables/warps_constants.j", "lua", ["header", "insert"])
+cns.constants("warps", "tables/warp_id_constants.j", "lua", ["header", "insert"], "w", "_ID", "Ids")
 
 #creates library for quest constants--integer to integer
 cns.constants("quests_merge", "tables/quests_constants.j", "quest_struct", ["header", "insert", "msg"])
@@ -57,6 +58,10 @@ ins.insert("villagers_header.j", "villagers", "villagers_insert.j", "lua", "//in
 
 #creates lua file for npcs
 ins.insert("npcs_header.j", "npcs", "npcs_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
+
+#replacement for npc calls
+#insert("npc_units_header.j", "npc_units", "npc_units_insert.j", "lua", "//insert", ["decrep", "header", "insert", "heroes"])
+#insert("npc_heroes_header.j", "npc_heroes", "npc_heroes_insert.j", "lua", "//insert", ["decrep", "header", "insert", "npc_units"])
 
 #creates lua file for monsters
 ins.insert("monsters_header.j", "monsters", "monsters_insert.j", "lua", "//insert", ["decrep", "header", "insert"])

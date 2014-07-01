@@ -6,7 +6,7 @@
     //! i makechange(current, "unsf", "(Warp)")
     //! i makechange(current, "uabi", "Avul")
     //! i makechange(current, "umdl", "Doodads\\Dungeon\\Terrain\\DungeonPorticulisGate\\DungeonPorticulisGate")
-    //! i makechange(current, "unam", "Dungeon")
+    //! i makechange(current, "unam", "Sewers")
    //! i makechange(current, "ucol", "160.00")
     //pathing changes - can place anywhere
     //! i makechange(current, "upap", "")
