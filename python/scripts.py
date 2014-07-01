@@ -24,13 +24,6 @@ qm.questMsg("quests_merge", "quest_struct", ["msg"])
 #creates library for monster constants--however, must be integer to rawcode!
 cns.constants("monsters", "tables/monsters_constants.j", "lua", ["header", "insert"], "M")
 
-#creates library for npc constants--integer to integer
-cns.constants("npcs", "tables/npcs_constants.j", "lua", ["header", "insert"])
-
-#create npc unit id libraries
-cns.constants("npcs", "tables/npc_vendor_id_constants.j", "lua", ["header", "insert", "hero"], "g", "_ID", "VendorIds")
-cns.constants("npcs", "tables/npc_hero_id_constants.j", "lua", ["header", "insert", "vendor"], "N", "_ID", "HeroIds")
-
 #creates library for npc names--for enumeration, string to string
 #cns.constantsStr("npcs", "tables/npc_names_constants.j", "lua", ["header", "insert"])
 
@@ -57,11 +50,11 @@ cns.constants("events_merge", "tables/events_constants.j", "event_struct", ["hea
 ins.insert("villagers_header.j", "villagers", "villagers_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
 
 #creates lua file for npcs
-ins.insert("npcs_header.j", "npcs", "npcs_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
+#ins.insert("npcs_header.j", "npcs", "npcs_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
 
 #replacement for npc calls
-#insert("npc_units_header.j", "npc_units", "npc_units_insert.j", "lua", "//insert", ["decrep", "header", "insert", "heroes"])
-#insert("npc_heroes_header.j", "npc_heroes", "npc_heroes_insert.j", "lua", "//insert", ["decrep", "header", "insert", "npc_units"])
+ins.insert("npc_units_header.j", "npc_units", "npc_units_insert.j", "npc_units", "//insert", ["decrep", "header", "insert"], True)
+ins.insert("npc_heroes_header.j", "npc_heroes", "npc_heroes_insert.j", "npc_heroes", "//insert", ["decrep", "header", "insert"], True)
 
 #creates lua file for monsters
 ins.insert("monsters_header.j", "monsters", "monsters_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
@@ -109,6 +102,13 @@ icns.itemConstants("consumables_insert.j", "tables/consumables_constants.j", "it
 
 #create consumables constants - meats, potions, staves, etc.
 icns.itemConstants("fetchables_insert.j", "tables/fetchables_constants.j", "items")
+
+cns.rawCns("npc_units_insert.j", "tables/npc_unit_id_constants.j")
+cns.intCns("npc_units_insert.j", "tables/npc_unit_constants.j")
+cns.rawCns("npc_heroes_insert.j", "tables/npc_hero_id_constants.j")
+cns.intCns("npc_heroes_insert.j", "tables/npc_hero_constants.j")
+
+cns.writeTable(["npc_unit_id_constants.j", "npc_hero_id_constants.j"])
 
 #generate constants library
 cns.constantsLib("constants", "constants_library.j", "jass", ["library"])

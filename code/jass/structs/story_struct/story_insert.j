@@ -93,6 +93,14 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
  //*********************************************
  //***  - Isaiah Story2 Part 1 *
  //*********************************************
@@ -129,6 +137,14 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
 
 
 
@@ -255,6 +271,14 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
  //*********************************************
  //*** Tutorial Quest - Chaplain Story2 Part 1 *
  //*********************************************
@@ -303,6 +327,14 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
 
 
 

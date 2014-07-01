@@ -2,7 +2,7 @@
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	//! i itemId = 'f000'
 	//! i baseId = 'kybl'
-	
+	//! i QUEST_ITEM = "2"
 	//! i function add(value, result)
 		//! i if value == "" then
 			//! i value = "0"
@@ -15,8 +15,7 @@
 		//! i else
 			//! i return add(string.sub(value, 1, string.len(value) - 1), result .. "0")
 		//! i end
-	//! i end
-	
+	//! i end	
 	//! i function write_item(unam, ides, ifil, iico, igol)
 		//! i setobjecttype("items")
 		//! i createobject(baseId, itemId)
@@ -27,8 +26,7 @@
 		//! i makechange(current, 'unam', unam)
 		//! i itemId = add(itemId, "")
 	//! i end
-	
-		//[[ Desert Flower
+	//[[ Desert Flower
 	//! i igol = 0
 	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNDryadDispelMagic.blp"
 	//! i ifil = "Objects\\InventoryItems\\Shimmerweed\\Shimmerweed.mdl"
@@ -37,20 +35,8 @@
 	//! i write_item(unam, ides, ifil, iico, igol)
 	//! i makechange(current, "ipaw", "0")
 	//! i makechange(current, "idro", "0")
-	//! i makechange(current, 'utub', "A rare desert flower.  It smells like something rotting.")
-	//! i makechange(current, 'ilev', "2")
-	//]]
-	//[[ Desert Flowers
-	//! i igol = 0
-	//! i iico = "ReplaceableTextures\\CommandButtons\\BTNDryadDispelMagic.blp"
-	//! i ifil = "Objects\\InventoryItems\\Shimmerweed\\Shimmerweed.mdl"
-	//! i ides = "A gathering of rare desert flowers."
-	//! i unam = "Desert Flowers"
-	//! i write_item(unam, ides, ifil, iico, igol)
-	//! i makechange(current, "ipaw", "0")
-	//! i makechange(current, "idro", "0")
-	//! i makechange(current, 'utub', "A gathering of rare desert flowers.")
-	//! i makechange(current, 'ilev', "2")
+	//! i makechange(current, 'utub', ides)
+	//! i makechange(current, 'ilev', QUEST_ITEM)
 	//]]
 
 //! endexternalblock
