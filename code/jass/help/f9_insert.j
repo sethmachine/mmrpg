@@ -99,6 +99,30 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Commands Quest Log
 	//***************************
@@ -194,6 +218,30 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Credits
 	//***************************
@@ -204,7 +252,7 @@ private function init takes nothing returns nothing
     call QuestSetRequired(q, false)
     call QuestSetDiscovered(q, true)
     call QuestSetCompleted(q, false)
-																																																																																	call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
+																																																																																																									call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Palaslayer (BTNCombat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Sellenisko (BTNDarkElfAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
@@ -241,6 +289,7 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "Matarael (Staff)")
 	call QuestItemSetDescription(QuestCreateItem(q), "D.O.G. (Meat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "CreatorD3292 (ArchnathidMachine)")
+	call QuestItemSetDescription(QuestCreateItem(q), "HappyCockroach (Avatar of Storms)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Kimberly (BTNRaptorLoyalty)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Callahan (Gnaraya)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
@@ -257,6 +306,7 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "Kenntaur (Blood Beetle)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Alpain (Holy Rune Golem)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Wraithling (Kraken)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Ket (LeprekonHerbalist)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Ampharos_222 (Lizardman)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Pyramidhe (BTNGoldenBirdRelic)")
 	call QuestItemSetDescription(QuestCreateItem(q), "AndrewOverload519 (Mechanostrider)")

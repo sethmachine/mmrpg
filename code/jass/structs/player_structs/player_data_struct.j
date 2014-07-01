@@ -74,6 +74,19 @@ struct PlayerData
         return false //no room in the quests array
     endmethod
 
+    method addNPC takes Quest q returns boolean
+        local integer i = 0
+        loop
+            exitwhen i == TOTAL_QUESTS
+            if quests[i] == 0 then //found a free slot
+                set quests[i] = q
+                return true //found room in the quests array, added it
+            endif
+            set i = i + 1
+        endloop
+        return false //no room in the quests array
+    endmethod
+
 //searches through the quests array by the title of a quest
 //returns the index of where that quest is in the array
 //returns -1 if no such quest exists

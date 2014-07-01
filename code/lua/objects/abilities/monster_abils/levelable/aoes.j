@@ -969,12 +969,12 @@
     ////! i CARR_aeff = 'XHbz'
     //mana cost
     //! i CARR_amcs = {}
-    //! i CARR_amcs[1] = "75"
-    //! i CARR_amcs[2] = "100"
-    //! i CARR_amcs[3] = "125"
-    //! i CARR_amcs[4] = "175"
-    //! i CARR_amcs[5] = "225"
-    //! i CARR_amcs[6] = "275"
+    //! i CARR_amcs[1] = "50"
+    //! i CARR_amcs[2] = "75"
+    //! i CARR_amcs[3] = "100"
+    //! i CARR_amcs[4] = "125"
+    //! i CARR_amcs[5] = "150"
+    //! i CARR_amcs[6] = "200"
     //targets
     //! i CARR_atar = "ground,air,organic"
     //autocast

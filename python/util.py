@@ -1,6 +1,7 @@
 #utility functions for manipulating .txt and .j files
 
 import os
+import os.path, time
 import platform
 import re
 
@@ -11,7 +12,13 @@ JASS_FILE_EXTENSION = ".j"
 TEXT_FILE_EXTENSION = ".txt"
 
 getFileName = re.compile(r'[a-z_0-9]+(?=\.j)', re.IGNORECASE)
-getDirName = re.compile(r'(?<=/|\\)[a-z ]+$', re.IGNORECASE)
+getDirName = re.compile(r'(?<=/|\\)[a-z _]+$', re.IGNORECASE)
+#finds the rawcode id of the insert file
+getId = re.compile(r'(?<=//! i id = \')[a-z0-9]+', re.IGNORECASE)
+
+#finds the name of each object in the insert file
+getNames = re.compile(r'(?<=//\[\[ )[a-z ]+', re.IGNORECASE)
+
 p = re.compile(r'// [a-zA-Z ]+.*?upoi \+ 1', re.DOTALL)
 
 if platform.system() == 'Windows':
@@ -49,6 +56,12 @@ def name2Var(name):
     name = name.upper()
     return name
 
+def name2Lib(name):
+    name = name.replace("_", " ")
+    name = name.title()
+    name = name.replace(" ", "")
+    return name
+
 def find(name, path):
     if path != "/Users/" and path != "C:\\":
         if getDirName.findall(path) != []:
@@ -78,3 +91,26 @@ def getFileNames(importDir, cwd, keywords = []):
     l = []
     getLinesArr(importDir, cwd, l, keywords)
     return l
+
+def getInsertFileData(insertFile):
+    w = open(find(insertFile, root), 'r')
+    t = w.read()
+    w.close()
+    names = getNames.findall(t)
+    rawcode = getId.findall(t)
+    if rawcode == []:
+        print "Error: Could not find the rawcode!"
+        return
+    if names == []:
+        print "Error: Could not find any of the object names!"
+        return
+    rawcode = rawcode[0]
+    ids = []
+    namen = []
+    for name in names:
+        ids.append(rawcode)
+        namen.append(name)
+        rawcode = add(rawcode)
+    return(namen, ids)
+    
+    

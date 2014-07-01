@@ -1218,12 +1218,12 @@
     //! i SEAR_areq = ""
     //summon damage
     //! i SEAR_Hfa1 = {}
-    //! i SEAR_Hfa1[1] = "10.00"
-    //! i SEAR_Hfa1[2] = "20.00"
-    //! i SEAR_Hfa1[3] = "30.00"
-    //! i SEAR_Hfa1[4] = "50.00"
-    //! i SEAR_Hfa1[5] = "70.00"
-    //! i SEAR_Hfa1[6] = "100.00"
+    //! i SEAR_Hfa1[1] = "5.00"
+    //! i SEAR_Hfa1[2] = "8.00"
+    //! i SEAR_Hfa1[3] = "11.00"
+    //! i SEAR_Hfa1[4] = "14.00"
+    //! i SEAR_Hfa1[5] = "17.00"
+    //! i SEAR_Hfa1[6] = "20.00"
     //buff
     ////! i SEAR_abuf = 'Bpsh'
     //cast range

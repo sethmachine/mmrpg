@@ -7,6 +7,6 @@
 	//! i write_item(unam, ides, ifil, iico, igol)
 	//! i makechange(current, "ipaw", "0")
 	//! i makechange(current, "idro", "0")
-	//! i makechange(current, 'utub', "A rare desert flower.  It smells like something rotting.")
-	//! i makechange(current, 'ilev', "2")
+	//! i makechange(current, 'utub', ides)
+	//! i makechange(current, 'ilev', QUEST_ITEM)
 	//]]

@@ -129,6 +129,7 @@
     //! i makechange(current, "upra", UPRA)
     //! i makechange(current, "ufoo", "1")
     //! i makechange(current, "umpm", "15")
+	//! i makechange(current, "ua1r", "450")
     //********************************************
     //************ Flying Hero *******************
     //********************************************
