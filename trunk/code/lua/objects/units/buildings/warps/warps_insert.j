@@ -4,10 +4,11 @@
     //********************************************
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	//! i baseId = "nmgv"
-	//! i unitId = 'w000'
-    //! i WARP_CONS = 500
-    //! i upoi = 0
-	
+	//! i id = 'w000'
+    //! i upoi = 500
+	//! i exit_uico = "ReplaceableTextures\\CommandButtons\\BTNCOP.blp"
+	//! i exit_umdl = "buildings\\other\\CircleOfPower\\CircleOfPower"
+	//! i exit_unam = "Exit"
 	//! i function add(value, result)
 		//! i if value == "" then
 			//! i value = "0"
@@ -21,347 +22,128 @@
 			//! i return add(string.sub(value, 1, string.len(value) - 1), result .. "0")
 		//! i end
 	//! i end
-	
-	    //********************************************
-    //************  Castle Cazbar ****************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "umdl", "Doodads\\LordaeronSummer\\Terrain\\Gate\\Gate")
+	//! i function write_unit(uico, umdl, unsf, unam, baseId)
+		//! i setobjecttype("units")
+		//! i createobject(baseId, id)
+		//! i makechange(current, "uabi", "Avul")
+		//! i makechange(current, "uico", uico)
+		//! i makechange(current, "umdl", umdl)
+		//! i makechange(current, "utco", "\12")
+		//! i makechange(current, "unsf", unsf)
+		//! i makechange(current, "unam", unam)
+		//! i makechange(current, "ushb", "")
+		//! i makechange(current, "upoi", upoi)
+		//! i id = add(id, "")
+	//! i end
+	//! i function set_color(red, green, blue)
+		//! i makechange(current, "uclr", red)
+		//! i makechange(current, "uclg", green)
+		//! i makechange(current, "uclb", blue)
+	//! i end
+	//[[ Ferry to Farm
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGoblinShipyard.blp"
+    //! i umdl = "buildings\\other\\GoblinShipyard\\GoblinShipyard"
+	//! i unsf = "(Warp)"
+    //! i unam = "Ferry (Monster Farm)"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+    //! i makechange(current, "usca", "1.0")
+	//]]
+	//[[ Ferry to Greatbark
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGoblinShipyard.blp"
+    //! i umdl = "buildings\\other\\GoblinShipyard\\GoblinShipyard"
+	//! i unsf = "(Warp)"
+    //! i unam = "Ferry (Greatbark)"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+    //! i makechange(current, "usca", "1.0")
+	//]]
+	//[[ Magic Door Shrine
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNWaygate.blp"
+    //! i umdl = "buildings\\other\\Waygate\\Waygate"
+	//! i unsf = "(Warp)"
+    //! i unam = "Magic Door Shrine"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+    //! i makechange(current, "usca", "1.0")
+	//]]
+	//[[ Castle Cazbar
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGenericHumanBuilding.blp"
+    //! i umdl = "Doodads\\LordaeronSummer\\Terrain\\Gate\\Gate"
+	//! i unsf = "(Warp)"
+    //! i unam = "Castle Cazbar"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+    //! i makechange(current, "usca", "1.0")
 	//! i makechange(current, "upat", "PathTextures\\Gate1Path.tga")
-    //! i makechange(current, "unam", "Castle Cazbar")
-   //! i makechange(current, "ucol", "160.00")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
+	//]]
+	//[[ Castle Cazbar Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
+	//[[ Cazbar
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNCastle.blp"
+    //! i umdl = "AlgarvTownhall.mdx"
+	//! i unsf = "(Warp)"
+    //! i unam = "Cazbar"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
     //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Castle Cazbar Exit ***********
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Castle Cazbar)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\CircleOfPower\\CircleOfPower")
-    //! i makechange(current, "unam", "Exit")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Cazbar (Oasis city) **********
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
+	//! i makechange(current, "uani", "upgrade,second")
 	//! i makechange(current, "upat", "PathTextures\\16x16Simple.tga")
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCastle.blp")
-    //! i makechange(current, "umdl", "AlgarvTownhall.mdx")
-    //! i makechange(current, "unam", "Cazbar")
-   //! i makechange(current, "ucol", "200.00")
-    //set the teamcolor to yellow
-    //! i makechange(current, "utco", "\4")
-    //so we get the castle model
-    //! i makechange(current, "uani", "upgrade,second")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Cazbar Exit ******************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Cazbar)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\CircleOfPower\\CircleOfPower")
-    //! i makechange(current, "unam", "Exit")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Cazbar Well ******************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Cazbar Well)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "Doodads\\LordaeronSummer\\Structures\\well\\well")
-    //! i makechange(current, "unam", "Well")
+	//]]
+	//[[ Cazbar Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
+	//[[ Cazbar Well
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNMoonWell.blp"
+    //! i umdl = "Doodads\\LordaeronSummer\\Structures\\well\\well"
+	//! i unsf = "(Cazbar Warp)"
+    //! i unam = "Well"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
 	//! i makechange(current, "upat", "PathTextures\\4x4Default.tga")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************ Cazbar Well Exit **************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Cazbar Well)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\CircleOfPower\\CircleOfPower")
-    //! i makechange(current, "unam", "Exit")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Desert Temple ****************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNMageTower.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\MageTower\\MageTower")
-    //! i makechange(current, "unam", "Desert Temple")
-    //set the teamcolor to yellow
+	//]]
+	//[[ Well Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
+	//[[ Desert Temple
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNMageTower.blp"
+    //! i umdl = "buildings\\other\\MageTower\\MageTower"
+	//! i unsf = "(Warp)"
+    //! i unam = "Desert Temple"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+    //! i makechange(current, "usca", "1.75")
     //! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.5")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************ Kalka (Oasis village) *********
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
+	//]]
+	//[[ Desert Temple Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
+	//[[ Kalka
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNTownHall.blp"
+    //! i umdl = "AlgarvTownhall.mdx"
+	//! i unsf = "(Warp)"
+    //! i unam = "Kalka"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+    //! i makechange(current, "usca", "1.75")
 	//! i makechange(current, "upat", "PathTextures\\16x16Simple.tga")
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNTownHall.blp")
-    //! i makechange(current, "umdl", "AlgarvTownhall.mdx")
-    //! i makechange(current, "unam", "Kalka")
-    //! i makechange(current, "ucol", "200.00")
-    //set the teamcolor to yellow
-    //! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Kalka Exit *******************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Kalka)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\CircleOfPower\\CircleOfPower")
-    //! i makechange(current, "unam", "Exit")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Kalka Sewers *****************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "umdl", "Doodads\\Dungeon\\Terrain\\DungeonPorticulisGate\\DungeonPorticulisGate")
-    //! i makechange(current, "unam", "Sewers")
-   //! i makechange(current, "ucol", "160.00")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Kalka Sewer Exit *************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Kalka Sewer)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\CircleOfPower\\CircleOfPower")
-    //! i makechange(current, "unam", "Exit")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Mirage Lake ******************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "umdl", "buildings\\other\\FountainOfLife\\FountainOfHealth")
-    //! i makechange(current, "unam", "Mirage Lake")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-
-    //********************************************
-    //************  Mirage Lake Exit *************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Mirage Lake)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNCOP.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\CircleOfPower\\CircleOfPower")
-    //! i makechange(current, "unam", "Exit")
-    //pathing changes - can place anywhere
-    //! i makechange(current, "upap", "")
-    //! i makechange(current, "upat", "")
-    //set the teamcolor to yellow
-    ////! i makechange(current, "utco", "\4")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************  Ferry ************************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNGoblinShipyard.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\GoblinShipyard\\GoblinShipyard")
-    //! i makechange(current, "unam", "Ferry (Monster Farm)")
-    //set the teamcolor to yellow
-    //! i makechange(current, "utco", "\12")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-
-    //********************************************
-    //************  Ferry ************************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Warp)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNGoblinShipyard.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\GoblinShipyard\\GoblinShipyard")
-    //! i makechange(current, "unam", "Ferry (GreatBark)")
-    //set the teamcolor to yellow
-    //! i makechange(current, "utco", "\12")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
-    //********************************************
-    //************ Magic Door Shrine *************
-    //********************************************
-    //! i setobjecttype("units")
-    //! i createobject(baseId, unitId)
-    //! i makechange(current, "unsf", "(Portal)")
-    //! i makechange(current, "uabi", "Avul")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNWaygate.blp")
-    //! i makechange(current, "umdl", "buildings\\other\\Waygate\\Waygate")
-    //! i makechange(current, "unam", "Magic Door Shrine")
-    //! i makechange(current, "upoi", (upoi + WARP_CONS) .. "")
-    //teamcolor to black
-    //! i makechange(current, "utco", "\12")
-    //the scaling of the model
-    //! i makechange(current, "usca", "1.0")
-    //remove the building's shadow
-    //! i makechange(current, "ushb", "")
-    //! i upoi = upoi + 1
-	//! i unitId = add(unitId, "")
+	//]]
+	//[[ Kalka Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
+	//[[ Kalka Sewers
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGenericHumanBuilding.blp"
+    //! i umdl = "Doodads\\Dungeon\\Terrain\\DungeonPorticulisGate\\DungeonPorticulisGate"
+	//! i unsf = "(Warp)"
+    //! i unam = "Kalka Sewers"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+	//]]
+	//[[ Kalka Sewers Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
+	//[[ Mirage Lake
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNFountainOfLife.blp"
+    //! i umdl = "buildings\\other\\FountainOfLife\\FountainOfHealth"
+	//! i unsf = "(Warp)"
+    //! i unam = "Mirage Lake"
+	//! i write_unit(uico, umdl, unsf, unam, baseId)
+	//]]
+	//[[ Mirage Lake Exit
+	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
+	//]]
 
 //! endexternalblock
 

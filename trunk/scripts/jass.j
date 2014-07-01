@@ -12,7 +12,7 @@
 //! import "C:\Users\seth\mmrpg\code\jass\constants\tables\quests_constants.j"
 //! import "C:\Users\seth\mmrpg\code\jass\constants\tables\reward_constants.j"
 //! import "C:\Users\seth\mmrpg\code\jass\constants\tables\story_constants.j"
-//! import "C:\Users\seth\mmrpg\code\jass\constants\tables\warps_constants.j"
+//! import "C:\Users\seth\mmrpg\code\jass\constants\tables\warp_constants.j"
 //! import "C:\Users\seth\mmrpg\code\jass\constants\tables\warp_id_constants.j"
 //! import "C:\Users\seth\mmrpg\code\jass\constants\values\destructables.j"
 //! import "C:\Users\seth\mmrpg\code\jass\constants\values\locations.j"

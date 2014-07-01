@@ -7,8 +7,8 @@ endglobals
 private function main takes nothing returns boolean
     local unit u = GetTriggerUnit()
     local unit target = GetOrderTargetUnit()
-    local integer upoi = 0
     local integer pid = GetPlayerId(GetTriggerPlayer())
+	local integer upoi
     if GetIssuedOrderId() == OrderId("smart") then
         if GetOwningPlayer(target) == BOT_ALLY then
             if u == playerDatum[pid].pc.u then
@@ -18,10 +18,12 @@ private function main takes nothing returns boolean
                         call usePortal(pid)
                     elseif upoi >= 300 and upoi < 500 then
 						call SetUnitFacingToFaceUnitTimed(target, u, 0.5)
-						call playerDatum[pid].getNPCById(GetUnitTypeId(target)).interact(pid)
+						call playerDatum[pid].npcs[npcUnitIdTable[GetUnitTypeId(target)]].interact(pid)
+						//call playerDatum[pid].getNPCById(GetUnitTypeId(target)).interact(pid)
                         //call playerDatum[pid].npcs[upoi - NPC_CONS].interact(pid)
                     elseif upoi >= 500 then
-                        call playerDatum[pid].warps[upoi - WARP_CONS].warp(pid)
+						call playerDatum[pid].warps[npcUnitIdTable[GetUnitTypeId(target)]].warp(pid)
+                        //call playerDatum[pid].warps[upoi - WARP_CONS].warp(pid)
                     endif
                 endif
             endif
