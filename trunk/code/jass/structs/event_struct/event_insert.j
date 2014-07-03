@@ -7,12 +7,21 @@ endglobals
 
 private function fillTable takes nothing returns nothing
 	local integer i = 0
+	local integer j = 0
 	local Event e
+	local Event m
 			//***********************
+		// A_CURE_FOR_MADNESS
+		//***********************
+		//enable the quest
+		set e = EventQuestFanfare.create("A Cure For Madness")
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
 		// FLOWERS_FOR_ALGERNON
 		//***********************
 		//enable the quest
-		set e = EventEnableQuest.create("Flowers for Al-Jernan")
+		set e = EventQuestFanfare.create("Flowers for Al-Jernan")
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
@@ -58,10 +67,66 @@ private function fillTable takes nothing returns nothing
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
+		// Kalka Enter
+		//***********************
+		//set water tint to greenish
+		set e = EventWaterTint.create(0, 255, 0, 255)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// Kalka Leave
+		//***********************
+		//reset water tint
+		set e = EventWaterTint.create(255, 255, 255, 255)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// ROCK_THE_CAZBAR
+		//***********************
+		//move the player to castle cazbar
+		set e = EventCallWarp.create(CASTLE_CAZBAR)
+		//disable the exit for castle cazbar
+		//this makes sure the player always has 3 monsters
+		set e.next = EventSetWarp.create(CASTLE_CAZBAR_EXIT, false)
+		//disable player teleport, i.e. no using a warp staff!
+		set e.next.next = EventSetPlayerTeleport.create(false)
+		//put event inside array, increment
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// ROCK_THE_CAZBAR
+		//***********************
+		//hand over the player's units to the computer
+		set e = EventSetPlayerOwner.create(BOT_ALLY)
+		set e.next = EventPlaySillyMusic.create()
+		//start the dance!
+		set m = EventPlayerDance.create()
+		set m.wait = 1.0
+		set e.next.next = m
+		loop
+			exitwhen j == 35
+			set m.next = EventPlayerDance.create()
+			set m.next.wait = 1.0
+			set m = m.next
+			set j = j + 1
+		endloop
+		set j = 0
+		set m.next = EventReturnPlayer.create()
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
 		// TUTORIAL
 		//***********************
 		//activate the ferry to go to monster farm
 		set e = EventSetWarp.create(FERRY_TO_FARM, true)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// TUTORIAL
+		//***********************
+		//start the Rock the Cazbar! quest
+		set e = EventWait.create(8.0)
+		set e.next = EventStartQuest.create("Rock the Cazbar!")
 		set eventTable[i] = e
 		set i = i + 1
 

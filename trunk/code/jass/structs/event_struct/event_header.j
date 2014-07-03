@@ -7,7 +7,9 @@ endglobals
 
 private function fillTable takes nothing returns nothing
 	local integer i = 0
+	local integer j = 0
 	local Event e
+	local Event m
 	//insert
 	call DestroyTimer(t)
 	set t = null

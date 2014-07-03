@@ -63,11 +63,7 @@ struct Event
 	
 	//******************************
 	// Child specific event setups *
-	//******************************
-	stub method setWaterTint takes integer red, integer green, integer blue, integer alpha returns nothing
-		call print("WARNING: stub method not implemented.")
-	endmethod
-	
+	//******************************	
 	stub method setItemCreateAtLoc takes location whichLoc, integer itemId, integer quant returns nothing
 		call print("WARNING: stub method not implemented.")
 	endmethod
