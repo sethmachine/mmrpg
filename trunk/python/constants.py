@@ -70,7 +70,7 @@ def rawCns(insertFile, constantsFile, suffix = "id"):
     which contains each of the objects' rawcodes represented as
     JASS constant integers."""
     data = util.getInsertFileData(insertFile)
-    names = data[0]
+    names = [x.split("|")[0] for x in data[0]]
     ids = data[1]
     if len(names) != len(ids):
         print "Error: The size of names and ids is not the same!"
@@ -93,7 +93,7 @@ def intCns(insertFile, constantsFile, suffix = ""):
     which contains each of the objects' rawcodes represented as
     JASS constant integers."""
     data = util.getInsertFileData(insertFile)
-    names = data[0]
+    names = [x.split("|")[0] for x in data[0]]
     ids = data[1]
     if len(names) != len(ids):
         print "Error: The size of names and ids is not the same!"

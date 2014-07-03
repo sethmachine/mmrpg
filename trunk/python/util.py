@@ -17,7 +17,7 @@ getDirName = re.compile(r'(?<=/|\\)[a-z _]+$', re.IGNORECASE)
 getId = re.compile(r'(?<=//! i id = \')[a-z0-9]+', re.IGNORECASE)
 
 #finds the name of each object in the insert file
-getNames = re.compile(r'(?<=//\[\[ )[a-z ]+', re.IGNORECASE)
+getNames = re.compile(r'(?<=//\[\[ )[a-z 0-9\|]+', re.IGNORECASE)
 
 getConstantsNames = re.compile(r'(?<=integer )[a-z_0-9]+', re.IGNORECASE)
 
