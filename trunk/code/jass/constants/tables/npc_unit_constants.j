@@ -12,5 +12,7 @@ globals
 	constant integer ALFONZO = 9
 	constant integer SAGE_ATHOS = 10
 	constant integer HUNGRY_BANDIT = 11
+	constant integer AGON_SICK_MAN = 12
+	constant integer ALFONZO2 = 13
 endglobals
 endlibrary

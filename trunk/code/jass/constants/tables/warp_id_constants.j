@@ -8,7 +8,7 @@ globals
 	constant integer CAZBAR_ID = 'w005'
 	constant integer CAZBAR_EXIT_ID = 'w006'
 	constant integer CAZBAR_WELL_ID = 'w007'
-	constant integer WELL_EXIT_ID = 'w008'
+	constant integer CAZBAR_WELL_EXIT_ID = 'w008'
 	constant integer DESERT_TEMPLE_ID = 'w009'
 	constant integer DESERT_TEMPLE_EXIT_ID = 'w00a'
 	constant integer KALKA_ID = 'w00b'

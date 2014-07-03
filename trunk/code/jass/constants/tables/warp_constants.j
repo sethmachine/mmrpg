@@ -8,7 +8,7 @@ globals
 	constant integer CAZBAR = 5
 	constant integer CAZBAR_EXIT = 6
 	constant integer CAZBAR_WELL = 7
-	constant integer WELL_EXIT = 8
+	constant integer CAZBAR_WELL_EXIT = 8
 	constant integer DESERT_TEMPLE = 9
 	constant integer DESERT_TEMPLE_EXIT = 10
 	constant integer KALKA = 11

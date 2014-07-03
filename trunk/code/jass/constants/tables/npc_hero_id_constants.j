@@ -1,8 +1,8 @@
 library NpcHeroesidConstants
 globals
-	constant integer THE_KING_ID = 'H000'
-	constant integer OLD_OAK_ID = 'H001'
-	constant integer ABU_DHABI_ID = 'H002'
-	constant integer JAFFAR_ID = 'H003'
+	constant integer THE_KING_ID = 'R000'
+	constant integer OLD_OAK_ID = 'R001'
+	constant integer ABU_DHABI_ID = 'R002'
+	constant integer JAFFAR_ID = 'R003'
 endglobals
 endlibrary

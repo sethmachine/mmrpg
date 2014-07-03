@@ -12,5 +12,7 @@ globals
 	constant integer ALFONZO_ID = 'n009'
 	constant integer SAGE_ATHOS_ID = 'n00a'
 	constant integer HUNGRY_BANDIT_ID = 'n00b'
+	constant integer AGON_SICK_MAN_ID = 'n00c'
+	constant integer ALFONZO2_ID = 'n00d'
 endglobals
 endlibrary
