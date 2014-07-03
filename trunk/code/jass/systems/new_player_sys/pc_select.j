@@ -37,7 +37,7 @@ private function main takes nothing returns boolean
     set playerDatum[pid].pc = pc
     //if owner == Player(0) then
     call playerDatum[pid].keys.add(keyTable[HOME])
-    //call playerDatum[pid].keys.add(keyTable[AGON])
+    call playerDatum[pid].keys.add(keyTable[AGON])
     call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(HERBWATER, GREATBARK_LOC), pid))
 	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(LOVEWATER, GREATBARK_LOC), pid))
 	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(RIB, GREATBARK_LOC), pid))
@@ -48,6 +48,16 @@ private function main takes nothing returns boolean
 	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(PENDANT_OF_ENERGY_0, GREATBARK_LOC), pid))
 	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(WAR_AXE_0, GREATBARK_LOC), pid))
 	call playerDatum[pid].bank.addItem(Item.create(CreateItemLoc(HEALTH_STONE_0, GREATBARK_LOC), pid))*/
+    set creep = CreateUnitAtLoc(BOT_ALLY, SLIME, FARM_LOC, 0)
+    call SetHeroLevel(creep, 5, true)
+    set m = Monster.create(creep, pid)
+    call m.levelUp(5)
+    call playerDatum[pid].farm.addMonster(m)
+    set creep = CreateUnitAtLoc(BOT_ALLY, SLIME, FARM_LOC, 0)
+    call SetHeroLevel(creep, 5, true)
+    set m = Monster.create(creep, pid)
+    call m.levelUp(5)
+    call playerDatum[pid].farm.addMonster(m)
     set creep = CreateUnitAtLoc(BOT_ALLY, SLIME, FARM_LOC, 0)
     call SetHeroLevel(creep, 5, true)
     set m = Monster.create(creep, pid)

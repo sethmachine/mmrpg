@@ -18,6 +18,8 @@ private function main takes nothing returns nothing
 	set npcUnitIdTable[ALFONZO_ID] = ALFONZO
 	set npcUnitIdTable[SAGE_ATHOS_ID] = SAGE_ATHOS
 	set npcUnitIdTable[HUNGRY_BANDIT_ID] = HUNGRY_BANDIT
+	set npcUnitIdTable[AGON_SICK_MAN_ID] = AGON_SICK_MAN
+	set npcUnitIdTable[ALFONZO2_ID] = ALFONZO2
 	set npcUnitIdTable[THE_KING_ID] = THE_KING
 	set npcUnitIdTable[OLD_OAK_ID] = OLD_OAK
 	set npcUnitIdTable[ABU_DHABI_ID] = ABU_DHABI
@@ -30,7 +32,7 @@ private function main takes nothing returns nothing
 	set npcUnitIdTable[CAZBAR_ID] = CAZBAR
 	set npcUnitIdTable[CAZBAR_EXIT_ID] = CAZBAR_EXIT
 	set npcUnitIdTable[CAZBAR_WELL_ID] = CAZBAR_WELL
-	set npcUnitIdTable[WELL_EXIT_ID] = WELL_EXIT
+	set npcUnitIdTable[CAZBAR_WELL_EXIT_ID] = CAZBAR_WELL_EXIT
 	set npcUnitIdTable[DESERT_TEMPLE_ID] = DESERT_TEMPLE
 	set npcUnitIdTable[DESERT_TEMPLE_EXIT_ID] = DESERT_TEMPLE_EXIT
 	set npcUnitIdTable[KALKA_ID] = KALKA
