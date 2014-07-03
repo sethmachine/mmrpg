@@ -137,6 +137,57 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Commands Quest Log
 	//***************************
@@ -270,6 +321,57 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Credits
 	//***************************
@@ -280,7 +382,7 @@ private function init takes nothing returns nothing
     call QuestSetRequired(q, false)
     call QuestSetDiscovered(q, true)
     call QuestSetCompleted(q, false)
-																																																																																																																							call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
+																																																																																																																																																																										call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Palaslayer (BTNCombat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Sellenisko (BTNDarkElfAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
@@ -299,6 +401,7 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "the model. (VoodooAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Matarael (Elven Boots)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Matarael (Red Boots)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Darkfang (BTNWaterOrb)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Apathetic (BTNPotions)")
 	call QuestItemSetDescription(QuestCreateItem(q), "D.O.G. (Meat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Frankster (Big Mana Potion)")
@@ -316,6 +419,11 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "FrIkY (Silver Coin)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Matarael (Staff)")
 	call QuestItemSetDescription(QuestCreateItem(q), "D.O.G. (Meat)")
+	call QuestItemSetDescription(QuestCreateItem(q), "UgoUgo (OrbOfSeas)")
+	call QuestItemSetDescription(QuestCreateItem(q), "JesusHipster (Water Orb Attach)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Tirlititi (ClearItems)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Bribe (Table)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Nestharus (WorldBounds)")
 	call QuestItemSetDescription(QuestCreateItem(q), "CreatorD3292 (ArchnathidMachine)")
 	call QuestItemSetDescription(QuestCreateItem(q), "HappyCockroach (Avatar of Storms)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Kimberly (BTNRaptorLoyalty)")
