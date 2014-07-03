@@ -18,7 +18,7 @@ globals
     constant integer GOLD_AMOUNT_GOAL = 6 //a player needs X amount of gold
     
     constant integer STORY_GOAL = 7 //a player needs to read through a series of dialogs, and click the last button.  
-    
+    constant integer STORY_AND_PARTY_GOAL = 8 //a player needs to read through a series of dialogs, and click the last button.     
     constant integer MONSTER_GIVE_GOAL  = 0//a player needs to give up a certain monster
 endglobals
 
@@ -179,6 +179,40 @@ function storyMain takes nothing returns boolean
                 call DestroyTrigger(GetTriggeringTrigger())
                 call DestroyTrigger(playerDatum[pid].quests[currQuest].goals[currQuestStage].askTrig)
                 set questRange = TOTAL_QUESTS
+            else
+                set questRange = currQuest + 1 //advance the quest counter, in case another quest has a button click goal
+            endif
+        else //currQuest == -1, there are no enabled quests with an item obtain goal
+            set questRange = TOTAL_QUESTS
+        endif
+    endloop
+    set p = null
+    return false
+endfunction
+
+function storyAndPartyMain takes nothing returns boolean
+    local player p = GetTriggerPlayer()
+    local integer pid = GetPlayerId(p)
+    local integer currQuest = 0
+    local integer currQuestStage = 0
+    local integer questRange = 0
+    local integer goalStory
+    loop
+        exitwhen questRange == TOTAL_QUESTS
+        set currQuest = playerDatum[pid].findQuestByGoalType(STORY_GOAL, questRange)
+        set currQuestStage = playerDatum[pid].quests[currQuest].stage
+        if currQuest >= 0 then
+            set goalStory = playerDatum[pid].quests[currQuest].goals[currQuestStage].goalStory
+            if GetClickedButton() == bigStoryTable[goalStory].getFinalStory().next then
+				if playerDatum[pid].party.size == playerDatum[pid].quests[currQuest].goals[currQuestStage].quant then
+					call playerDatum[pid].quests[currQuest].goals[currQuestStage].disableStoryGoal()
+					call playerDatum[pid].quests[currQuest].advance()
+					call DestroyTrigger(GetTriggeringTrigger())
+					call DestroyTrigger(playerDatum[pid].quests[currQuest].goals[currQuestStage].askTrig)
+					set questRange = TOTAL_QUESTS
+				else
+				set questRange = currQuest + 1
+				endif
             else
                 set questRange = currQuest + 1 //advance the quest counter, in case another quest has a button click goal
             endif
@@ -357,6 +391,7 @@ struct Goal
 	Event goalCause //event that runs when the goal is just started
 	Event goalResult //event that runs when the goal is just finished
 	location goalLoc //the location that gets pinged, if any
+	effect goalEffect //the "!" above an NPC's head
     
     static method create takes integer goalType, integer pid returns thistype
         local thistype this = thistype.allocate()
@@ -429,6 +464,22 @@ struct Goal
             call enableStoryGoal()
         endif
     endmethod
+
+    method setStoryAndPartyGoal takes integer goalNpc, integer goalStory, string askBttnMsg, boolean isActive, integer quant returns nothing
+        local trigger t = CreateTrigger()
+        set this.goalNpc = goalNpc
+        set this.goalStory = goalStory
+        set this.askBttnMsg = askBttnMsg
+		set this.quant = quant
+        call TriggerRegisterDialogEvent(t, bigStoryTable[goalStory].getFinalStory().d)
+        call TriggerAddCondition(t, Condition(function storyAndPartyMain))
+        set goalTrig = t
+        call DisableTrigger(goalTrig)
+        set t = null
+        if isActive then
+            call enableStoryGoal()
+        endif
+    endmethod
     
     method setEnterRegionGoal takes region goalRegion returns nothing
         local trigger t = CreateTrigger()
@@ -475,11 +526,18 @@ struct Goal
     //the goal dialog must exist before hand!
     method enableStoryGoal takes nothing returns nothing
         local trigger t = CreateTrigger()
+		local unit u = getNPCUnit(playerDatum[pid].npcs[goalNpc].id)
+		local string s = "Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl"
         set askBttn = playerDatum[pid].npcs[goalNpc].addBttnToDialog(INTRO, askBttnMsg)
         //now we need to link the askBttn to the goal dialog...
         call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[INTRO])
         call TriggerAddCondition(t, Condition(function askBttnMain))
-        set t = null
+		if GetLocalPlayer() != players[pid] then
+			set s = ""
+		endif
+		set goalEffect = AddSpecialEffectTarget(s, u, "head")
+		set t = null
+		set u = null
     endmethod
     
     //removes the button which allowed a player to reach the goalDialog
@@ -487,6 +545,8 @@ struct Goal
     //enableStoryGoal must have been called before calling this!
     method disableStoryGoal takes nothing returns nothing
         call playerDatum[pid].npcs[goalNpc].removeBttnFromDialog(INTRO, askBttnMsg)
+		call DestroyEffect(goalEffect)
+		set goalEffect = null
     endmethod
         
         
