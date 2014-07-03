@@ -26,6 +26,7 @@ struct PlayerData
     Quest array quests[TOTAL_QUESTS] //the list of all the quests, not all may be activated however
     trigger npcTrig //the current npc trig, destroyed everytime a convo finishes
     unit u //the monster master handle
+	boolean canTeleport = true //whether a player is allowed to teleport, e.g. warp staff
 
     static method create takes integer pid returns thistype
         local thistype this = thistype.allocate()
