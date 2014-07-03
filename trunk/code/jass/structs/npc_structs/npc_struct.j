@@ -26,6 +26,9 @@ struct NPC
 
     //string introMsg //what the NPC always says at first interaction, specific to each NPC type
     integer gold = 100
+	
+	//the rawcode of the npc
+	integer id
 
     static method create takes nothing returns thistype
         local thistype this = thistype.allocate()
