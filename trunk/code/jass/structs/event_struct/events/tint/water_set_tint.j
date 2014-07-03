@@ -11,8 +11,12 @@ struct EventWaterTint extends Event
 	integer blue = 255
 	integer alpha = 0
 	
-    static method create takes nothing returns thistype
+    static method create takes integer red, integer green, integer blue, integer alpha returns thistype
         local thistype this = thistype.allocate()
+		set this.red = red
+		set this.green = green
+		set this.blue = blue
+		set this.alpha = alpha
         return this
     endmethod
 		
@@ -21,16 +25,6 @@ struct EventWaterTint extends Event
 		if GetLocalPlayer() == players[pid] then
 			call SetWaterBaseColor(red, green, blue, alpha)
 		endif
-	endmethod
-	
-	//******************************
-	// Child specific event setups *
-	//******************************
-	method setWaterTint takes integer red, integer green, integer blue, integer alpha returns nothing
-		set this.red = red
-		set this.green = green
-		set this.blue = blue
-		set this.alpha = alpha
 	endmethod
 endstruct
 endlibrary
