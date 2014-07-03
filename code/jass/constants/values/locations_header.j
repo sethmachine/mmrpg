@@ -6,10 +6,7 @@ globals
 	location FARM_LOC
 	location FERRY_TO_FARM_LOC
 	location FERRY_TO_GREATBARK_LOC
-	location KALKA_LOC
-	location KALKA_EXIT_LOC
-	location CAZBAR_LOC
-	location CAZBAR_EXIT_LOC
+//globals
 endglobals
 
 private function main takes nothing returns nothing
@@ -17,10 +14,7 @@ private function main takes nothing returns nothing
 	set FARM_LOC = Location(-7715.8, 12245.1)
 	set FERRY_TO_FARM_LOC = getNPCLoc(FERRY_TO_FARM_ID)
 	set FERRY_TO_GREATBARK_LOC = getNPCLoc(FERRY_TO_GREATBARK_ID)
-	set KALKA_LOC = getNPCLoc(KALKA_ID)
-	set KALKA_EXIT_LOC = getNPCLoc(KALKA_EXIT_ID)
-	set CAZBAR_LOC = getNPCLoc(CAZBAR_ID)
-	set CAZBAR_EXIT_LOC = getNPCLoc(CAZBAR_EXIT_ID)
+//insert
 	call DestroyTimer(t)
 	set t = null
 endfunction
