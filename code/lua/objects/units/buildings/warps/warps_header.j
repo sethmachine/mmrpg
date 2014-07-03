@@ -30,6 +30,7 @@
 		//! i makechange(current, "umdl", umdl)
 		//! i makechange(current, "utco", "\12")
 		//! i makechange(current, "unsf", unsf)
+		//! i makechange(current, "upat", "")
 		//! i makechange(current, "unam", unam)
 		//! i makechange(current, "ushb", "")
 		//! i makechange(current, "upoi", upoi)
