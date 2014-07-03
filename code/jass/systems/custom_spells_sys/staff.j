@@ -9,7 +9,9 @@ private function main takes nothing returns boolean
     local integer pid = GetPlayerId(p)
     local integer staffType = GetSpellAbilityId()
     if staffType == WARP_STAFF_ABIL then
-		call playerDatum[pid].keys.keys[HOME].warp(pid)
+		if playerDatum[pid].canTeleport then
+			call playerDatum[pid].keys.keys[HOME].warp(pid)
+		endif
     endif
     return false
 endfunction
