@@ -11,6 +11,8 @@ struct Warp
     location targetLoc //the place where the player is teleported to
     boolean fanfare //whether any special effects are used, e.g. "mass teleport"
     string name
+	integer eventIndex
+	Event warpEvent //an event that is called whenever the warp takes place
 
     static method create takes string name, location targetLoc returns thistype
         local thistype this = thistype.allocate()
@@ -40,6 +42,9 @@ struct Warp
 			call IssueImmediateOrder(u, "stop")
 			if GetLocalPlayer() == Player(pid) then
 				call PanCameraToTimed(GetLocationX(targetLoc), GetLocationY(targetLoc), 0)
+			endif
+			if warpEvent != 0 then
+				call warpEvent.do(pid)
 			endif
 		endif
 		set u = null
