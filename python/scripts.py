@@ -8,6 +8,7 @@ import itemConstants as icns
 import dialog as d
 import questMsg as qm
 import f9log as f9
+import warpGen as wg
 
 
 
@@ -113,8 +114,11 @@ cns.intCns("warps_insert.j", "tables/warp_constants.j")
 
 cns.writeTable(["npc_unit_id_constants.j", "npc_hero_id_constants.j", "warp_id_constants.j"])
 
+wg.genWarpInit()
+wg.genWarpLocs()
+
 #generate constants library
-cns.constantsLib("constants", "constants_library.j", "jass", ["library"])
+cns.constantsLib("constants", "constants_library.j", "jass", ["library", "header"])
 
 
 #generate the help/optional quests
