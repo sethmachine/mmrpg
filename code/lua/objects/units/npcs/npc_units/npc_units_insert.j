@@ -30,6 +30,7 @@
 		//! i makechange(current, "uspe", "1")
 		//! i makechange(current, 'unam', unam)
 		//! i makechange(current, "upoi", upoi)
+		//! i makechange(current, "unsf", "")
 		//! i if baseId == buildingId then
 			//! i makechange(current, "ushb", "")
 		//! i end
@@ -101,6 +102,7 @@
     //! i umdl = "Leprekon.mdx"
     //! i unam = "Alfonzo"
 	//! i write_unit(uico, umdl, unam, unitId)
+	//! i makechange(current, "unsf", "(Cazbar)")
 	//! i makechange(current, "usca", "1.30")
 	//]]
 	//[[ Sage Athos
@@ -120,6 +122,22 @@
 	//! i write_unit(uico, umdl, unam, unitId)
 	//makes teamcolor black
     //! i makechange(current, "utco", "\12")
+	//]]
+	//[[ Agon Sick Man
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNVillagerMan.blp"
+    //! i umdl = "units\\critters\\VillagerMan\\VillagerMan"
+	//! i unam = "Villager"
+	//! i write_unit(uico, umdl, unam, unitId)
+	//! i makechange(current, "unsf", "(Agon Sick Man)")
+	//! i set_color("100", "255", "100")
+	//]]
+	//[[ Alfonzo2
+    //! i uico = "ReplaceableTextures\\CommandButtons\\BTNHeroDreadLord.blp"
+    //! i umdl = "Leprekon.mdx"
+    //! i unam = "Alfonzo"
+	//! i write_unit(uico, umdl, unam, unitId)
+	//! i makechange(current, "unsf", "(Castle Cazbar)")
+	//! i makechange(current, "usca", "1.30")
 	//]]
 
 //! endexternalblock
