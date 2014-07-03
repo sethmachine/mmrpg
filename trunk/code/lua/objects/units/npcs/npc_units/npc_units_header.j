@@ -30,6 +30,7 @@
 		//! i makechange(current, "uspe", "1")
 		//! i makechange(current, 'unam', unam)
 		//! i makechange(current, "upoi", upoi)
+		//! i makechange(current, "unsf", "")
 		//! i if baseId == buildingId then
 			//! i makechange(current, "ushb", "")
 		//! i end

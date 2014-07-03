@@ -1,6 +1,6 @@
 //! externalblock extension=lua ObjectMerger $FILENAME$
 	//! i BASE_62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	//! i id = 'H000'
+	//! i id = 'R000'
 	//human paladin
 	//! i paladinId = 'Hpal'
 	//a unique unit point value for all npcs
