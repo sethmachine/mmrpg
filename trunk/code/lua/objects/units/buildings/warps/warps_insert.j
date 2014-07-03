@@ -30,6 +30,7 @@
 		//! i makechange(current, "umdl", umdl)
 		//! i makechange(current, "utco", "\12")
 		//! i makechange(current, "unsf", unsf)
+		//! i makechange(current, "upat", "")
 		//! i makechange(current, "unam", unam)
 		//! i makechange(current, "ushb", "")
 		//! i makechange(current, "upoi", upoi)
@@ -40,7 +41,7 @@
 		//! i makechange(current, "uclg", green)
 		//! i makechange(current, "uclb", blue)
 	//! i end
-	//[[ Ferry to Farm
+	//[[ Ferry to Farm|false
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGoblinShipyard.blp"
     //! i umdl = "buildings\\other\\GoblinShipyard\\GoblinShipyard"
 	//! i unsf = "(Warp)"
@@ -64,14 +65,14 @@
 	//! i write_unit(uico, umdl, unsf, unam, baseId)
     //! i makechange(current, "usca", "1.0")
 	//]]
-	//[[ Castle Cazbar
+	//[[ Castle Cazbar|false
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGenericHumanBuilding.blp"
     //! i umdl = "Doodads\\LordaeronSummer\\Terrain\\Gate\\Gate"
 	//! i unsf = "(Warp)"
     //! i unam = "Castle Cazbar"
 	//! i write_unit(uico, umdl, unsf, unam, baseId)
     //! i makechange(current, "usca", "1.0")
-	//! i makechange(current, "upat", "PathTextures\\Gate1Path.tga")
+	//! i makechange(current, "upat", "")
 	//]]
 	//[[ Castle Cazbar Exit
 	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
@@ -89,7 +90,7 @@
 	//[[ Cazbar Exit
 	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
 	//]]
-	//[[ Cazbar Well
+	//[[ Cazbar Well|false
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNMoonWell.blp"
     //! i umdl = "Doodads\\LordaeronSummer\\Structures\\well\\well"
 	//! i unsf = "(Cazbar Warp)"
@@ -97,7 +98,7 @@
 	//! i write_unit(uico, umdl, unsf, unam, baseId)
 	//! i makechange(current, "upat", "PathTextures\\4x4Default.tga")
 	//]]
-	//[[ Well Exit
+	//[[ Cazbar Well Exit
 	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
 	//]]
 	//[[ Desert Temple
@@ -118,13 +119,13 @@
 	//! i unsf = "(Warp)"
     //! i unam = "Kalka"
 	//! i write_unit(uico, umdl, unsf, unam, baseId)
-    //! i makechange(current, "usca", "1.75")
+    ////! i makechange(current, "usca", "1.75")
 	//! i makechange(current, "upat", "PathTextures\\16x16Simple.tga")
 	//]]
 	//[[ Kalka Exit
 	//! i write_unit(exit_uico, exit_umdl, "(" .. unam .. ")", exit_unam, baseId)
 	//]]
-	//[[ Kalka Sewers
+	//[[ Kalka Sewers|false
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGenericHumanBuilding.blp"
     //! i umdl = "Doodads\\Dungeon\\Terrain\\DungeonPorticulisGate\\DungeonPorticulisGate"
 	//! i unsf = "(Warp)"

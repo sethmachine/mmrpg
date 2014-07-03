@@ -1,4 +1,4 @@
-	//[[ Ferry to Farm
+	//[[ Ferry to Farm|false
     //! i uico = "ReplaceableTextures\\CommandButtons\\BTNGoblinShipyard.blp"
     //! i umdl = "buildings\\other\\GoblinShipyard\\GoblinShipyard"
 	//! i unsf = "(Warp)"
