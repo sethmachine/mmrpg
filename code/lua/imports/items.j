@@ -140,5 +140,14 @@
 //texture
 //! external FileImporter C:\Imports\items\ItemSilverCoin\SilverCoin.blp SilverCoin.blp
 
-
+//*************************************
+//***** Orb of Seas *******************
+//*************************************
+//bttn
+//! external FileImporter C:\Imports\items\BTNWaterOrb\BTNWaterOrb.blp BTNWaterOrb.blp 
+//! external FileImporter C:\Imports\items\BTNWaterOrb\DISBTNWaterOrb.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNWaterOrb.blp
+//model (projectile)
+//! external FileImporter C:\Imports\items\OrbOfSeas\OrbOfSeas_v2.mdx OrbOfSeas.mdx
+//model (attachment)
+//! external FileImporter C:\Imports\items\WaterOrb\WaterOrb_v2.mdx WaterOrb.mdx
 
