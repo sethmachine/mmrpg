@@ -13,6 +13,154 @@ private function fillTable takes nothing returns nothing
 	local Story currentStory
 	local Story previousStory
 	 //*********************************************
+ //***  - Sick Man Story1 Part 1 **
+ //*********************************************
+ set currentStory = Story.create()
+ call currentStory.setStoryMsg("     It was years ago. A boy I     \n     was. The thief. The all     \n     seeing eye. His     \n     hands...cough, cough....       \n")
+ call currentStory.addNextBttn("Hold on, what thief?")
+ call currentStory.addPrevBttn("You're a damned crazy fool, old man!")
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set bigStoryTable[j] = currentStory
+ set i = i + 1
+ set j = j + 1
+ //*********************************************
+ //*** Sick Man Story1 Part 2 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      The law commanded: the     \n     hand that taketh is the     \n     hand that is taken. They     \n     are in the water!  When he     \n     was drowned in the well.       \n")
+ call currentStory.addNextBttn("You're saying there's something in the water?")
+ call currentStory.addPrevBttn("Wait, what did you say before")
+ set currentStory.prevStory = previousStory
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set i = i + 1
+ //*********************************************
+ //***  - Sick Man Story1 Part 3 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      Poison, poison in the     \n     water. Please, we did not     \n     know. What is drowned may     \n     never die.  The water, in     \n     the water...cough      \n")
+ call currentStory.addNextBttn("The only water here is from the sewers...")
+ call currentStory.addPrevBttn("Wait, what did you say before")
+ set currentStory.prevStory = previousStory
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set i = i + 1
+ //*********************************************
+ //***  - Sick Man Story1 Part 4 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      Coughs      \n")
+ call currentStory.addNextBttn("Something is poisoning the water, then!")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ call currentStory.setLink()
+ set storyTable[i] = currentStory
+ set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*********************************************
  //***  - Isaiah Story1 Part 1 **
  //*********************************************
  set currentStory = Story.create()
@@ -60,6 +208,58 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -166,6 +366,197 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*********************************************
+ //***  - Alfonzo Story1 Part 1 **
+ //*********************************************
+ set currentStory = Story.create()
+ call currentStory.setStoryMsg("     Hehe hehe hehe. So you     \n     need to get into Castle     \n     Cazbar? We are in the boat     \n     kiddo. His royal highness     \n     has not been seeing anyone     \n     lately. Brooding about     \n     some war. But I think you     \n     will do just nicely,     \n     kiddo. Hows about you join     \n     my little circus? Hehe     \n     hehe.      \n")
+ call currentStory.addNextBttn("Join your circus?")
+ call currentStory.addPrevBttn("I'm not a clown, fool!")
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set bigStoryTable[j] = currentStory
+ set i = i + 1
+ set j = j + 1
+ //*********************************************
+ //*** Alfonzo Story1 Part 2 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      Well I am sharp out of     \n     performers. Ran into a     \n     little trouble on the     \n     road. But I did teach that     \n     bandit leader a good     \n     lesson hehe.  So, I think     \n     if you perform an act with     \n     me, we can get inside the     \n     castle. Hehe hehe. Just     \n     one little act. The gold,     \n     hehe hehe, though I will     \n     keep. I get my money and     \n     you get inside. Fair is     \n     fair. Hehe hehe.      \n")
+ call currentStory.addNextBttn("Well if it's the only way...")
+ call currentStory.addPrevBttn("Wait, what did you say before")
+ set currentStory.prevStory = previousStory
+ set currentStory.nextStory = Story.create()
+ call currentStory.setLink()
+ set previousStory = currentStory
+ set storyTable[i] = currentStory
+ set i = i + 1
+ //*********************************************
+ //***  - Alfonzo Story1 Part 3 **
+ set currentStory = currentStory.nextStory
+ call currentStory.setStoryMsg("      Good, good hehe. For the     \n     act, you will need three     \n     Monsters. Come back when     \n     you got three pals with     \n     you.  Remember, Monsters     \n     love meat! Feed them     \n     treats and they will     \n     follow you, hehe hehe.       \n")
+ call currentStory.addNextBttn("Alright, clown, you got yourself a deal.")
+ call currentStory.addPrevBttn("Wait, what did you say before?")
+ set currentStory.prevStory = previousStory
+ call currentStory.setLink()
+ set storyTable[i] = currentStory
+ set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*********************************************
+ //***  - Alfonzo Story2 Part 1 **
+ //*********************************************
+ set currentStory = Story.create()
+ call currentStory.setStoryMsg("     Hehe hehe hehe. Good,     \n     good. Shall we go in? Once     \n     we go in the castle, we     \n     will not be able to leave     \n     until the whole act is     \n     over. You understand hehe?     \n     The whole act hehe hehe.       \n")
+ call currentStory.addNextBttn("Alright let's do this.")
+ call currentStory.addPrevBttn("Hold on, I need a bit more time.")
+ call currentStory.setLink()
+ set storyTable[i] = currentStory
+ set bigStoryTable[j] = currentStory
+ set i = i + 1
+ set j = j + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //*********************************************
+ //***  - Alfonzo Story2 Part 1 **
+ //*********************************************
+ set currentStory = Story.create()
+ call currentStory.setStoryMsg("     Hehe hehe hehe. Perfect!     \n     Just remember the moves     \n     and routine we practiced!     \n     Hehe hehe.  You will make     \n     the Prince smile, I have     \n     no doubt! Hehe hehe.       \n")
+ call currentStory.addNextBttn("I'll do my best.")
+ call currentStory.addPrevBttn("I need to rehearse a bit more.")
+ call currentStory.setLink()
+ set storyTable[i] = currentStory
+ set bigStoryTable[j] = currentStory
+ set i = i + 1
+ set j = j + 1
 
 
 
@@ -300,6 +691,58 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //*** Tutorial Quest - Chaplain Story2 Part 1 *
  //*********************************************
@@ -348,6 +791,58 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
