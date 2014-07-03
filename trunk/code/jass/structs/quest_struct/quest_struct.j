@@ -127,7 +127,7 @@ struct Quest
             call DisplayTimedTextToPlayer(Player(pid), 0, 0, QUEST_TXT_DURATION, QUEST_UPDATE + stageStrings[stage])
             call QuestItemSetDescription(stageItems[stage], stageStrings[stage])
             call EnableTrigger(goals[stage].goalTrig)
-            if goals[stage].goalType == STORY_GOAL then
+            if goals[stage].goalType == STORY_GOAL or goals[stage].goalType == STORY_AND_PARTY_GOAL then
                 call goals[stage].enableStoryGoal()
             endif
 			if goals[stage].goalCause != 0 then
