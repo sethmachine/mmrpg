@@ -1,7 +1,7 @@
 library PlayerDance requires EventStruct
 
 globals
-	constant real DANCE_DIAMETER = 200.0
+	constant real DANCE_DIAMETER = 125.0
 endglobals
 
 //allows whether a player can teleport, i.e. use warp staff
@@ -25,7 +25,7 @@ struct EventPlayerDance extends Event
 			if m != 0 then
 				set targetLoc = getRandomPointOnCircle(loc, SFX_DIAMETER)
 				call IssuePointOrderLoc(m.u, "move", targetLoc)
-				call SetUnitFacingToFaceUnitTimed(pd.pc.u, m.u, 0.5)
+				call SetUnitFacingToFaceUnitTimed(pd.pc.u, m.u, 0.25)
 				call RemoveLocation(targetLoc)
 				set targetLoc = null
 			endif
