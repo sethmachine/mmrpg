@@ -18,6 +18,13 @@ private function fillTable takes nothing returns nothing
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
+		// A_CURE_FOR_MADNESS
+		//***********************
+		//allow the player to enter the sewers
+		set e = EventSetWarp.create(KALKA_SEWERS, true)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
 		// FLOWERS_FOR_ALGERNON
 		//***********************
 		//enable the quest
@@ -83,6 +90,13 @@ private function fillTable takes nothing returns nothing
 		//***********************
 		// ROCK_THE_CAZBAR
 		//***********************
+		//enable the quest
+		set e = EventQuestFanfare.create("Rock the Cazbar!")
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// ROCK_THE_CAZBAR
+		//***********************
 		//move the player to castle cazbar
 		set e = EventCallWarp.create(CASTLE_CAZBAR)
 		//disable the exit for castle cazbar
@@ -90,6 +104,7 @@ private function fillTable takes nothing returns nothing
 		set e.next = EventSetWarp.create(CASTLE_CAZBAR_EXIT, false)
 		//disable player teleport, i.e. no using a warp staff!
 		set e.next.next = EventSetPlayerTeleport.create(false)
+		set e.next.next.next = EventSetNPC.create(ABU_DHABI, false) //disable Abu dhabi, until quest is complete!
 		//put event inside array, increment
 		set eventTable[i] = e
 		set i = i + 1
@@ -104,7 +119,7 @@ private function fillTable takes nothing returns nothing
 		set m.wait = 1.0
 		set e.next.next = m
 		loop
-			exitwhen j == 35
+			exitwhen j == 32
 			set m.next = EventPlayerDance.create()
 			set m.next.wait = 1.0
 			set m = m.next
@@ -112,6 +127,11 @@ private function fillTable takes nothing returns nothing
 		endloop
 		set j = 0
 		set m.next = EventReturnPlayer.create()
+		set m.next.next = EventSetNPC.create(ABU_DHABI, true) //enable Abu Dhabi, since the quest is complete!
+		set m.next.next.next = EventSetNPCMsg.create(ALFONZO2, INTRO, ALFONZO_HEADER + "\nWell done hehe hehe.")
+		set m.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR_EXIT, true)
+		set m.next.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR, true)
+		set m.next.next.next.next.next.next = EventSetPlayerTeleport.create(false)
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
@@ -125,8 +145,8 @@ private function fillTable takes nothing returns nothing
 		// TUTORIAL
 		//***********************
 		//start the Rock the Cazbar! quest
-		set e = EventWait.create(8.0)
-		set e.next = EventStartQuest.create("Rock the Cazbar!")
+		set e = EventWait.create(5.0)
+		set e.next = EventStartQuest.create("The Orb of Seas")
 		set eventTable[i] = e
 		set i = i + 1
 
