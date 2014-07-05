@@ -30,6 +30,8 @@ private function main takes nothing returns nothing
 		set playerDatum[i].npcs[ALFONZO].id = ALFONZO_ID
 		set playerDatum[i].npcs[ALFONZO2] = Alfonzo2.create()
 		set playerDatum[i].npcs[ALFONZO2].id = ALFONZO2_ID
+		set playerDatum[i].npcs[ABU_DHABI] = AbuDhabi.create()
+		set playerDatum[i].npcs[ABU_DHABI].id = ABU_DHABI_ID
 		set playerDatum[i].npcs[INN] = Inn.create()
 		set playerDatum[i].npcs[INN].id = INN_ID
 		set playerDatum[i].backpackMenu = Backpack.create()

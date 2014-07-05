@@ -23,7 +23,8 @@ struct NPC
     //dialog buttons: [dialog * MAX_BTTNS][bttn number]
     //dialog button names: [dialog * MAX_BTTNS][bttn number]
     TableArray twoD
-
+	Event npcEvent //an event that can fire off when chatting with npc
+	boolean isActive = true //whether the npc will respond to the player
     //string introMsg //what the NPC always says at first interaction, specific to each NPC type
     integer gold = 100
 	
