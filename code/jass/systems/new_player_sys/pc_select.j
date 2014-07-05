@@ -69,6 +69,8 @@ private function main takes nothing returns boolean
 		call Cheat("whosyourdaddy")
 		call Cheat("iseedeadpeople")
 		call Cheat("greedisgood 100000")
+		set playerDatum[pid].warps[KALKA_SEWERS].isActive = true
+		set playerDatum[pid].warps[KALKA_SEWERS_EXIT].isActive = true
 	endif
     //endif
     return false
