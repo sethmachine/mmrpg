@@ -125,6 +125,16 @@ private function init takes nothing returns nothing
     //************************  crTable           freq   size   +cr    ambushFreq
     set cr = CreepRegion.create( AGON_ZONE_5,      70,    1,     50,      20,       rRect)
     set creepRegionTable[AGON_ZONE_5] = cr
+    //*********************************************
+    //***************  AGON: Zone 5 - top right strip
+    //*********************************************
+    //**************   left   bottom   right    top
+    call printl("did it crash?")
+    set rRect = Rect( 4640, 12416,   9504,     15296)
+    //call rectHighlight(rRect)
+    //************************  crTable           freq   size   +cr    ambushFreq
+    set cr = CreepRegion.create( KALKA_SEWERS_ZONE_1,      70,    1,     50,      20,       rRect)
+    set creepRegionTable[KALKA_SEWERS_ZONE_1] = cr
     call printl("nope")
 endfunction
 

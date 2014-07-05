@@ -8,6 +8,7 @@ globals
     constant integer AGON_ZONE_3 = 2
     constant integer AGON_ZONE_4 = 3
     constant integer AGON_ZONE_5 = 4
+    constant integer KALKA_SEWERS_ZONE_1 = 5
 endglobals
 
 private function init takes nothing returns nothing
@@ -91,6 +92,21 @@ private function init takes nothing returns nothing
     call ct.add(VULTURE)
     call ct.add(KING_COBRA)
     set creepTables[AGON_ZONE_5] = ct
+    //****************************
+    //********** AGON: Zone 5 ****
+    //****************************
+    set ct = CreepTable.create(1,7)
+    call ct.add(MUMMY)
+    call ct.add(MUMMY)
+    call ct.add(MUMMY)
+    call ct.add(MUMMY)
+    call ct.add(MUMMY)
+    call ct.add(MUMMY)
+    call ct.add(MUMMY)
+    call ct.add(MUD_DOLL)
+    call ct.add(MUD_DOLL)
+    call ct.add(SCARAB)
+    set creepTables[KALKA_SEWERS_ZONE_1] = ct
 endfunction
 
 
