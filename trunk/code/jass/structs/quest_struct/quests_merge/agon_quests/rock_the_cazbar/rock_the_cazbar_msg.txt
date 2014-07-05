@@ -1,6 +1,3 @@
-The desert world of Agon is rumored to contain a magical artifact that might restore power to 
-the EluDari, the magical barrier protecting the human worlds from the monsters.  Royal Chaplain Ricard 
-has suggested that I seek out help from Abu Dhabi, the Prince of Agon, whose seat is Cazbar, the capital.
-\l\l
-If fortune holds, Abu Dhabi will be able to point me in the direction of this magical artifact. 
-I will then need to recover the artifact, wherever it may be.
+The circus of Alfonzo ran into trouble on the road, and he is fresh out of performers.  If I perform an act for Alfonzo, I will be able 
+to get access to Castle Cazbar, and finally meet with Abu Dhabi, the Prince of Agon.  I will need a party of three monsters 
+before returning to Alfonzo.  Monsters are easier to recruit if they are fed plenty of meat before defeating them.  

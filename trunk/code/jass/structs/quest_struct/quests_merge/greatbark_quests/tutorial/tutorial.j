@@ -9,8 +9,8 @@
 		
         call q.addGoal("Speak to the Royal Chaplain.", STORY_GOAL)
         call q.goals[goalNum].setStoryGoal(ROYAL_CHAPLAIN, CHAPLAIN_PART1, "Where am I?", false)
-		//set q.goals[goalNum].goalResult = eventTable[TUTORIAL_E1]
-		set q.goals[goalNum].goalResult = eventTable[ROCK_THE_CAZBAR_E2]
+		set q.goals[goalNum].goalResult = eventTable[TUTORIAL_E1]
+		//set q.goals[goalNum].goalResult = eventTable[ROCK_THE_CAZBAR_E3]
 		set q.goals[goalNum].goalLoc = getNPCLoc(ROYAL_CHAPLAIN_ID)
 		set goalNum = goalNum + 1
 		
@@ -32,6 +32,23 @@
 		
         set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -9,20 +9,35 @@
 		set q.notHidden = false
 		
         call q.addGoal("Speak to the ill man.", STORY_GOAL)
-		call q.goals[goalNum].setStoryGoal(AGON_SICK_MAN, SICK_MAN_PART1, "Are you alright old man?", false)
+		call q.goals[goalNum].setStoryGoal(AGON_SICK_MAN, SICK_MAN_PART1, "Are you alright, old man?", false)
 		set q.goals[goalNum].goalResult = eventTable[A_CURE_FOR_MADNESS_E1]
         set goalNum = goalNum + 1
 
-        call q.addGoal("Find a way inside the sewers.", ITEM_TYPE_GET_GOAL)
-        call q.goals[goalNum].setGetItemByTypeGoal(DESERT_FLOWER, 1)
-		set q.goals[goalNum].goalCause = eventTable[FLOWERS_FOR_ALGERNON_E2]
-		call q.goals[goalNum].goalCause.setEventLoc(i)
-		set q.goals[goalNum].goalLoc = q.goals[goalNum].goalCause.getEventLoc(i)
+        call q.addGoal("Find a way inside the sewers.", STORY_GOAL)
+		call q.goals[goalNum].setStoryGoal(ABU_DHABI, MAD_ABU_DHABI_PART1, "Kalka's water supply is poisoned!", false)
+		set q.goals[goalNum].goalResult = eventTable[A_CURE_FOR_MADNESS_E2]
         set goalNum = goalNum + 1
 		
-        set q.reward = rewardTable[FLOWERS_FOR_ALGERNON_REWARD]
+        set q.reward = rewardTable[UNKNOWN_REWARD]
 		call playerDatum[i].startQuest("A Cure For Madness", false)
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
