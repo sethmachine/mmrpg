@@ -78,6 +78,7 @@ function partySizeMain takes nothing returns boolean
     local integer currQuest = 0
     local integer currQuestStage = 0
     local integer questRange = 0
+	if GetOwningPlayer(GetTriggerUnit()) == p then
     loop
         exitwhen questRange == TOTAL_QUESTS
         set currQuest = playerDatum[pid].findQuestByGoalType(PARTY_SIZE_GOAL, questRange)
@@ -94,6 +95,7 @@ function partySizeMain takes nothing returns boolean
             set questRange = TOTAL_QUESTS
         endif
     endloop
+	endif
     return false
 endfunction
     
