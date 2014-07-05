@@ -9,7 +9,7 @@ private function fillTable takes nothing returns nothing
     local integer i = 0
     local Reward r
 	    //********************************
-    // Flowers for Al-Jernan Reward 
+    // Unknown Reward 
     //********************************
     set r = Reward.create()
     call r.setUnknownReward()
