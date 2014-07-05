@@ -45,9 +45,26 @@
 		set q.goals[goalNum].goalLoc = getNPCLoc(TOMBSTONE_ID)
         set goalNum = goalNum + 1
 		
-        set q.reward = rewardTable[FLOWERS_FOR_ALGERNON_REWARD]
+        set q.reward = rewardTable[UNKNOWN_REWARD]
 		call playerDatum[i].startQuest("Flowers for Al-Jernan", false)
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
