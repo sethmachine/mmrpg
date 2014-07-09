@@ -171,7 +171,7 @@ endmodule
 //! runtextmacro NEW_ARRAY("FogState", "fogstate")
 //! runtextmacro NEW_ARRAY("FogModifier", "fogmodifier")
 //! runtextmacro NEW_ARRAY("Hashtable", "hashtable")
-    
+
 struct Table extends array
     
     // Implement modules for intuitive syntax (tb.handle; tb.unit; etc.)
