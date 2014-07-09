@@ -82,14 +82,10 @@ private function init takes nothing returns nothing
     //************************  crTable           freq   size   +cr    ambushFreq
     set cr = CreepRegion.create( AGON_ZONE_1,      90,    1,     50,      30,       rRect)
     set creepRegionTable[AGON_ZONE_1] = cr
-    call printl("did it crash333?")
-    //call DisplayTimedTextToPlayer(Player(0), 0, 0, 15, R2S(rectArea(r)))
-    call printl("did it crash333?")
     //*********************************************
     //***************  AGON: Zone 2 - bottom left *
     //*********************************************
     //**************   left   bottom   right    top
-    call printl("did it crash?")
     set rRect = Rect( -14976, -3744,   -9152,     2528)
     //call rectHighlight(rRect)
     //************************  crTable           freq   size   +cr    ambushFreq
@@ -99,7 +95,6 @@ private function init takes nothing returns nothing
     //***************  AGON: Zone 3 - bottom right
     //*********************************************
     //**************   left   bottom   right    top
-    call printl("did it crash?")
     set rRect = Rect( -9152, -3712,   -1184,     2400)
     //call rectHighlight(rRect)
     //************************  crTable           freq   size   +cr    ambushFreq
@@ -109,7 +104,6 @@ private function init takes nothing returns nothing
     //***************  AGON: Zone 4 - Top right ***
     //*********************************************
     //**************   left   right   bottom    top
-    call printl("did it crash?")
     set rRect = Rect( -7136, 2464,   -1312,     7360)
     //call rectHighlight(rRect)
     //************************  crTable           freq   size   +cr    ambushFreq
@@ -119,7 +113,6 @@ private function init takes nothing returns nothing
     //***************  AGON: Zone 5 - top right strip
     //*********************************************
     //**************   left   bottom   right    top
-    call printl("did it crash?")
     set rRect = Rect( -7168, 7360,   -1568,     7872)
     //call rectHighlight(rRect)
     //************************  crTable           freq   size   +cr    ambushFreq
@@ -129,13 +122,13 @@ private function init takes nothing returns nothing
     //***************  AGON: Zone 5 - top right strip
     //*********************************************
     //**************   left   bottom   right    top
-    call printl("did it crash?")
-    set rRect = Rect( 4640, 12416,   9504,     15296)
+    set rRect = Rect( 3456, 11552,   9408,     14144)
     //call rectHighlight(rRect)
-    //************************  crTable           freq   size   +cr    ambushFreq
-    set cr = CreepRegion.create( KALKA_SEWERS_ZONE_1,      70,    1,     50,      20,       rRect)
+    //************************  crTable                   freq   size   +cr    ambushFreq
+    set cr = CreepRegion.create( KALKA_SEWERS_ZONE_1,      80,    2,     70,      40,       rRect)
     set creepRegionTable[KALKA_SEWERS_ZONE_1] = cr
-    call printl("nope")
+	set cr.spawnDistance = 600.0
+	set cr.ambushDistance = 300.0
 endfunction
 
 
