@@ -25,8 +25,9 @@ private function main takes nothing returns nothing
 		// Automatically generated warps
 		//*********************
 //insert
-		set playerDatum[i].warps[KALKA].warpEvent = eventTable[KALKA_ENTER]
+		set playerDatum[i].warps[KALKA].warpEvent = eventTable[RESET_WATER_TINT_E]
 		set playerDatum[i].warps[KALKA_EXIT].warpEvent = eventTable[KALKA_LEAVE]
+		set playerDatum[i].warps[SUNCHAMBER].warpEvent = eventTable[SUNCHAMBER_ENTER_E]
         set i = i + 1        
     endloop
     call DestroyTimer(t)

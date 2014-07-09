@@ -55,9 +55,14 @@ private function main takes nothing returns nothing
 		set playerDatum[i].warps[MIRAGE_LAKE_EXIT] = w
 		set w = Warp.create("Mirage Lake to Mirage Lake exit", MIRAGE_LAKE_EXIT_LOC)
 		set playerDatum[i].warps[MIRAGE_LAKE] = w
+		set w = Warp.create("Sunchamber exit to Sunchamber", SUNCHAMBER_LOC)
+		set playerDatum[i].warps[SUNCHAMBER_EXIT] = w
+		set w = Warp.create("Sunchamber to Sunchamber exit", SUNCHAMBER_EXIT_LOC)
+		set playerDatum[i].warps[SUNCHAMBER] = w
 
-		set playerDatum[i].warps[KALKA].warpEvent = eventTable[KALKA_ENTER]
+		set playerDatum[i].warps[KALKA].warpEvent = eventTable[RESET_WATER_TINT_E]
 		set playerDatum[i].warps[KALKA_EXIT].warpEvent = eventTable[KALKA_LEAVE]
+		set playerDatum[i].warps[SUNCHAMBER].warpEvent = eventTable[SUNCHAMBER_ENTER_E]
         set i = i + 1        
     endloop
     call DestroyTimer(t)
