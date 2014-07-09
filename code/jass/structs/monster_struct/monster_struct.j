@@ -92,7 +92,7 @@ struct Monster extends AbstractMonster
     endmethod
     
 	method flush takes nothing returns nothing
-		call KillUnit(this.u)
+		//call KillUnit(this.u)
 		//call RemoveUnit(this.u)
 		set this.u = null
 		call DialogDestroy(this.info)
@@ -133,7 +133,7 @@ struct Monster extends AbstractMonster
         set s = s + "Spell resistance: " + I2S(attrPts[SP]) + "\n"
         set s = s + "Intelligence: " + I2S(attrPts[INT]) + "\n"
         call DialogSetMessage(info, s)
-        call DialogAddButton(info, "Ok.", 0)
+        call DialogAddButton(info, "Exit", 0)
         call DialogDisplay(players[pid], info, true)
     endmethod
 
