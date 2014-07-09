@@ -11,6 +11,7 @@ private function main takes nothing returns boolean
     if staffType == WARP_STAFF_ABIL then
 		if playerDatum[pid].canTeleport then
 			call playerDatum[pid].keys.keys[HOME].warp(pid)
+			call eventTable[RESET_WATER_TINT_E].do(pid)
 		endif
     endif
     return false
