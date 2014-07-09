@@ -15,6 +15,7 @@ struct EventSetPlayerTeleport extends Event
 
 	method do takes integer pid returns nothing
 		set playerDatum[pid].canTeleport = state
+		call doNext(pid)
 	endmethod
 endstruct
 endlibrary
