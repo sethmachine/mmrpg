@@ -7,7 +7,7 @@ endglobals
 private function main takes nothing returns boolean
 	local unit u = GetAttacker()
 	local player p = GetOwningPlayer(u)
-	if IsUnitAlly(GetTriggerUnit(), p) then
+	if IsUnitAlly(GetTriggerUnit(), p) and GetPlayerId(GetOwningPlayer(GetTriggerUnit())) <= 10 then
 		call IssueImmediateOrder(u, "stop")
 		call DisplayTimedTextToPlayer(p, 0, 0, DSPLY_TXT_DUR, TEAM_ATTACK_MSG)
 		if p == GetLocalPlayer() then

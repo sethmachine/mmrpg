@@ -41,6 +41,8 @@ private function main takes nothing returns nothing
 	set npcUnitIdTable[KALKA_SEWERS_EXIT_ID] = KALKA_SEWERS_EXIT
 	set npcUnitIdTable[MIRAGE_LAKE_ID] = MIRAGE_LAKE
 	set npcUnitIdTable[MIRAGE_LAKE_EXIT_ID] = MIRAGE_LAKE_EXIT
+	set npcUnitIdTable[SUNCHAMBER_ID] = SUNCHAMBER
+	set npcUnitIdTable[SUNCHAMBER_EXIT_ID] = SUNCHAMBER_EXIT
 
 	call DestroyTimer(t)
 	set t = null
