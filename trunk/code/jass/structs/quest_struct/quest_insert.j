@@ -29,10 +29,83 @@ function questInit takes nothing returns nothing
 		call q.goals[goalNum].setStoryGoal(ABU_DHABI, MAD_ABU_DHABI_PART1, "Kalka's water supply is poisoned!", false)
 		set q.goals[goalNum].goalResult = eventTable[A_CURE_FOR_MADNESS_E2]
         set goalNum = goalNum + 1
+
+        call q.addGoal("Confront the source of the poison.", BOSS_GOAL)
+		//call q.goals[goalNum].setBossGoal(0)
+		set q.goals[goalNum].goalResult = eventTable[A_CURE_FOR_MADNESS_E3]
+        set goalNum = goalNum + 1
 		
         set q.reward = rewardTable[UNKNOWN_REWARD]
 		call playerDatum[i].startQuest("A Cure For Madness", false)
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -378,6 +451,74 @@ function questInit takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//************************************
 		// name: ROCK_THE_CAZBAR
 		// strname: "Rock the Cazbar!"
@@ -416,6 +557,74 @@ function questInit takes nothing returns nothing
         set q.reward = rewardTable[UNKNOWN_REWARD]
 		call playerDatum[i].startQuest("Rock the Cazbar!", false)
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -527,6 +736,74 @@ function questInit takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//************************************
 		// name: TUTORIAL_QUEST
 		// strname: "New Beginnings"
@@ -561,6 +838,74 @@ function questInit takes nothing returns nothing
 		
         set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
