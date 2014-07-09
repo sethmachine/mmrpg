@@ -15,12 +15,15 @@ private function main takes nothing returns boolean
     local region r2
     local item itm
     local unit creep
+	local rect sewersArea
     local Monster m
     local PC pc //the player character being created
     set owner = GetTriggerPlayer()
     set pid = GetPlayerId(owner)
     set str = StringCase(GetEventPlayerChatString(), false)
+	set sewersArea = Rect(3456, 11552, 9408, 16352)
 	call FogModifierStart(CreateFogModifierRect(owner, FOG_OF_WAR_VISIBLE, townArea, true, false))
+	call FogModifierStart(CreateFogModifierRect(owner, FOG_OF_WAR_MASKED, sewersArea, true, false))
 	//call SetPlayerAllianceStateBJ(owner, BOT_ALLY, bj_ALLIANCE_ALLIED)
 	//call SetPlayerAllianceStateBJ(BOT_ALLY, owner, bj_ALLIANCE_ALLIED)
     if str == CHOOSE_MALE then
@@ -66,8 +69,8 @@ private function main takes nothing returns boolean
     call playerDatum[pid].startQuest("New Beginnings", true)
     set creep = null
 	if DEBUG then
-		call Cheat("whosyourdaddy")
-		call Cheat("iseedeadpeople")
+		//call Cheat("whosyourdaddy")
+		//call Cheat("iseedeadpeople")
 		call Cheat("greedisgood 100000")
 		set playerDatum[pid].warps[KALKA_SEWERS].isActive = true
 		set playerDatum[pid].warps[KALKA_SEWERS_EXIT].isActive = true
@@ -80,6 +83,8 @@ private function init takes nothing returns nothing
     local trigger t
     local integer i = 0 //counter for looping through players
 	set townArea = Rect(-15744, 9504, -5000, 15584)
+	call SetPlayerAllianceStateBJ(BOT_ENEMY, BOT_ALLY, bj_ALLIANCE_ALLIED)
+	call SetPlayerAllianceStateBJ(BOT_ALLY, BOT_ENEMY, bj_ALLIANCE_ALLIED)
     loop
         exitwhen i == TOTAL_PLAYERS
         set t = CreateTrigger()
