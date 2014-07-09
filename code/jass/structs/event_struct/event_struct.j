@@ -1,14 +1,14 @@
-library EventStruct initializer init requires Util, Constants
+library EventStruct initializer init requires Util, Constants, BossTable
 
 globals
-	Table timerTable
+	Table eventHandleTable
 endglobals
 
 private function afterWait takes nothing returns nothing
 	local timer expired = GetExpiredTimer()
 	local integer index = GetHandleId(expired)
-	local Event e = timerTable[index]
-	local integer pid = R2I(timerTable.real[index])
+	local Event e = eventHandleTable[index]
+	local integer pid = R2I(eventHandleTable.real[index])
 	call e.doNext(pid)
 	call DestroyTimer(expired)
 endfunction
@@ -27,6 +27,20 @@ struct Event
         return this
     endmethod
 	
+	method add takes Event e returns nothing
+		local Event m = next
+		if m == 0 then
+			set next = e
+		else
+			loop
+				exitwhen m.next == 0
+				set m = m.next
+			endloop
+			set m.next = e
+		endif
+	endmethod
+		
+	
 	//calls another event from the eventTable 
 	//forces it to call its do() method
 	method doNext takes integer pid returns nothing
@@ -37,8 +51,8 @@ struct Event
 	
 	method doWait takes integer pid, real wait returns nothing
 		local timer t = CreateTimer()
-		set timerTable[GetHandleId(t)] = this
-		set timerTable.real[GetHandleId(t)] = pid
+		set eventHandleTable[GetHandleId(t)] = this
+		set eventHandleTable.real[GetHandleId(t)] = pid
 		call TimerStart(t, wait, false, function afterWait)
 		set t = null
 	endmethod
@@ -61,6 +75,10 @@ struct Event
 		call print("WARNING: stub method not implemented ")
 	endmethod
 	
+	stub method undo takes integer pid returns nothing
+		call print("WARNING: stub method not implemented ")
+	endmethod
+	
 	//******************************
 	// Child specific event setups *
 	//******************************	
@@ -78,6 +96,6 @@ struct Event
 endstruct
 
 private function init takes nothing returns nothing
-	set timerTable = Table.create()
+	set eventHandleTable = Table.create()
 endfunction
 endlibrary
