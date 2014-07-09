@@ -4,6 +4,19 @@ globals
 	private integer count = 0 //if > 0, then there are destructables in range
 endglobals
 
+function isLocInRect2 takes location whichLoc, rect whichRect returns boolean
+	local real x = GetLocationX(whichLoc)
+	local real y = GetLocationY(whichLoc)
+	if x >= GetRectMinX(whichRect) and x <= GetRectMaxX(whichRect) and y >= GetRectMinY(whichRect) and y <= GetRectMaxY(whichRect) then
+		return true
+	endif
+	return false
+endfunction
+
+function isUnitInRect takes unit whichUnit, rect whichRect returns boolean
+	return isLocInRect2(GetUnitLoc(whichUnit), whichRect)
+endfunction
+	
 function getRandomPointOnCircle takes location origin, real diameter returns location
     local real a = GetRandomReal(0, 2* bj_PI) // random angle
     local real x = diameter * Cos(a) // x offset
@@ -15,7 +28,6 @@ private function enum takes nothing returns nothing
 	set count = count + 1
 endfunction
 
-
 private function isLocReachable takes location whichLoc, real range returns boolean
 	set count = 0
 	call EnumDestructablesInCircleBJ(range, whichLoc, function enum)
@@ -24,8 +36,6 @@ private function isLocReachable takes location whichLoc, real range returns bool
 	endif
 	return true
 endfunction
-	
-	
 
 function getRandomReachableLoc takes location origin, real diameter, real range returns location
 	local location randomLoc = getRandomPointOnCircle(origin, diameter)
