@@ -23,8 +23,10 @@ struct EventWaterTint extends Event
 	
 	method do takes integer pid returns nothing
 		if GetLocalPlayer() == players[pid] then
+			//call print("running a water tint event from event: " + I2S(this))
 			call SetWaterBaseColor(red, green, blue, alpha)
 		endif
+		call doNext(pid)
 	endmethod
 endstruct
 endlibrary
