@@ -17,5 +17,7 @@ globals
 	constant integer KALKA_SEWERS_EXIT = 14
 	constant integer MIRAGE_LAKE = 15
 	constant integer MIRAGE_LAKE_EXIT = 16
+	constant integer SUNCHAMBER = 17
+	constant integer SUNCHAMBER_EXIT = 18
 endglobals
 endlibrary

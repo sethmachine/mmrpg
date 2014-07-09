@@ -95,7 +95,7 @@ private function init takes nothing returns nothing
     //****************************
     //********** AGON: Zone 5 ****
     //****************************
-    set ct = CreepTable.create(1,7)
+    set ct = CreepTable.create(5,10)
     call ct.add(MUMMY)
     call ct.add(MUMMY)
     call ct.add(MUMMY)
@@ -103,8 +103,8 @@ private function init takes nothing returns nothing
     call ct.add(MUMMY)
     call ct.add(MUMMY)
     call ct.add(MUMMY)
-    call ct.add(MUD_DOLL)
-    call ct.add(MUD_DOLL)
+    call ct.add(BLOOD_GILL)
+    call ct.add(BLOOD_GILL)
     call ct.add(SCARAB)
     set creepTables[KALKA_SEWERS_ZONE_1] = ct
 endfunction

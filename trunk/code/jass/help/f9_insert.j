@@ -205,6 +205,74 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Commands Quest Log
 	//***************************
@@ -406,17 +474,85 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Credits
 	//***************************
     set q = CreateQuest()
     call QuestSetTitle(q, "|cff00ff00Credits|r")
-    call QuestSetDescription(q, "Credits to everyone listed below for the models and icons they generously provided on the Hiveworkshop!  Many thanks to all of these talented artists!  \n\nIf you see a resource in the map that I did not give credit to,please alert me via e-mail so I may update the bibliography and give the author due credit.\n\nemail: sethmachine01@gmail.com ")
+    call QuestSetDescription(q, "Credits are listed below for the resources used in this map, which include the models, icons, skins, and vJASS resources.  Many thanks to all of these talented people, who generously made their resources available on hiveworkshop.com!   \n\nIf you see a resource in the map that I did not give credit to, please alert me via e-mail so I may update the bibliography and give the author due credit.\n\nemail: sethmachine01@gmail.com ")
     call QuestSetIconPath(q, "ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp")
     call QuestSetRequired(q, false)
     call QuestSetDiscovered(q, true)
     call QuestSetCompleted(q, false)
-																																																																																																																																																																																											call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
+																																																																																																																																																																																																																																																															call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Palaslayer (BTNCombat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Sellenisko (BTNDarkElfAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
@@ -458,11 +594,13 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "Tirlititi (ClearItems)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Bribe (Table)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Nestharus (WorldBounds)")
+	call QuestItemSetDescription(QuestCreateItem(q), "bisnar13 (Mirror Of Truth)")
 	call QuestItemSetDescription(QuestCreateItem(q), "CreatorD3292 (ArchnathidMachine)")
 	call QuestItemSetDescription(QuestCreateItem(q), "HappyCockroach (Avatar of Storms)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Kimberly (BTNRaptorLoyalty)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Callahan (Gnaraya)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
+	call QuestItemSetDescription(QuestCreateItem(q), "67chrome (BTNMummy)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNWaterElemental)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Misha (Varsaigen the Stormlord)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Ampharos_222 (Dune Flyer)")
@@ -480,6 +618,7 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "Ampharos_222 (Lizardman)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Pyramidhe (BTNGoldenBirdRelic)")
 	call QuestItemSetDescription(QuestCreateItem(q), "AndrewOverload519 (Mechanostrider)")
+	call QuestItemSetDescription(QuestCreateItem(q), "67chrome (Mummy_by67chrome.blp)")
 	call QuestItemSetDescription(QuestCreateItem(q), "WhiteDeath (Black Corsair)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Titania (CuteRainbowMissile)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Cavman (Raptors Red and Yellow)")

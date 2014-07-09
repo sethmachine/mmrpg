@@ -17,5 +17,7 @@ globals
 	constant integer KALKA_SEWERS_EXIT_ID = 'w00e'
 	constant integer MIRAGE_LAKE_ID = 'w00f'
 	constant integer MIRAGE_LAKE_EXIT_ID = 'w00g'
+	constant integer SUNCHAMBER_ID = 'w00h'
+	constant integer SUNCHAMBER_EXIT_ID = 'w00i'
 endglobals
 endlibrary

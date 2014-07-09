@@ -12,6 +12,8 @@ struct CreepRegion
     integer mobSize = 0 //the average number of creeps spawned per attack
     integer mobProb = 0 //for each party member, probability of an additional creep
     integer ambushFreq = 0 //how often ambushes occur (i.e. spawn popping)
+	real spawnDistance = SPAWN_DISTANCE
+	real ambushDistance = AMBUSH_DISTANCE
     region r //which region must be entered to trigger the creep
     rect rRect //the actual rect/dimensions of the region
     MonsterGroup creeps //all the monsters spawned in the region

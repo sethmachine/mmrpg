@@ -74,7 +74,7 @@ ins.insert("consumables_header.j", "consumables_merge", "consumables_insert.j", 
 ins.insert("fetchables_header.j", "fetchables_merge", "fetchables_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
 
 #lua file for all terrain objects
-ins.insert("terrain_header.j", "terrain", "terrain_insert.j", "lua", "//insert", ["decrep", "header", "insert"])
+ins.insert("terrain_header.j", "terrain", "terrain_insert.j", "lua", "//insert", ["decrep", "header", "insert"], True)
 
 #creates the jass file for rewards
 ins.insert("reward_header.j", "reward_merge", "reward_insert.j", "reward_struct", "//insert", ["quest"])
@@ -89,7 +89,7 @@ ins.insert("story_header.j", "story_merge", "story_insert.j", "jass", "//insert"
 ins.insert("event_header.j", "events_merge", "event_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])
 
 #creates jass file for abstract monster table
-ins.insert("abstract_monster_header.j", "abstract_monster_merge", "abstract_monster_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])
+ins.insert("abstract_monster_header.j", "abstract_monster_merge", "abstract_monster_insert.j", "monster_struct", "//insert", ["msg", "decrep", "insert", "header"])
 
 #creates the jass file for warps
 #ins.insert("warp_header.j", "warp_merge", "warp_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])

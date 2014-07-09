@@ -20,6 +20,8 @@ globals
 	location KALKA_SEWERS_EXIT_LOC
 	location MIRAGE_LAKE_LOC
 	location MIRAGE_LAKE_EXIT_LOC
+	location SUNCHAMBER_LOC
+	location SUNCHAMBER_EXIT_LOC
 
 endglobals
 
@@ -42,6 +44,8 @@ private function main takes nothing returns nothing
 	set KALKA_SEWERS_EXIT_LOC = getNPCLoc(KALKA_SEWERS_EXIT_ID)
 	set MIRAGE_LAKE_LOC = getNPCLoc(MIRAGE_LAKE_ID)
 	set MIRAGE_LAKE_EXIT_LOC = getNPCLoc(MIRAGE_LAKE_EXIT_ID)
+	set SUNCHAMBER_LOC = getNPCLoc(SUNCHAMBER_ID)
+	set SUNCHAMBER_EXIT_LOC = getNPCLoc(SUNCHAMBER_EXIT_ID)
 
 	call DestroyTimer(t)
 	set t = null
