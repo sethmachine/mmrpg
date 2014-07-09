@@ -9290,7 +9290,7 @@
     //! i makechange(current, "unam", ZOMBIE)
     //! i makechange(current, "properNames", "Mummy (m),Mummy (f)")
     //! i makechange(current, "umdl", "units\\creeps\\Zombie\\Zombie")
-    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNZombie.blp")
+    //! i makechange(current, "uico", "ReplaceableTextures\\CommandButtons\\BTNMummy.blp")
     ////! i makechange(current, "ussi", "ReplaceableTextures\\CommandButtons\\BTNSeaTurtleRed.blp")
     //various art values
     ////! i makechange(current, "uble", "0.15")
@@ -9315,7 +9315,7 @@
     ////! i makechange(current, "uaap", "large")
     ////! i makechange(current, "uslz", "230.00") flyers only
     //the scaling of the model
-    //! i makechange(current, "usca", "1.15")
+    //! i makechange(current, "usca", "1.35")
     //selection circle size
     //! i makechange(current, "ussc", "1.00")
     //! i makechange(current, "ushx", "50.00")
