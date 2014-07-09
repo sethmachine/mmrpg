@@ -221,3 +221,13 @@
 //! external FileImporter C:\Imports\units\LeprekonHerbalist\Leprekon.blp Leprekon.blp
 //portrait
 //! external FileImporter C:\Imports\units\LeprekonHerbalist\Leprekon_Portrait_v2.mdx Leprekon_Portrait.mdx
+
+//*************************************
+//***** Mummy Skin ********************
+//*************************************
+//texture
+//! external FileImporter C:\Imports\units\Mummyby67chrome\Mummy_by67chrome.blp Units\Creeps\Zombie\ZombieA.blp
+//bttn
+//! external FileImporter C:\Imports\units\BTNMummy\BTNMummy.blp ReplaceableTextures\CommandButtons\BTNMummy.blp
+
+//! external FileImporter C:\Imports\units\BTNMummy\DISBTNMummy.blp ReplaceableTextures\CommandButtonsDisabled\DISBTNMummy.blp
