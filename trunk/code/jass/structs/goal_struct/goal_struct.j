@@ -19,6 +19,7 @@ globals
     
     constant integer STORY_GOAL = 7 //a player needs to read through a series of dialogs, and click the last button.  
     constant integer STORY_AND_PARTY_GOAL = 8 //a player needs to read through a series of dialogs, and click the last button.     
+	constant integer BOSS_GOAL = 9 //a player must be in a boss rect when the boss is dead
     constant integer MONSTER_GIVE_GOAL  = 0//a player needs to give up a certain monster
 endglobals
 
@@ -226,6 +227,35 @@ function storyAndPartyMain takes nothing returns boolean
     return false
 endfunction
 
+function bossGoalMain takes nothing returns boolean
+    local player p = GetTriggerPlayer()
+    local integer pid = GetPlayerId(p)
+    local integer currQuest = 0
+    local integer currQuestStage = 0
+    local integer questRange = 0
+	local Boss goalBoss
+    loop
+        exitwhen questRange == TOTAL_QUESTS
+        set currQuest = playerDatum[pid].findQuestByGoalType(BOSS_GOAL, questRange)
+        set currQuestStage = playerDatum[pid].quests[currQuest].stage
+        if currQuest >= 0 then
+            set goalBoss = bossTable[playerDatum[pid].quests[currQuest].goals[currQuestStage].goalBoss]
+            if goalBoss.bossM.isDead() and isUnitInRect(playerDatum[pid].pc.u, goalBoss.bossRect) then
+                call playerDatum[pid].quests[currQuest].advance()
+                call DestroyTrigger(GetTriggeringTrigger())
+                //call DestroyTrigger(playerDatum[pid].quests[currQuest].goals[currQuestStage].askTrig)
+                set questRange = TOTAL_QUESTS
+            else
+                set questRange = currQuest + 1 //advance the quest counter, in case another quest has a button click goal
+            endif
+        else //currQuest == -1, there are no enabled quests with an item obtain goal
+            set questRange = TOTAL_QUESTS
+        endif
+    endloop
+    set p = null
+    return false
+endfunction
+
 
 function buttonClickMain takes nothing returns boolean
     local player p = GetTriggerPlayer()
@@ -390,6 +420,7 @@ struct Goal
     string goalString
     string askBttnMsg
     integer askBttn
+	integer goalBoss
 	Event goalCause //event that runs when the goal is just started
 	Event goalResult //event that runs when the goal is just finished
 	location goalLoc //the location that gets pinged, if any
@@ -411,6 +442,16 @@ struct Goal
 		set goalLoc = null
     endmethod
     
+    method setBossGoal takes integer goalBoss returns nothing
+        local trigger t = CreateTrigger()
+		set this.goalBoss = goalBoss
+		call TriggerRegisterPlayerUnitEvent(t, players[pid], EVENT_PLAYER_UNIT_SELECTED, null)
+        call TriggerAddCondition(t, Condition(function bossGoalMain))
+        set goalTrig = t
+        call DisableTrigger(goalTrig)
+        set t = null
+    endmethod
+	
     method setGetItemByTypeGoal takes integer goalItemType, integer quant returns nothing
         local trigger t = CreateTrigger()
 		set this.quant = quant
