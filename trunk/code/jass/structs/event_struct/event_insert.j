@@ -25,6 +25,23 @@ private function fillTable takes nothing returns nothing
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
+		// A_CURE_FOR_MADNESS
+		//***********************
+		//called when the player defeats the boss
+		//re-enable player's warp ability
+		set e = EventSetPlayerTeleport.create(true)
+		call e.add(EventWait.create(5.0))
+		call e.add(EventCallWarp.create(SUNCHAMBER_EXIT))
+		//allow access to sunchamber again
+		call e.add(EventWait.create(3.0))
+		call e.add(EventSetGlobalWarp.create(SUNCHAMBER, true))
+		call e.add(EventWait.create(0.20))
+		//permanently disable access to sunchamber for this player
+		call e.add(EventSetWarp.create(SUNCHAMBER, false))
+		call e.add(EventSetWarp.create(SUNCHAMBER_EXIT, true))
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
 		// FLOWERS_FOR_ALGERNON
 		//***********************
 		//enable the quest
@@ -74,7 +91,7 @@ private function fillTable takes nothing returns nothing
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
-		// Kalka Enter
+		// Normal Water Tint
 		//***********************
 		//set water tint to greenish
 		set e = EventWaterTint.create(0, 255, 0, 255)
@@ -132,6 +149,167 @@ private function fillTable takes nothing returns nothing
 		set m.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR_EXIT, true)
 		set m.next.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR, true)
 		set m.next.next.next.next.next.next = EventSetPlayerTeleport.create(false)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// ROSEVINE_DEATH
+		//***********************
+		//set the boss invuln to 4 (make sure the levers are turned on, too!)
+		set e = EventWait.create(3.0)
+		call e.add(EventAdvanceQuest.create("A Cure For Madness"))
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// ROSEVINE_RESET
+		//***********************
+		//wait one second before resetting the boss
+		set e = EventWait.create(2.5)
+		//reset the boss
+		call e.add(EventResetBoss.create(0))
+		//now reset the state of the room (i.e. respawn the levers, remove any weather)
+		//! textmacro LeverReset takes leverLetter, leverIndex
+		call e.add(EventResetLever.create($leverIndex$))
+		call e.add(EventRemoveWeather.create(SUNCHAMBER_MIRROR_$leverLetter$_RECT))
+		//! endtextmacro
+		
+		//! runtextmacro LeverReset("A", "0")
+		//! runtextmacro LeverReset("B", "1")
+		//! runtextmacro LeverReset("C", "2")
+		//! runtextmacro LeverReset("D", "3")
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// ROSEVINE_SPAWN
+		//***********************
+		//set the boss invuln to 4 (make sure the levers are turned on, too!)
+		set e = EventSetBossInvulnerability.create(0, ADDITION, 4)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_ENTER
+		//***********************
+		//disable the exit, the player cannot leave
+		set e = EventSetWarp.create(SUNCHAMBER_EXIT, true)
+		//disable teleporting, the player cannot warp out
+		call e.add(EventSetPlayerTeleport.create(false))
+		//start the global timer, to begin the boss
+		call e.add(EventGlobalWait.create(3.0))
+		//disable entrance for all players
+		call e.add(EventSetGlobalWarp.create(SUNCHAMBER, true))
+		//paralyze the player, so they are forced to watch the boss intro cinematic
+		call e.add(EventSetPlayerOwner.create(BOT_ALLY))
+		//create the boss now but don't activate yet
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_CENTER_RECT, FOG_OF_WAR_VISIBLE, true))
+		call e.add(EventWait.create(1.00))
+		call e.add(EventSpawnBoss.create(0))
+		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_BOSS_RECT), 0.50))
+		call e.add(EventWait.create(1.25))
+		//pan to each mirror, turning it on, then pan to boss, then pan to next mirror
+		//! textmacro BossIntro takes leverLetter, leverIndex
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_MIRROR_$leverLetter$_RECT, FOG_OF_WAR_VISIBLE, true))
+		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_MIRROR_$leverLetter$_RECT), 0.50))
+		call e.add(EventWait.create(1.75))
+		call e.add(EventPlayLeverAnimation.create($leverIndex$, "death"))
+		call e.add(EventSetLeverState.create($leverIndex$, false))
+		call e.add(EventWait.create(0.75))
+		call e.add(EventAddWeather.create(SUNCHAMBER_MIRROR_$leverLetter$_RECT, 'LRaa'))
+		call e.add(EventWait.create(1.75))
+		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_BOSS_RECT), 0.50))
+		call e.add(EventWait.create(1.0))
+		call e.add(EventSetBossUnitScale.create(0, 1.50))
+		call e.add(EventWait.create(1.5))
+		//! endtextmacro
+		
+		//! runtextmacro BossIntro("A", "0")
+		//! runtextmacro BossIntro("B", "1")
+		//! runtextmacro BossIntro("C", "2")
+		//! runtextmacro BossIntro("D", "3")
+		
+		//unpause the player
+		call e.add(EventReturnPlayer.create())
+		//make the whole arena visible
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_BOSS_RECT, FOG_OF_WAR_VISIBLE, true))
+		//hide the other areas now
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_CENTER_RECT, FOG_OF_WAR_MASKED, true))
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_MIRROR_A_RECT, FOG_OF_WAR_MASKED, true))
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_MIRROR_B_RECT, FOG_OF_WAR_MASKED, true))
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_MIRROR_C_RECT, FOG_OF_WAR_MASKED, true))
+		call e.add(EventSetFogOfWar.create(SUNCHAMBER_MIRROR_D_RECT, FOG_OF_WAR_MASKED, true))
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		set e = EventAddWeather.create(SUNCHAMBER_MIRROR_A_RECT, 'LRaa')
+		set e.next = EventSetBossInvulnerability.create(0, ADDITION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, 1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		//add weather - rays of light
+		set e = EventRemoveWeather.create(SUNCHAMBER_MIRROR_A_RECT)
+		set e.next = EventSetBossInvulnerability.create(0, SUBTRACTION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, -1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		set e = EventAddWeather.create(SUNCHAMBER_MIRROR_B_RECT, 'LRaa')
+		set e.next = EventSetBossInvulnerability.create(0, ADDITION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, 1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		//add weather - rays of light
+		set e = EventRemoveWeather.create(SUNCHAMBER_MIRROR_B_RECT)
+		set e.next = EventSetBossInvulnerability.create(0, SUBTRACTION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, -1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		set e = EventAddWeather.create(SUNCHAMBER_MIRROR_C_RECT, 'LRaa')
+		set e.next = EventSetBossInvulnerability.create(0, ADDITION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, 1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		//add weather - rays of light
+		set e = EventRemoveWeather.create(SUNCHAMBER_MIRROR_C_RECT)
+		set e.next = EventSetBossInvulnerability.create(0, SUBTRACTION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, -1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		set e = EventAddWeather.create(SUNCHAMBER_MIRROR_D_RECT, 'LRaa')
+		set e.next = EventSetBossInvulnerability.create(0, ADDITION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, 1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// SUNCHAMBER_LEVER
+		//***********************
+		//add weather - rays of light
+		set e = EventRemoveWeather.create(SUNCHAMBER_MIRROR_D_RECT)
+		set e.next = EventSetBossInvulnerability.create(0, SUBTRACTION, 1)
+		set e.next.next = EventSetBossUnitScale.create(0, -1.50)
+		set eventTable[i] = e
+		set i = i + 1
+		//***********************
+		// Normal Water Tint
+		//***********************
+		//set water tint to greenish
+		set e = EventWaterTint.create(0, 255, 0, 255)
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
