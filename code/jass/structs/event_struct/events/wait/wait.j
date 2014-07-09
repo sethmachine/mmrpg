@@ -13,6 +13,7 @@ struct EventWait extends Event
     endmethod
 
 	method do takes integer pid returns nothing
+		//call print("doing wait event")
 		call doWait(pid, this.wait)
 	endmethod
 endstruct
