@@ -1,8 +1,8 @@
 library NpcHeroesConstants
 globals
-	constant integer THE_KING = 0
-	constant integer OLD_OAK = 1
-	constant integer ABU_DHABI = 2
-	constant integer JAFFAR = 3
+	constant integer THE_KING = 14
+	constant integer OLD_OAK = 15
+	constant integer ABU_DHABI = 16
+	constant integer JAFFAR = 17
 endglobals
 endlibrary

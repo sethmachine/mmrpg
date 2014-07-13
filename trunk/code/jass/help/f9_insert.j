@@ -273,6 +273,20 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Commands Quest Log
 	//***************************
@@ -542,6 +556,20 @@ private function init takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //***************************
 	// Credits
 	//***************************
@@ -552,7 +580,7 @@ private function init takes nothing returns nothing
     call QuestSetRequired(q, false)
     call QuestSetDiscovered(q, true)
     call QuestSetCompleted(q, false)
-																																																																																																																																																																																																																																																															call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
+																																																																																																																																																																																																																																																																													call QuestItemSetDescription(QuestCreateItem(q), "War_Golum (BlightwalkerAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Palaslayer (BTNCombat)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Sellenisko (BTNDarkElfAura)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Marcos DAB (BTNDuneCrawler)")
@@ -592,7 +620,11 @@ private function init takes nothing returns nothing
 	call QuestItemSetDescription(QuestCreateItem(q), "UgoUgo (OrbOfSeas)")
 	call QuestItemSetDescription(QuestCreateItem(q), "JesusHipster (Water Orb Attach)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Tirlititi (ClearItems)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Jeff Pang (Jass Manual)")
+	call QuestItemSetDescription(QuestCreateItem(q), "PipeDream (Jass New Gen)")
+	call QuestItemSetDescription(QuestCreateItem(q), "PitzerMike (Jass New Gen)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Bribe (Table)")
+	call QuestItemSetDescription(QuestCreateItem(q), "Vexorian (vJASS)")
 	call QuestItemSetDescription(QuestCreateItem(q), "Nestharus (WorldBounds)")
 	call QuestItemSetDescription(QuestCreateItem(q), "bisnar13 (Mirror Of Truth)")
 	call QuestItemSetDescription(QuestCreateItem(q), "CreatorD3292 (ArchnathidMachine)")

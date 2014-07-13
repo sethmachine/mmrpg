@@ -125,10 +125,10 @@ private function init takes nothing returns nothing
     set rRect = Rect( 3456, 11552,   9408,     14144)
     //call rectHighlight(rRect)
     //************************  crTable                   freq   size   +cr    ambushFreq
-    set cr = CreepRegion.create( KALKA_SEWERS_ZONE_1,      80,    2,     70,      40,       rRect)
+    set cr = CreepRegion.create( KALKA_SEWERS_ZONE_1,     60,    2,     50,      40,       rRect)
     set creepRegionTable[KALKA_SEWERS_ZONE_1] = cr
-	set cr.spawnDistance = 600.0
-	set cr.ambushDistance = 300.0
+	set cr.spawnDistance = 500.0
+	set cr.ambushDistance = 250.0
 endfunction
 
 

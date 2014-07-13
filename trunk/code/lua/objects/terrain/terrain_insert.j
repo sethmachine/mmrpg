@@ -111,6 +111,7 @@
     //! i makechange(current, "uclb", "0")
 	//! i makechange(current, "ushb", "")
 	//! i makechange(current, "unbm", "0")
+	//! i makechange(current, "uhom", "0")
 	//! i makechange(current, "upat", "PathTextures\\2x2Default.tga")
     //the scaling of the model
     //! i makechange(current, "usca", "1.30")
@@ -133,6 +134,7 @@
     //! i makechange(current, "uclb", "0")
 	//! i makechange(current, "ushb", "")
 	//! i makechange(current, "unbm", "0")
+	//! i makechange(current, "uhom", "0")
 	//! i makechange(current, "upat", "PathTextures\\2x2Default.tga")
     //the scaling of the model
     //! i makechange(current, "usca", "1.30")
@@ -155,6 +157,7 @@
     //! i makechange(current, "uclb", "0")
 	//! i makechange(current, "ushb", "")
 	//! i makechange(current, "unbm", "0")
+	//! i makechange(current, "uhom", "0")
 	//! i makechange(current, "upat", "PathTextures\\2x2Default.tga")
     //the scaling of the model
     //! i makechange(current, "usca", "1.30")
@@ -177,6 +180,7 @@
     //! i makechange(current, "uclb", "0")
 	//! i makechange(current, "ushb", "")
 	//! i makechange(current, "unbm", "0")
+	//! i makechange(current, "uhom", "0")
 	//! i makechange(current, "upat", "PathTextures\\2x2Default.tga")
     //the scaling of the model
     //! i makechange(current, "usca", "1.30")

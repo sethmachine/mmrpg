@@ -88,7 +88,7 @@ def rawCns(insertFile, constantsFile, suffix = "id"):
     print>>w, header
     w.close()
 
-def intCns(insertFile, constantsFile, suffix = ""):
+def intCns(insertFile, constantsFile, suffix = "", offset = 0):
     """Takes an insert file as an argument and creates a vJASS library,
     which contains each of the objects' rawcodes represented as
     JASS constant integers."""
@@ -104,12 +104,13 @@ def intCns(insertFile, constantsFile, suffix = ""):
     header += "globals\n"
     #now for each name, create a constant integer
     for x in range(0, len(names)):
-        header += "\tconstant integer " + util.name2Var(names[x]) + " = " + str(x) + "\n"
+        header += "\tconstant integer " + util.name2Var(names[x]) + " = " + str(x + offset) + "\n"
     header += "endglobals\nendlibrary"
     path = os.path.join(CONSTANTS_DIR, constantsFile)
     w = open(path, 'w')
     print>>w, header
     w.close()
+    return len(names)
 
 def writeTable(constantsFiles = [], tableFile = "npc_unit_id_table_header.j", tableName = "npcUnitIdTable"):
     tableFile = util.find(tableFile, util.root)

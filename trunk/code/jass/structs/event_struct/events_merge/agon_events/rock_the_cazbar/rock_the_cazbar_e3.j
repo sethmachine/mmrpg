@@ -21,6 +21,6 @@
 		set m.next.next.next = EventSetNPCMsg.create(ALFONZO2, INTRO, ALFONZO_HEADER + "\nWell done hehe hehe.")
 		set m.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR_EXIT, true)
 		set m.next.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR, true)
-		set m.next.next.next.next.next.next = EventSetPlayerTeleport.create(false)
+		set m.next.next.next.next.next.next = EventSetPlayerTeleport.create(true)
 		set eventTable[i] = e
 		set i = i + 1

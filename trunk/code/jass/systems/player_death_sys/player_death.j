@@ -19,6 +19,7 @@ private function afterWait takes nothing returns nothing
 		if u == pc then //make sure it is the player hero
 			call pd.keys.keys[HOME].warp(pid) //return to GreatBark
 			call ReviveHeroLoc(pc, GetUnitLoc(pc), true)
+			set pd.canTeleport = true //turn back on tp, in case died in a locked area, e.g. boss battle	
 		endif
 	endif
 	call DestroyTimer(t)

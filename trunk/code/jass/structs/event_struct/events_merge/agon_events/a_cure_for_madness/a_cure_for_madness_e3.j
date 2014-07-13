@@ -22,6 +22,8 @@
 		//permanently disable access to sunchamber for this player
 		call e.add(EventSetWarp.create(SUNCHAMBER, false))
 		call e.add(EventSetWarp.create(SUNCHAMBER_EXIT, true))
+		call e.add(EventSetWarp.create(CAZBAR_WELL_EXIT, true))
+		call e.add(EventSetWarp.create(CAZBAR_WELL, true))
 		//no more changing water tints by entering or leaving kalka
 		call e.add(EventDisableWarpEvent.create(KALKA))
 		call e.add(EventDisableWarpEvent.create(KALKA_EXIT))
