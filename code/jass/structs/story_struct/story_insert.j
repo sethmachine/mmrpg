@@ -94,6 +94,20 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //***  - Sick Man Story1 Part 1 **
  //*********************************************
@@ -142,6 +156,20 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -560,6 +588,20 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //***  - Isaiah Story2 Part 1 *
  //*********************************************
@@ -596,6 +638,20 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -929,6 +985,20 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //***  - Alfonzo Story2 Part 1 **
  //*********************************************
@@ -941,6 +1011,20 @@ private function fillTable takes nothing returns nothing
  set bigStoryTable[j] = currentStory
  set i = i + 1
  set j = j + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1175,6 +1259,20 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //***  - Alfonzo Story1 Part 1 **
  //*********************************************
@@ -1211,6 +1309,20 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1568,6 +1680,20 @@ private function fillTable takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //*********************************************
  //*** Tutorial Quest - Chaplain Story2 Part 1 *
  //*********************************************
@@ -1616,6 +1742,20 @@ private function fillTable takes nothing returns nothing
  call currentStory.setLink()
  set storyTable[i] = currentStory
  set i = i + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,6 +3,7 @@ library BossStruct initializer init requires Util, Constants
 globals
 	Table bossHandleTable
 	constant integer BOSS_RECRUIT_LEVEL = 0 //impossible to recruit
+	constant real ATTACK_TIMER_DURATION = 5.0
 endglobals
 
 struct Boss
@@ -124,7 +125,8 @@ struct Boss
 	static method attackMain takes nothing returns nothing
 		local Boss b = bossHandleTable[GetHandleId(GetExpiredTimer())]
 		local location targetLoc = GetRandomLocInRect(b.bossRect)
-		call IssuePointOrderLoc(b.bossM.u, "patrol", targetLoc)
+		call print("boss is attacking a point now")
+		call IssuePointOrderLocBJ(b.bossM.u, "patrol", targetLoc)
 		call RemoveLocation(targetLoc)
 		set targetLoc = null
 	endmethod
@@ -156,7 +158,7 @@ struct Boss
 	method setAttack takes nothing returns nothing
 		set attackTimer = CreateTimer()
 		set bossHandleTable[GetHandleId(attackTimer)] = this
-		call TimerStart(attackTimer, 10.0, true, function Boss.attackMain)	
+		call TimerStart(attackTimer, ATTACK_TIMER_DURATION, true, function Boss.attackMain)
 	endmethod
 		
 	method spawn takes nothing returns nothing

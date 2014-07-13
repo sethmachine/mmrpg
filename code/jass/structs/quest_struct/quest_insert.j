@@ -153,6 +153,20 @@ function questInit takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//************************************
 		// name: FLOWERS_FOR_ALGERNON
 		// strname: "Flowers for Al-Jernan"
@@ -203,6 +217,20 @@ function questInit takes nothing returns nothing
         set q.reward = rewardTable[UNKNOWN_REWARD]
 		call playerDatum[i].startQuest("Flowers for Al-Jernan", false)
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -672,6 +700,20 @@ function questInit takes nothing returns nothing
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		//************************************
 		// name: THE_ORB_OF_SEAS
 		// strname: "The Orb of Seas"
@@ -689,6 +731,20 @@ function questInit takes nothing returns nothing
         set q.reward = rewardTable[UNKNOWN_REWARD]
 		//call playerDatum[i].startQuest("Flowers for Al-Jernan", false)
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -838,6 +894,20 @@ function questInit takes nothing returns nothing
 		
         set q.reward = rewardTable[TUTORIAL_REWARD]
 		set goalNum = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

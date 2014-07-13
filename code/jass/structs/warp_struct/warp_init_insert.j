@@ -62,6 +62,7 @@ private function main takes nothing returns nothing
 
 		set playerDatum[i].warps[KALKA].warpEvent = eventTable[RESET_WATER_TINT_E]
 		set playerDatum[i].warps[KALKA_EXIT].warpEvent = eventTable[KALKA_LEAVE]
+		set playerDatum[i].warps[CAZBAR_WELL_EXIT].isActive = false
 		set playerDatum[i].warps[SUNCHAMBER].warpEvent = eventTable[SUNCHAMBER_ENTER_E]
         set i = i + 1        
     endloop

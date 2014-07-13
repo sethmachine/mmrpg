@@ -106,9 +106,9 @@ icns.itemConstants("consumables_insert.j", "tables/consumables_constants.j", "it
 icns.itemConstants("fetchables_insert.j", "tables/fetchables_constants.j", "items")
 
 cns.rawCns("npc_units_insert.j", "tables/npc_unit_id_constants.j")
-cns.intCns("npc_units_insert.j", "tables/npc_unit_constants.j")
+npcUnitCount = cns.intCns("npc_units_insert.j", "tables/npc_unit_constants.j")
 cns.rawCns("npc_heroes_insert.j", "tables/npc_hero_id_constants.j")
-cns.intCns("npc_heroes_insert.j", "tables/npc_hero_constants.j")
+cns.intCns("npc_heroes_insert.j", "tables/npc_hero_constants.j", "", npcUnitCount)
 cns.rawCns("warps_insert.j", "tables/warp_id_constants.j")
 cns.intCns("warps_insert.j", "tables/warp_constants.j")
 

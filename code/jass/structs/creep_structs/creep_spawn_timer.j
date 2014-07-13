@@ -1,7 +1,7 @@
 library CreepSpawnTimer initializer init requires Util
 
 globals
-    constant integer SPAWN_PERIOD = 12 //how often the timer checks
+    constant integer SPAWN_PERIOD = 14 //how often the timer checks
     constant real SPAWN_DISTANCE = 900.0 //how far away a creep spawns
     constant real AMBUSH_DISTANCE = 800.0
 	constant real TREE_DISTANCE = 400.0

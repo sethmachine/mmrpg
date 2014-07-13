@@ -28,7 +28,7 @@ struct EventSetUnitTint extends Event
 		local integer pid = R2I(eventHandleTable.real[unitID])
 		local EventSetUnitTint e = eventHandleTable[unitID]
 		if GetLocalPlayer() == players[pid] then
-			call SetUnitVertexColor(u, this.red, this.green, this.blue, this.alpha)
+			call SetUnitVertexColor(u, e.red, e.green, e.blue, e.alpha)
 		endif
 		set u = null
 	endmethod

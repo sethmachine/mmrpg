@@ -2,7 +2,6 @@ library CreepTableStruct requires MonsterGroupStruct
 
 globals
     constant integer CREEPS_PER_TABLE = 20
-    constant player BOT_ENEMY = Player(11)
     constant integer ABIL_WANDER = 'Awan'
 endglobals
 

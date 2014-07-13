@@ -30,6 +30,15 @@ private function fillTable takes nothing returns nothing
 		//called when the player defeats the boss
 		//re-enable player's warp ability
 		set e = EventSetPlayerTeleport.create(true)
+		call e.add(EventWaterTint.create(50, 255, 50, 255))
+		call e.add(EventWait.create(1.0))
+		call e.add(EventWaterTint.create(100, 255, 100, 255))
+		call e.add(EventWait.create(1.0))
+		call e.add(EventWaterTint.create(150, 255, 150, 255))
+		call e.add(EventWait.create(1.0))
+		call e.add(EventWaterTint.create(200, 255, 200, 255))
+		call e.add(EventWait.create(1.0))
+		call e.add(EventWaterTint.create(255, 255, 255, 255))
 		call e.add(EventWait.create(5.0))
 		call e.add(EventCallWarp.create(SUNCHAMBER_EXIT))
 		//allow access to sunchamber again
@@ -39,6 +48,11 @@ private function fillTable takes nothing returns nothing
 		//permanently disable access to sunchamber for this player
 		call e.add(EventSetWarp.create(SUNCHAMBER, false))
 		call e.add(EventSetWarp.create(SUNCHAMBER_EXIT, true))
+		call e.add(EventSetWarp.create(CAZBAR_WELL_EXIT, true))
+		call e.add(EventSetWarp.create(CAZBAR_WELL, true))
+		//no more changing water tints by entering or leaving kalka
+		call e.add(EventDisableWarpEvent.create(KALKA))
+		call e.add(EventDisableWarpEvent.create(KALKA_EXIT))
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
@@ -148,14 +162,14 @@ private function fillTable takes nothing returns nothing
 		set m.next.next.next = EventSetNPCMsg.create(ALFONZO2, INTRO, ALFONZO_HEADER + "\nWell done hehe hehe.")
 		set m.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR_EXIT, true)
 		set m.next.next.next.next.next = EventSetWarp.create(CASTLE_CAZBAR, true)
-		set m.next.next.next.next.next.next = EventSetPlayerTeleport.create(false)
+		set m.next.next.next.next.next.next = EventSetPlayerTeleport.create(true)
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
 		// ROSEVINE_DEATH
 		//***********************
 		//set the boss invuln to 4 (make sure the levers are turned on, too!)
-		set e = EventWait.create(3.0)
+		set e = EventWait.create(6.0)
 		call e.add(EventAdvanceQuest.create("A Cure For Madness"))
 		set eventTable[i] = e
 		set i = i + 1
@@ -183,17 +197,23 @@ private function fillTable takes nothing returns nothing
 		//***********************
 		//set the boss invuln to 4 (make sure the levers are turned on, too!)
 		set e = EventSetBossInvulnerability.create(0, ADDITION, 4)
+		call e.add(EventWait.create(30.0))
+		call e.add(EventAttackBoss.create(0))
 		set eventTable[i] = e
 		set i = i + 1
 		//***********************
 		// SUNCHAMBER_ENTER
 		//***********************
 		//disable the exit, the player cannot leave
-		set e = EventSetWarp.create(SUNCHAMBER_EXIT, true)
+		set e = EventSetWarp.create(SUNCHAMBER_EXIT, false)
 		//disable teleporting, the player cannot warp out
 		call e.add(EventSetPlayerTeleport.create(false))
+		call e.add(EventSetLeverInvulnerable.create(0, true))
+		call e.add(EventSetLeverInvulnerable.create(1, true))
+		call e.add(EventSetLeverInvulnerable.create(2, true))
+		call e.add(EventSetLeverInvulnerable.create(3, true))
 		//start the global timer, to begin the boss
-		call e.add(EventGlobalWait.create(3.0))
+		call e.add(EventGlobalWait.create(15.0))
 		//disable entrance for all players
 		call e.add(EventSetGlobalWarp.create(SUNCHAMBER, true))
 		//paralyze the player, so they are forced to watch the boss intro cinematic
@@ -202,9 +222,10 @@ private function fillTable takes nothing returns nothing
 		call e.add(EventSetFogOfWar.create(SUNCHAMBER_CENTER_RECT, FOG_OF_WAR_VISIBLE, true))
 		call e.add(EventWait.create(1.00))
 		call e.add(EventSpawnBoss.create(0))
-		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_BOSS_RECT), 0.50))
+		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_CENTER_RECT), 0.50))
 		call e.add(EventWait.create(1.25))
 		//pan to each mirror, turning it on, then pan to boss, then pan to next mirror
+		//roughly takes 29 seconds in total
 		//! textmacro BossIntro takes leverLetter, leverIndex
 		call e.add(EventSetFogOfWar.create(SUNCHAMBER_MIRROR_$leverLetter$_RECT, FOG_OF_WAR_VISIBLE, true))
 		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_MIRROR_$leverLetter$_RECT), 0.50))
@@ -227,6 +248,10 @@ private function fillTable takes nothing returns nothing
 		
 		//unpause the player
 		call e.add(EventReturnPlayer.create())
+		call e.add(EventSetLeverInvulnerable.create(0, false))
+		call e.add(EventSetLeverInvulnerable.create(1, false))
+		call e.add(EventSetLeverInvulnerable.create(2, false))
+		call e.add(EventSetLeverInvulnerable.create(3, false))
 		//make the whole arena visible
 		call e.add(EventSetFogOfWar.create(SUNCHAMBER_BOSS_RECT, FOG_OF_WAR_VISIBLE, true))
 		//hide the other areas now
@@ -324,7 +349,10 @@ private function fillTable takes nothing returns nothing
 		//***********************
 		//start the Rock the Cazbar! quest
 		set e = EventWait.create(5.0)
-		set e.next = EventStartQuest.create("The Orb of Seas")
+		//starting it is buggy at the moment
+		//while it works out, if abu dhabi also has a dialog option for a cure for madness
+		//completing either one will remove the other
+		//set e.next = EventStartQuest.create("The Orb of Seas")
 		set eventTable[i] = e
 		set i = i + 1
 

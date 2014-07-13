@@ -1,8 +1,7 @@
-library NPCStruct requires Util
+library NPCStruct requires Util, Constants
 
 globals
     constant integer DSPLY_TXT_DUR = 7 //how long a display text message from the NPC should last
-    constant player BOT_ALLY = Player(10)
     constant integer QUIT_BTTN = 0 //the position where the quit button is in any dialogue
     constant string QUIT_MSG = "Nevermind." //the button title for the option to exit a conversation
     constant integer INTRO = 0 //the intro dialog is always the first in the array

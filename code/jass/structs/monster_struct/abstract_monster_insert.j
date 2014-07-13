@@ -540,8 +540,8 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(SCARAB, BUG, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
+	call m.setAttrMin( 5,  3,   4,   3,   0,   6,   6,   4)
+	call m.setAttrMax( 9,  7,   9,   6,   1,   11,   10,   6)
 	call m.setAbilities(IMPALE, WEB, HARDENED_SKIN)
 	set AbstractMonsterTable[m.index] = m
 
@@ -1253,11 +1253,11 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	// ROSEVINE
 	//*******************
-	set m = AbstractMonster.create(ROSEVINE, PLANT, 30, 10)
+	set m = AbstractMonster.create(ROSEVINE, PLANT, 80, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAbilities(0, 1, 2)
+	call m.setAttrMin( 0,  10,   0,   0,   0,   30,   15,   3)
+	call m.setAttrMax( 1,  17,   5,   5,   1,   50,   25,   7)
+	call m.setAbilities(ABOLISH_MAGIC, ENTANGLING_ROOTS, THORNS_AURA)
 	set AbstractMonsterTable[m.index] = m
 
 
@@ -1313,9 +1313,9 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(BLOOD_GILL, WATER, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAbilities(0, 1, 2)
+	call m.setAttrMin( 0,  5,   0,   0,   3,   5,   5,   0)
+	call m.setAttrMax( 1,  10,   1,   1,   7,   11,   9,   1)
+	call m.setAbilities(SIPHON_MANA, DISPEL_MAGIC, HEAL)
 	set AbstractMonsterTable[m.index] = m
 
 
@@ -1502,7 +1502,7 @@ private function fillTable takes nothing returns nothing
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
 	call m.setAttrMin( 1,  3,   3,   1,   0,   9,   3,   0)
 	call m.setAttrMax( 3,  7,   7,   5,   1,   15,   5,   1)
-	call m.setAbilities(0, 1, 2)
+	call m.setAbilities(CRIPPLE, UNHOLY_FRENZY, TIMELY_PARRY)
 	set AbstractMonsterTable[m.index] = m
 
 
@@ -1566,9 +1566,9 @@ private function fillTable takes nothing returns nothing
 	//*******************
 	set m = AbstractMonster.create(MUMMY, ZOMBIE, 30, 10)
 	//****************DEF  INT  STR  ATT  AGI  HP  MANA  SP
-	call m.setAttrMin( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAttrMax( 1,  1,   1,   1,   1,   1,   1,   1)
-	call m.setAbilities(0, 1, 2)
+	call m.setAttrMin( 0,  3,   2,   0,   0,   14,   7,   1)
+	call m.setAttrMax( 1,  6,   6,   1,   1,   17,   10,   1)
+	call m.setAbilities(CURSE, SLOW, DISEASE_CLOUD)
 	set AbstractMonsterTable[m.index] = m
 
 

@@ -201,7 +201,7 @@ struct MonsterGroup
     method displayGroup takes boolean display, string message returns nothing
         local integer i = 0
         if mDialog != null then
-                call DialogDestroy(mDialog)
+			call DialogDestroy(mDialog)
         endif
         set mDialog = DialogCreate()
         call DialogSetMessage(mDialog, message)
@@ -216,8 +216,9 @@ struct MonsterGroup
         endloop
         call DialogAddButton(mDialog, "Nevermind.", 0)
         if display then
-            call DialogDisplay(Player(pid), mDialog, true)
+            call DialogDisplay(players[pid], mDialog, true)
         endif
     endmethod
+	
 endstruct
 endlibrary

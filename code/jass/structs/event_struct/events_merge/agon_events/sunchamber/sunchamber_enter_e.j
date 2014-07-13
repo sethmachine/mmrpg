@@ -2,11 +2,15 @@
 		// SUNCHAMBER_ENTER
 		//***********************
 		//disable the exit, the player cannot leave
-		set e = EventSetWarp.create(SUNCHAMBER_EXIT, true)
+		set e = EventSetWarp.create(SUNCHAMBER_EXIT, false)
 		//disable teleporting, the player cannot warp out
 		call e.add(EventSetPlayerTeleport.create(false))
+		call e.add(EventSetLeverInvulnerable.create(0, true))
+		call e.add(EventSetLeverInvulnerable.create(1, true))
+		call e.add(EventSetLeverInvulnerable.create(2, true))
+		call e.add(EventSetLeverInvulnerable.create(3, true))
 		//start the global timer, to begin the boss
-		call e.add(EventGlobalWait.create(3.0))
+		call e.add(EventGlobalWait.create(15.0))
 		//disable entrance for all players
 		call e.add(EventSetGlobalWarp.create(SUNCHAMBER, true))
 		//paralyze the player, so they are forced to watch the boss intro cinematic
@@ -15,7 +19,7 @@
 		call e.add(EventSetFogOfWar.create(SUNCHAMBER_CENTER_RECT, FOG_OF_WAR_VISIBLE, true))
 		call e.add(EventWait.create(1.00))
 		call e.add(EventSpawnBoss.create(0))
-		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_BOSS_RECT), 0.50))
+		call e.add(EventPanCameraToLoc.create(GetRectCenter(SUNCHAMBER_CENTER_RECT), 0.50))
 		call e.add(EventWait.create(1.25))
 		//pan to each mirror, turning it on, then pan to boss, then pan to next mirror
 		//roughly takes 29 seconds in total
@@ -41,6 +45,10 @@
 		
 		//unpause the player
 		call e.add(EventReturnPlayer.create())
+		call e.add(EventSetLeverInvulnerable.create(0, false))
+		call e.add(EventSetLeverInvulnerable.create(1, false))
+		call e.add(EventSetLeverInvulnerable.create(2, false))
+		call e.add(EventSetLeverInvulnerable.create(3, false))
 		//make the whole arena visible
 		call e.add(EventSetFogOfWar.create(SUNCHAMBER_BOSS_RECT, FOG_OF_WAR_VISIBLE, true))
 		//hide the other areas now

@@ -23,7 +23,7 @@ private function main takes nothing returns boolean
 						endif
 						//call playerDatum[pid].getNPCById(GetUnitTypeId(target)).interact(pid)
                         //call playerDatum[pid].npcs[upoi - NPC_CONS].interact(pid)
-                    elseif upoi >= 500 then
+                    elseif upoi >= 500 and upoi < 2000 then
 						call playerDatum[pid].warps[npcUnitIdTable[GetUnitTypeId(target)]].warp(pid)
                         //call playerDatum[pid].warps[upoi - WARP_CONS].warp(pid)
                     endif
