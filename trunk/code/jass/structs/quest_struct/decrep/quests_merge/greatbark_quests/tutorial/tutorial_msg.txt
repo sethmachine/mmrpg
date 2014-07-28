@@ -1,0 +1,11 @@
+Welcome to MMRPG II!  
+\l\l
+You are an upcoming Monster Master, but before you leave for your journey, you will need 
+to get a grasp on the basic mechanics of the map.
+\l\l
+One of the most important concepts is interaction.  In order to interact with the world and the NPCS, 
+simply select your hero and then right click on any object or NPC. This will open up a dialog to 
+perform an action or ask a service from an NPC.  Make sure your hero is close to the NPC, about 
+the same distance you would use if speaking to an actual person in real life.
+\l\l
+The tutorial quest will make sure you master interaction, and then you will be off on your epic journey!
