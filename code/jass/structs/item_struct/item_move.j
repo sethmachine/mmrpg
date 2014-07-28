@@ -1,4 +1,4 @@
-library ItemMove initializer init requires Colors, PlayerFilters
+scope ItemMove initializer init
 
 globals
     private constant integer ITEM_MOVE = 'Amve'
@@ -11,13 +11,14 @@ private function main takes nothing returns boolean
     local integer ownerId = GetItemUserData(i)
     local integer spellId = GetSpellAbilityId()
     local Item target
+	local ItemGroup items = playerDatum[pid].backpack
     if spellId == ITEM_MOVE then
         if ownerId == LOOTABLE or ownerId == pid + 1 then
-            if playerDatum[pid].backpack.size < MAX_BACKPACK_SIZE then
+            if items.maxSize < MAX_BACKPACK_SIZE then
                 set target = Item.create(i, pid)
-                call playerDatum[pid].backpack.addItem(target)
+                call items.add(target)
             else
-                call DisplayTimedTextToPlayer(Player(pid), 0, 0, DSPLY_TXT_DUR, GOLD + "Backpack:|r" + " Your backpack is full with " + I2S(playerDatum[pid].backpack.size) + " items.")
+                call DisplayTimedTextToPlayer(Player(pid), 0, 0, DSPLY_TXT_DUR, GOLD + "Backpack:|r" + " Your backpack is full with " + I2S(items.currSize) + " items.")
             endif
         else
             call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 10, MSG)
@@ -34,4 +35,4 @@ private function init takes nothing returns nothing
     call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_CAST)
     call TriggerAddCondition(t, Condition(function main))
 endfunction
-endlibrary
+endscope

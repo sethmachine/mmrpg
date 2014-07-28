@@ -11,6 +11,7 @@ globals
     constant string SILVER = "|cffc0c0c0"
     constant string PURPLE = "|cff800080"
     constant string YELLOW = "|cffffff00"
+	constant string WHITE = "|c00FFFFFF"
     constant integer TOTAL_LIGHTNINGS = 14
     string array LIGHTNING[TOTAL_LIGHTNINGS]
 endglobals

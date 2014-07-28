@@ -12,11 +12,11 @@ struct EventQuestFanfare extends Event
 		set this.questTitle = questTitle
         return this
     endmethod
-
+/*
 	method do takes integer pid returns nothing
 		local integer questIndex = playerDatum[pid].findQuestByTitle(questTitle)
 		call playerDatum[pid].quests[questIndex].questFanfare()
 		call doNext(pid)
-	endmethod
+	endmethod*/
 endstruct
 endlibrary

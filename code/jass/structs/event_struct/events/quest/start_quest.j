@@ -12,10 +12,10 @@ struct EventStartQuest extends Event
 		set this.questTitle = questTitle
         return this
     endmethod
-
+/*
 	method do takes integer pid returns nothing
 		call playerDatum[pid].startQuest(questTitle, true)
 		call doNext(pid)
-	endmethod
+	endmethod*/
 endstruct
 endlibrary

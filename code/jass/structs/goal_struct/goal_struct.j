@@ -1,4 +1,4 @@
-library GoalStruct requires PlayerFilters, Colors, ItemProtect, PlayerDataTable, StoryTable
+library GoalStruct requires PlayerFilters, Colors, ItemProtect, PlayerDataTable//, //StoryTable
 
 globals
     //types of goals
@@ -22,7 +22,7 @@ globals
 	constant integer BOSS_GOAL = 9 //a player must be in a boss rect when the boss is dead
     constant integer MONSTER_GIVE_GOAL  = 0//a player needs to give up a certain monster
 endglobals
-
+/*
 function stringEnterMain takes nothing returns boolean
     local integer pid = GetPlayerId(GetTriggerPlayer())
     local integer currQuest = 0
@@ -139,7 +139,7 @@ function askBttnMain takes nothing returns boolean
     local integer goalDialog = 0
     local integer goalStory = 0
 	local PlayerData pd = playerDatum[pid]
-    loop
+    /*loop
         exitwhen questRange == TOTAL_QUESTS
         set currQuest = pd.findQuestByGoalType(STORY_GOAL, questRange)
         set currQuestStage = pd.quests[currQuest].stage
@@ -159,7 +159,7 @@ function askBttnMain takes nothing returns boolean
             set questRange = TOTAL_QUESTS
         endif
     endloop
-    set p = null
+    set p = null*/
     return false
 endfunction
 
@@ -170,7 +170,7 @@ function storyMain takes nothing returns boolean
     local integer currQuestStage = 0
     local integer questRange = 0
     local integer goalStory
-    loop
+    /*loop
         exitwhen questRange == TOTAL_QUESTS
         set currQuest = playerDatum[pid].findQuestByGoalType(STORY_GOAL, questRange)
         set currQuestStage = playerDatum[pid].quests[currQuest].stage
@@ -189,7 +189,7 @@ function storyMain takes nothing returns boolean
             set questRange = TOTAL_QUESTS
         endif
     endloop
-    set p = null
+    set p = null*/
     return false
 endfunction
 
@@ -200,7 +200,7 @@ function storyAndPartyMain takes nothing returns boolean
     local integer currQuestStage = 0
     local integer questRange = 0
     local integer goalStory
-    loop
+    /*loop
         exitwhen questRange == TOTAL_QUESTS
         set currQuest = playerDatum[pid].findQuestByGoalType(STORY_GOAL, questRange)
         set currQuestStage = playerDatum[pid].quests[currQuest].stage
@@ -223,7 +223,7 @@ function storyAndPartyMain takes nothing returns boolean
             set questRange = TOTAL_QUESTS
         endif
     endloop
-    set p = null
+    set p = null*/
     return false
 endfunction
 
@@ -266,7 +266,7 @@ function buttonClickMain takes nothing returns boolean
     local integer goalBttn = 0
     local integer goalNpc = 0
     local integer goalDialog = 0
-    loop
+    /*loop
         exitwhen questRange == TOTAL_QUESTS
         set currQuest = playerDatum[pid].findQuestByGoalType(BTTN_CLICK_GOAL, questRange)
         set currQuestStage = playerDatum[pid].quests[currQuest].stage
@@ -286,7 +286,7 @@ function buttonClickMain takes nothing returns boolean
             set questRange = TOTAL_QUESTS
         endif
     endloop
-    set p = null
+    set p = null*/
     return false
 endfunction
 
@@ -302,7 +302,7 @@ function itemGiveByTypeMain takes nothing returns boolean
     local integer goalDialog = 0
     local integer i = 0
     local integer count = 0 //how many items of the type the player has
-    loop
+    /*loop
         exitwhen questRange == TOTAL_QUESTS
         set currQuest = playerDatum[pid].findQuestByGoalType(ITEM_TYPE_GIVE_GOAL, questRange)
         set currQuestStage = playerDatum[pid].quests[currQuest].stage
@@ -334,7 +334,7 @@ function itemGiveByTypeMain takes nothing returns boolean
             set questRange = TOTAL_QUESTS
         endif
     endloop
-    set p = null
+    set p = null*/
     return false
 endfunction
 
@@ -349,7 +349,7 @@ function itemGetByTypeMain takes nothing returns boolean
     local integer questRange = 0
 	local integer j = 0 //loop through inventory + backpack
 	local integer total = 0 //total of the item type
-    if not isLoot(i, pid) then
+    /*if not isLoot(i, pid) then
     elseif GetTriggerUnit() == playerDatum[pid].pc.u then
         loop
             exitwhen questRange == TOTAL_QUESTS
@@ -397,7 +397,7 @@ function itemGetByTypeMain takes nothing returns boolean
     endif
     set p = null
     set u = null
-    set i = null
+    set i = null*/
     return false
 endfunction
 
@@ -441,7 +441,7 @@ struct Goal
 		endif
 		set goalLoc = null
     endmethod
-    
+    /*
     method setBossGoal takes integer goalBoss returns nothing
         local trigger t = CreateTrigger()
 		set this.goalBoss = goalBoss
@@ -470,7 +470,7 @@ struct Goal
         set this.goalDialog = goalDialog
         set this.goalBttn = goalBttn
         set this.goalNpc = goalNpc
-        call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[goalDialog])
+        //call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[goalDialog])
         call TriggerAddCondition(t, Condition(function itemGiveByTypeMain))
         set goalTrig = t
         call DisableTrigger(goalTrig)
@@ -483,10 +483,10 @@ struct Goal
         set this.goalDialog = goalDialog
         set this.goalBttn = goalBttn
         set this.askBttnMsg = askBttnMsg
-        call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[goalDialog])
+        //call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[goalDialog])
         call print(I2S(goalDialog))
         call print(I2S(goalBttn))
-        call TriggerAddCondition(t, Condition(function buttonClickMain))
+        //call TriggerAddCondition(t, Condition(function buttonClickMain))
         set goalTrig = t
         call DisableTrigger(goalTrig)
         set t = null
@@ -498,8 +498,8 @@ struct Goal
         set this.goalNpc = goalNpc
         set this.goalStory = goalStory
         set this.askBttnMsg = askBttnMsg
-        call TriggerRegisterDialogEvent(t, bigStoryTable[goalStory].getFinalStory().d)
-        call TriggerAddCondition(t, Condition(function storyMain))
+        //call TriggerRegisterDialogEvent(t, bigStoryTable[goalStory].getFinalStory().d)
+        //call TriggerAddCondition(t, Condition(function storyMain))
         set goalTrig = t
         call DisableTrigger(goalTrig)
         set t = null
@@ -569,16 +569,16 @@ struct Goal
     //the goal dialog must exist before hand!
     method enableStoryGoal takes nothing returns nothing
         local trigger t = CreateTrigger()
-		local unit u = getNPCUnit(playerDatum[pid].npcs[goalNpc].id)
+		//local unit u = getNPCUnit(playerDatum[pid].npcs[goalNpc].id)
 		local string s = "Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl"
-        set askBttn = playerDatum[pid].npcs[goalNpc].addBttnToDialog(INTRO, askBttnMsg)
+        //set askBttn = playerDatum[pid].npcs[goalNpc].addBttnToDialog(INTRO, askBttnMsg)
         //now we need to link the askBttn to the goal dialog...
-        call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[INTRO])
-        call TriggerAddCondition(t, Condition(function askBttnMain))
+        //call TriggerRegisterDialogEvent(t, playerDatum[pid].npcs[goalNpc].oneD.dialog[INTRO])
+       // call TriggerAddCondition(t, Condition(function askBttnMain))
 		if GetLocalPlayer() != players[pid] then
 			set s = ""
 		endif
-		set goalEffect = AddSpecialEffectTarget(s, u, "head")
+		//set goalEffect = AddSpecialEffectTarget(s, u, "head")
 		set t = null
 		set u = null
     endmethod
@@ -587,12 +587,12 @@ struct Goal
     //by default the button is added to the INTRO dialog of the goal NPC
     //enableStoryGoal must have been called before calling this!
     method disableStoryGoal takes nothing returns nothing
-        call playerDatum[pid].npcs[goalNpc].removeBttnFromDialog(INTRO, askBttnMsg)
-		call DestroyEffect(goalEffect)
-		set goalEffect = null
+        //call playerDatum[pid].npcs[goalNpc].removeBttnFromDialog(INTRO, askBttnMsg)
+		//call DestroyEffect(goalEffect)
+		//set goalEffect = null
     endmethod
+    */
         
-        
-    
-endstruct
+ 
+endstruct*/
 endlibrary

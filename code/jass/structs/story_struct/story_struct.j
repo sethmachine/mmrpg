@@ -1,4 +1,4 @@
-library StoryStruct requires StoryTable
+library StoryStruct //requires StoryTable
 
 globals
 endglobals
@@ -30,7 +30,7 @@ struct Story
     static method linkMain takes nothing returns boolean
         local player p = GetTriggerPlayer()
         local integer pid = GetPlayerId(p)
-        local Story s = getStoryByDialog(GetClickedDialog())
+        local Story s = 0//getStoryByDialog(GetClickedDialog())
         if GetClickedButton() == s.next then
             call DialogSetMessage(s.nextStory.d, s.nextStory.title)
             call DialogDisplay(p, s.nextStory.d, true)

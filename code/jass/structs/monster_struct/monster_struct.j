@@ -263,17 +263,17 @@ struct Monster extends AbstractMonster
     
     method levelAbil takes integer lvl returns nothing
         local integer i = 0 //loop counter
-		call print("on level: " + I2S(lvl))
+		//call print("on level: " + I2S(lvl))
         loop
             exitwhen i == MAX_ABILITIES
             if abilities[i] != 0 then //make sure its actually an ability
                 if abilities[i].levelUp(GetUnitAbilityLevel(u, abilities[i].ids[i]), lvl, GetHeroInt(u, false)) then
-					call print("attempting to add an ability or level it up")
+					//call print("attempting to add an ability or level it up")
                     if GetUnitAbilityLevel(u, abilities[i].ids[i]) == 0 then
-						call print("adding an ability")
+						//call print("adding an ability")
                         call UnitAddAbility(u, abilities[i].ids[i])
                     else
-						call print("leveling up an ability")
+						//call print("leveling up an ability")
                         call SetUnitAbilityLevel(u, abilities[i].ids[i], GetUnitAbilityLevel(u, abilities[i].ids[i]) + 1)
                     endif
                 endif

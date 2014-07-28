@@ -88,6 +88,9 @@ ins.insert("story_header.j", "story_merge", "story_insert.j", "jass", "//insert"
 #creates the jass file for stories
 ins.insert("event_header.j", "events_merge", "event_insert.j", "jass", "//insert", ["msg", "decrep", "insert", "header"])
 
+#jass file for npcs
+ins.insert("npc_init_header.j", "npc_merge", "npc_init_insert.j", "npc_struct", "//insert", ["msg", "decrep", "insert", "header"])
+
 #creates jass file for abstract monster table
 ins.insert("abstract_monster_header.j", "abstract_monster_merge", "abstract_monster_insert.j", "monster_struct", "//insert", ["msg", "decrep", "insert", "header"])
 
