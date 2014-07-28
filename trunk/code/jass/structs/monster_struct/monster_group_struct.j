@@ -9,6 +9,10 @@ globals
     constant integer FARM = 1
     constant integer CREEP = 2
     constant integer MONSTER_PER_DIALOG = 5 //the number of monsters to display per each dialog
+    constant integer KEY_NUMPAD_0          = 257
+    constant integer KEY_NUMPAD_1          = 258
+    constant integer KEY_NUMPAD_2          = 259
+    constant integer KEY_NUMPAD_3          = 260
 endglobals
 
 struct MonsterGroup
@@ -219,6 +223,21 @@ struct MonsterGroup
             call DialogDisplay(players[pid], mDialog, true)
         endif
     endmethod
+	
+	//creates a Dialog that lists out each Monster in the party
+	method toDialog takes string msg returns Dialog
+		local integer i = 0
+		local Dialog d = Dialog.create(msg)
+		loop
+			exitwhen i == maxSize
+			if monsters[i] != 0 then
+				call d.append(WHITE + monsters[i].toString() + " [ " + RED + I2S(i) + "|r" + WHITE + " ]", i + KEY_NUMPAD_0)
+			endif
+			set i = i +1
+		endloop
+		return d
+	endmethod
+				
 	
 endstruct
 endlibrary

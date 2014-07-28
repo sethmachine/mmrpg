@@ -2,6 +2,8 @@ library EventStruct initializer init requires Util, Constants, BossTable
 
 globals
 	Table eventHandleTable
+	constant integer INTRO = 0
+	constant integer DSPLY_TXT_DUR = 7
 endglobals
 
 private function afterWait takes nothing returns nothing

@@ -25,7 +25,7 @@ struct Reward
         local thistype this = thistype.allocate()
         return this
     endmethod
-    
+    /*
     method setGoldReward takes integer gold returns nothing
         set goldReward = true
         set this.gold = gold
@@ -125,7 +125,7 @@ struct Reward
         set p = null
         set loc = null
         set itm = null
-    endmethod
+    endmethod*/
 endstruct
 
 endlibrary

@@ -1,4 +1,4 @@
-library PlayerDataStruct requires MonsterGroupStruct, NPCStruct
+library PlayerDataStruct requires MonsterGroupStruct, NPCStruct, GroupStruct
 
 globals
 	constant integer TOTAL_NPCS = 100
@@ -9,21 +9,22 @@ struct PlayerData
     integer pid = 0 //the player's unique id
     integer creepRegion = -1 //the player's current creep region
     integer creepFreq = 0//how often creeps spawn
+	integer vaultGold = 100
     PC pc //the player's monster master
     Monster recruit = 0 //a potential recruit
     MonsterGroup party //the player's party monsters
     MonsterGroup farm //the player's farm monsters
 	MonsterGroup eventMonsters
-    ItemGroup backpack //the player's virtual inventory
-    ItemGroup bank //the player's inventory at home
+    Group backpack //the player's virtual inventory
+    Group bank //the player's inventory at home
     MagicKeyGroup keys //the player's magic keys
     dialog recruitDialog
     button recruitYes
     button recruitNo
-	NPC backpackMenu
+	//NPC backpackMenu
     NPC array npcs[TOTAL_NPCS] //the list of all the interactable NPCs for this player
     Warp array warps[100] //all useable warps in the game
-    Quest array quests[TOTAL_QUESTS] //the list of all the quests, not all may be activated however
+    //Quest array quests[TOTAL_QUESTS] //the list of all the quests, not all may be activated however
     trigger npcTrig //the current npc trig, destroyed everytime a convo finishes
     unit u //the monster master handle
 	boolean canTeleport = true //whether a player is allowed to teleport, e.g. warp staff
@@ -35,8 +36,8 @@ struct PlayerData
         set this.party = MonsterGroup.create(PARTY, pid) //initialize the party
         set this.farm = MonsterGroup.create(FARM, pid) //initialze the farm
 		set this.eventMonsters = MonsterGroup.create(CREEP, pid)
-        set this.backpack = ItemGroup.create(BACKPACK, pid)
-        set this.bank = ItemGroup.create(BANK, pid)
+        set this.backpack = Group.create(pid, 10)
+        set this.bank = Group.create(pid, 10)
         set this.keys = MagicKeyGroup.create(pid)
         set recruitDialog = DialogCreate()
         set recruitYes = DialogAddButton(recruitDialog, "Yes.", 0)
@@ -50,7 +51,7 @@ struct PlayerData
         call party.moveGroupToLoc(targetLoc)
     endmethod
         
-    method startQuest takes string questTitle, boolean fanfare returns boolean
+    /*method startQuest takes string questTitle, boolean fanfare returns boolean
         local integer i = 0
         loop
             exitwhen i == TOTAL_QUESTS
@@ -115,7 +116,7 @@ struct PlayerData
 	
 	method getNPCById takes integer id returns NPC
 		return npcs[npcUnitIdTable[id]]
-	endmethod
+	endmethod*/
 
 endstruct
 endlibrary

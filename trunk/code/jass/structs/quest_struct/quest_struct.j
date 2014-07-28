@@ -25,7 +25,7 @@ struct Quest
     Reward reward
     questitem array stageItems[MAX_GOALS] //each subquest goal
     string array stageStrings[MAX_GOALS] //the description of each subquest goal
-    Goal array goals[MAX_GOALS]
+    //Goal array goals[MAX_GOALS]
     
     static method create takes string title, string colorCode, integer pid returns thistype
         local thistype this = thistype.allocate()
@@ -37,7 +37,7 @@ struct Quest
         call QuestSetEnabled(q, false) //all quests start out disabled initially
         return this
     endmethod
-    
+    /*
     method setIcon takes string icon returns nothing
         set this.icon = icon
         call QuestSetIconPath(q, icon)
@@ -134,7 +134,7 @@ struct Quest
 				call goals[stage].goalCause.do(pid)
 			endif
         endif
-    endmethod
+    endmethod*/
 endstruct
 
 endlibrary

@@ -1,4 +1,4 @@
-library ShowQuestPath initializer init requires Colors
+/*library ShowQuestPath initializer init requires Colors
 
 globals
     private constant integer SHOW_QUEST_PATH = 'qpth'
@@ -41,4 +41,4 @@ private function init takes nothing returns nothing
     call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_CAST)
     call TriggerAddCondition(t, Condition(function main))
 endfunction
-endlibrary
+endlibrary*/
