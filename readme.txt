@@ -1,3 +1,5 @@
+Update (October 23, 2018): All the code is available for unrestricted usage.  Disregard my message below about needing my permission.  If you find anything useful here, I am glad my old code could have been of use to someone else!  
+
 All of the code for the mmrpg project, also known as Monster Master Rpg II is the original work of sethmachine@gmail.com, also known as sethmachine on www.hiveworkshop.com, except where indicated (e.g. third party vJASS libraries).  Do not distribute or use this code for any purpose other than learning or curiosity unless you have explicit permission from the developer sethmachine.  
 
 The code of the project is split into two directories: 
